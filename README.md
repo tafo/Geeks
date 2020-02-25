@@ -1,2 +1,2 @@
 # Geeks
-The solutions of practices in GeeksForGeeks
+Solutions of practices in GeeksForGeeks
