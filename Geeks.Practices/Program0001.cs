@@ -51,7 +51,7 @@ namespace Geeks.Practices
     internal class Program0001
     {
         /// <summary>
-        /// Simplify the rotation and deletion operations
+        /// Asymptotic complexity of this solution is O(1) 
         /// </summary>
         private static void Main()
         {
@@ -132,7 +132,7 @@ namespace Geeks.Practices
         }
 
         /// <summary>
-        /// Classic solution
+        /// ToDo : Asymptotic complexity? 
         /// </summary>
         private static void MainBackup()
         {
