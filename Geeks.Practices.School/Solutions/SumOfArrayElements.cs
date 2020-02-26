@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Geeks.Practices.School
+namespace Geeks.Practices.School.Solutions
 {
     /// <summary>
     /// Given an integer array A of size N, find sum of elements in it.

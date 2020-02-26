@@ -1,4 +1,6 @@
-﻿namespace Geeks.Practices.School
+﻿using Geeks.Practices.School.Solutions;
+
+namespace Geeks.Practices.School
 {
     /// <summary>
     /// Even school practices are useful
@@ -11,7 +13,7 @@
             switch (args.Length)
             {
                 case 0:
-                    index = 2;
+                    index = 3;
                     break;
                 default:
                     int.TryParse(args[0], out index);
@@ -29,7 +31,9 @@
                 case 2:
                     SecondLargestElementInArray.Run();
                     break;
-
+                case 3:
+                    AlternateElementsInArray.Run();
+                    break;
             }
         }
     }

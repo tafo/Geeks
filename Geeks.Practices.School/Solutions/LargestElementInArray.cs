@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Geeks.Practices.School
+namespace Geeks.Practices.School.Solutions
 {
     /// <summary>
     /// Given an array a[] of size N. The task is to find the largest element in it.

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Geeks.Practices.School
+namespace Geeks.Practices.School.Solutions
 {
     /// <summary>
     /// Given an array A of size N, print second largest element from an array.
@@ -26,8 +26,9 @@ namespace Geeks.Practices.School
                 input[i] = new int[n];
                 var elements = Console.ReadLine()?.Trim().Split(' ');
 
-                for (var k = 0; k < elements?.Length; k++)
+                for (var k = 0; k < n; k++)
                 {
+                    // ReSharper disable once PossibleNullReferenceException
                     input[i][k] = int.Parse(elements[k]);
                 }
             }
