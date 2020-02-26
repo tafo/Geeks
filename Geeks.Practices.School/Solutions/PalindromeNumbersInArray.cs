@@ -3,6 +3,23 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Geeks.Practices.School.Solutions
 {
+    /// <summary>
+    ///
+    /// A palindromic number is a number that remains the same when its digits are reversed. Like 16461. It is "symmetrical".
+    /// 233 is not a palindromic number. Because, when its digits are reversed the result will be different than 233 (!= 322).
+    /// 
+    /// Given a Integer array A[] of n elements.
+    /// Print TRUE if all the elements of the Array are palindrome otherwise print FALSE.
+    /// 
+    /// Input:
+    /// The first line of input contains an integer denoting the no of test cases.
+    /// Then T test cases follow. Each test case contains two lines.
+    /// The first line of input contains an integer n denoting the size of the arrays.
+    /// In the second line are N space separated values of the array A[].
+    /// 
+    /// Output:
+    /// For each test case in a new line print the required result.
+    /// </summary>
     public class PalindromeNumbersInArray
     {
         [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
