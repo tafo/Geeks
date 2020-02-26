@@ -13,7 +13,7 @@ namespace Geeks.Practices.School
             switch (args.Length)
             {
                 case 0:
-                    index = 3;
+                    index = 4;
                     break;
                 default:
                     int.TryParse(args[0], out index);
@@ -33,6 +33,9 @@ namespace Geeks.Practices.School
                     break;
                 case 3:
                     AlternateElementsInArray.Run();
+                    break;
+                case 4:
+                    SumOfSeries.Run();
                     break;
             }
         }
