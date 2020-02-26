@@ -8,9 +8,9 @@
         private static void Main(string[] args)
         {
             int index;
-            switch (args)
+            switch (args.Length)
             {
-                case null:
+                case 0:
                     index = 2;
                     break;
                 default:
@@ -26,6 +26,10 @@
                 case 1:
                     LargestElementInArray.Run();
                     break;
+                case 2:
+                    SecondLargestElementInArray.Run();
+                    break;
+
             }
         }
     }
