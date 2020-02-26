@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Geeks.Practices.School.Solutions
 {
@@ -15,6 +16,7 @@ namespace Geeks.Practices.School.Solutions
     /// </summary>
     public class SecondLargestElementInArray
     {
+        [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
         public static void Run()
         {
             int.TryParse(Console.ReadLine(), out var t);
@@ -24,11 +26,10 @@ namespace Geeks.Practices.School.Solutions
             {
                 int.TryParse(Console.ReadLine(), out var n);
                 input[i] = new int[n];
-                var elements = Console.ReadLine()?.Trim().Split(' ');
+                var elements = Console.ReadLine().Trim().Split(' ');
 
                 for (var k = 0; k < n; k++)
                 {
-                    // ReSharper disable once PossibleNullReferenceException
                     input[i][k] = int.Parse(elements[k]);
                 }
             }
