@@ -2,60 +2,33 @@
 
 namespace Geeks.Practices.School
 {
+    /// <summary>
+    /// Given an integer array A of size N, find sum of elements in it.
+    /// Input:
+    /// First line contains an integer denoting the test cases 'T'.
+    /// Each test case contains two lines of input. First line contains N the size of the array A. The second line contains the elements of the array. 
+    /// Output:
+    /// For each test case, print the sum of all elements of the array in separate line.
+    /// </summary>
     public class SumOfArrayElements
     {
-        /// <summary>
         /// Without displaying "incorrect input" warnings
-        /// </summary>
         public static void Run()
         {
-            int numberOfTestCases;
+            int.TryParse(Console.ReadLine(), out var t);
 
-            do
+            var input = new int[t][];
+
+            for (var i = 0; i < t; i++)
             {
-                int.TryParse(Console.ReadLine(), out numberOfTestCases);
-            } while (numberOfTestCases < 1 || numberOfTestCases > 100);
+                int.TryParse(Console.ReadLine(), out var n);
+                input[i] = new int[n];
+                var elements = Console.ReadLine()?.Trim().Split(' ');
 
-            var input = new int[numberOfTestCases][];
-
-            for (var i = 0; i < numberOfTestCases; i++)
-            {
-                int numberOfElements;
-
-                do
+                for (var k = 0; k < elements?.Length; k++)
                 {
-                    int.TryParse(Console.ReadLine(), out numberOfElements);
-                } while (numberOfElements < 1 || numberOfElements > 100);
-
-                int elementIndex;
-                var elements = new int[numberOfElements];
-
-                do
-                {
-                    elementIndex = 0;
-
-                    var elementListLine = Console.ReadLine();
-
-                    if (string.IsNullOrEmpty(elementListLine)) continue;
-
-                    var elementList = elementListLine.Trim().Split(' ');
-
-                    if (elementList.Length != numberOfElements) continue;
-
-                    foreach (var element in elementList)
-                    {
-                        if (int.TryParse(element, out var backup) && backup >= 1 && backup <= 100)
-                        {
-                            elements[elementIndex++] = backup;
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
-                } while (elementIndex < numberOfElements);
-
-                input[i] = elements;
+                    input[i][k] = int.Parse(elements[k]);
+                }
             }
 
             // Without converting into LINQ-Expression
@@ -63,9 +36,9 @@ namespace Geeks.Practices.School
             {
                 var sum = 0;
 
-                foreach (var element in elements)
+                foreach (var e in elements)
                 {
-                    sum += element;
+                    sum += e;
                 }
 
                 Console.WriteLine(sum);
