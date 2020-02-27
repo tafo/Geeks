@@ -1,4 +1,6 @@
-﻿using Geeks.Practices.School.Arrays;
+﻿using System;
+using System.Diagnostics;
+using Geeks.Practices.School.Arrays;
 
 namespace Geeks.Practices.School
 {
@@ -13,7 +15,7 @@ namespace Geeks.Practices.School
             switch (args.Length)
             {
                 case 0:
-                    index = 12;
+                    index = 13;
                     break;
                 default:
                     int.TryParse(args[0], out index);
@@ -60,6 +62,9 @@ namespace Geeks.Practices.School
                     break;
                 case 12:
                     FindSmallerElements.Run();
+                    break;
+                case 13:
+                    FindMiddleElement.Run();
                     break;
             }
         }
