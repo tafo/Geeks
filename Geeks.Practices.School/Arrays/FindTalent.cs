@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Geeks.Practices.School.Arrays
 {
     /// <summary>
+    /// !!! ORIGINAL PROBLEM STATEMENT HAS BEEN UPDATED !!!
+    /// 
     /// A and B are good friends and coders.
     /// They are always in a healthy competition with each other.
     /// Compare their three skills. 
