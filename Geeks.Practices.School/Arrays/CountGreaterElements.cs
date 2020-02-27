@@ -16,8 +16,12 @@ namespace Geeks.Practices.School.Arrays
     /// 
     /// Output:
     /// For each test case, print the number of elements that are less than or equal to the given number in a new line.
+    ///
+    /// >>> Update
+    /// >>> Find the number of elements that are greater than the given number in order to have a more elegant class name :) 
+    /// 
     /// </summary>
-    internal class NumberOfSmallerOrEqualElements
+    internal class CountGreaterElements
     {
         [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
         internal static void Run()
@@ -37,7 +41,7 @@ namespace Geeks.Practices.School.Arrays
                 var count = 0;
                 for (var k = 0; k < n; k++)
                 {
-                    if (int.Parse(elements[k]) <= x)
+                    if (int.Parse(elements[k]) > x)
                     {
                         count++;
                     }

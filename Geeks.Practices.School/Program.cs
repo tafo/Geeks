@@ -53,7 +53,7 @@ namespace Geeks.Practices.School
                     SwapElements.Run();
                     break;
                 case 10:
-                    NumberOfSmallerOrEqualElements.Run();
+                    CountGreaterElements.Run();
                     break;
             }
         }
