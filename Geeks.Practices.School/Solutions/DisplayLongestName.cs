@@ -7,8 +7,11 @@ namespace Geeks.Practices.School.Solutions
     /// Given a list of names, display the longest name.
     /// 
     /// Input:
-    /// First line of input contains an integer T, the number of test cases. For each test case, there will be two lines.
-    /// First line contains integer N i.e. total number of names, and second line contains N space separated names of different length.
+    /// First line of input contains an integer T, the number of test cases.
+    ///
+    /// For each test case, there will be (1+N) lines.
+    /// First line contains integer N i.e. the total number of names.
+    /// Then names will be entered in different lines. 
     /// 
     /// Output:
     /// Longest name in the list of names.
