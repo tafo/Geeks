@@ -1,4 +1,4 @@
-﻿using Geeks.Practices.School.Solutions;
+﻿using Geeks.Practices.School.Arrays;
 
 namespace Geeks.Practices.School
 {
@@ -13,7 +13,7 @@ namespace Geeks.Practices.School
             switch (args.Length)
             {
                 case 0:
-                    index = 8;
+                    index = 9;
                     break;
                 default:
                     int.TryParse(args[0], out index);
@@ -23,16 +23,16 @@ namespace Geeks.Practices.School
             switch (index)
             {
                 case 0:
-                    SumOfArrayElements.Run();
+                    SumOfElements.Run();
                     break;
                 case 1:
-                    LargestElementInArray.Run();
+                    LargestElement.Run();
                     break;
                 case 2:
-                    SecondLargestElementInArray.Run();
+                    SecondLargestElement.Run();
                     break;
                 case 3:
-                    AlternateElementsInArray.Run();
+                    AlternateElements.Run();
                     break;
                 case 4:
                     SumOfSeries.Run();
@@ -41,13 +41,16 @@ namespace Geeks.Practices.School
                     SumOfSeries.Run();
                     break;
                 case 6:
-                    MaxAndMinElementsInArray.Run();
+                    MaxAndMinElements.Run();
                     break;
                 case 7:
-                    PalindromeNumbersInArray.Run();
+                    PalindromeNumbers.Run();
                     break;
                 case 8:
                     DisplayLongestName.Run();
+                    break;
+                case 9:
+                    SwapElements.Run();
                     break;
             }
         }

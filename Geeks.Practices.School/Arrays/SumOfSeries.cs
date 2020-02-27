@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Geeks.Practices.School.Solutions
+namespace Geeks.Practices.School.Arrays
 {
     /// <summary>
     /// Write a program to find the sum of the given series 1+2+3+ . . . . . .(N terms) 

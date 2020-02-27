@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Geeks.Practices.School.Solutions
+namespace Geeks.Practices.School.Arrays
 {
     /// <summary>
     ///
@@ -20,7 +20,7 @@ namespace Geeks.Practices.School.Solutions
     /// Output:
     /// For each test case in a new line print the required result.
     /// </summary>
-    public class PalindromeNumbersInArray
+    public class PalindromeNumbers
     {
         [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
         public static void Run()

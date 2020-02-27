@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Geeks.Practices.School.Solutions
+namespace Geeks.Practices.School.Arrays
 {
     /// <summary>
     /// Given an array a[] of size N. The task is to find the largest element in it.
@@ -13,7 +13,7 @@ namespace Geeks.Practices.School.Solutions
     /// Output:
     /// Print the maximum element in the array.
     /// </summary>
-    public class LargestElementInArray
+    public class LargestElement
     {
         /// Without displaying "incorrect input" warnings
         public static void Run()

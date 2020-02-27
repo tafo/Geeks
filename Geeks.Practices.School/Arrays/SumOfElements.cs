@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Geeks.Practices.School.Solutions
+namespace Geeks.Practices.School.Arrays
 {
     /// <summary>
     /// Given an integer array A of size N, find sum of elements in it.
@@ -10,7 +10,7 @@ namespace Geeks.Practices.School.Solutions
     /// Output:
     /// For each test case, print the sum of all elements of the array in separate line.
     /// </summary>
-    public class SumOfArrayElements
+    public class SumOfElements
     {
         /// Without displaying "incorrect input" warnings
         public static void Run()

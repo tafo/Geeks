@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Geeks.Practices.School.Solutions
+namespace Geeks.Practices.School.Arrays
 {
     /// <summary>
     /// You are given an array A of size N. You need to print elements of A in alternate order.
@@ -16,7 +16,7 @@ namespace Geeks.Practices.School.Solutions
     /// Anyway!!! At least I learned what "alternating (elements)" means.
     /// 
     /// </summary>
-    public class AlternateElementsInArray
+    public class AlternateElements
     {
         [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
         public static void Run()

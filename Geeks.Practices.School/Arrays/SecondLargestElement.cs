@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Geeks.Practices.School.Solutions
+namespace Geeks.Practices.School.Arrays
 {
     /// <summary>
     /// Given an array A of size N, print second largest element from an array.
@@ -14,7 +14,7 @@ namespace Geeks.Practices.School.Solutions
     /// Output:
     /// For each test case, in a new line, print the second largest element.
     /// </summary>
-    public class SecondLargestElementInArray
+    public class SecondLargestElement
     {
         [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
         public static void Run()

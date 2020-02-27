@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Geeks.Practices.School.Solutions
+namespace Geeks.Practices.School.Arrays
 {
     /// <summary>
     /// Given an array A[ ], find maximum and minimum elements from the array.
@@ -18,7 +18,7 @@ namespace Geeks.Practices.School.Solutions
     /// Anyway!!! At least I practiced somewhat keyboard and English.
     /// 
     /// </summary>
-    public class MaxAndMinElementsInArray
+    public class MaxAndMinElements
     {
         [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
         public static void Run()
