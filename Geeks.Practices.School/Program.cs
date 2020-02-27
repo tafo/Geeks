@@ -13,7 +13,7 @@ namespace Geeks.Practices.School
             switch (args.Length)
             {
                 case 0:
-                    index = 7;
+                    index = 8;
                     break;
                 default:
                     int.TryParse(args[0], out index);
@@ -45,6 +45,9 @@ namespace Geeks.Practices.School
                     break;
                 case 7:
                     PalindromeNumbersInArray.Run();
+                    break;
+                case 8:
+                    DisplayLongestName.Run();
                     break;
             }
         }
