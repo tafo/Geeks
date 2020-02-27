@@ -13,7 +13,7 @@ namespace Geeks.Practices.School
             switch (args.Length)
             {
                 case 0:
-                    index = 11;
+                    index = 12;
                     break;
                 default:
                     int.TryParse(args[0], out index);
@@ -57,6 +57,9 @@ namespace Geeks.Practices.School
                     break;
                 case 11:
                     ProductOfElements.Run();
+                    break;
+                case 12:
+                    FindSmallerElements.Run();
                     break;
             }
         }
