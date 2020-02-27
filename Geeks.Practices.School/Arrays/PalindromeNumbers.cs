@@ -20,10 +20,10 @@ namespace Geeks.Practices.School.Arrays
     /// Output:
     /// For each test case in a new line print the required result.
     /// </summary>
-    public class PalindromeNumbers
+    internal class PalindromeNumbers
     {
         [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
-        public static void Run()
+        internal static void Run()
         {
             int.TryParse(Console.ReadLine(), out var t);
             var input = new int[t][];

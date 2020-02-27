@@ -3,6 +3,19 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Geeks.Practices.School.Arrays
 {
+    /// <summary>
+    /// Calculate the product of all elements in an array.
+    /// 
+    /// Input:
+    /// The first line of input contains an integer T denoting the number of test cases.
+    /// Then T test cases follow.
+    /// Each test case consists of two lines.
+    /// The first line of each test case contains an integer N denoting the number of elements.
+    /// The second line of each test case contains the elements.
+    /// 
+    /// Output:
+    /// For each test case print the product of all elements in a new line.
+    /// </summary>
     internal class ProductOfElements
     {
         [SuppressMessage("ReSharper", "PossibleNullReferenceException")]

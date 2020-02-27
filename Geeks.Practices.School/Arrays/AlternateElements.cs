@@ -16,10 +16,10 @@ namespace Geeks.Practices.School.Arrays
     /// Anyway!!! At least I learned what "alternating (elements)" means.
     /// 
     /// </summary>
-    public class AlternateElements
+    internal class AlternateElements
     {
         [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
-        public static void Run()
+        internal static void Run()
         {
             int.TryParse(Console.ReadLine(), out var t);
             var input = new int[t][];

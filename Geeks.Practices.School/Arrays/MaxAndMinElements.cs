@@ -18,10 +18,10 @@ namespace Geeks.Practices.School.Arrays
     /// Anyway!!! At least I practiced somewhat keyboard and English.
     /// 
     /// </summary>
-    public class MaxAndMinElements
+    internal class MaxAndMinElements
     {
         [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
-        public static void Run()
+        internal static void Run()
         {
             int.TryParse(Console.ReadLine(), out var t);
             var input = new int[t][];

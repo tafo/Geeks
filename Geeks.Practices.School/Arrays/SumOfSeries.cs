@@ -14,9 +14,9 @@ namespace Geeks.Practices.School.Arrays
     /// Anyway!!! At least I practiced striking the keyboard. 
     /// 
     /// </summary>
-    public class SumOfSeries
+    internal class SumOfSeries
     {
-        public static void Run()
+        internal static void Run()
         {
             int.TryParse(Console.ReadLine(), out var t);
             var input = new int[t];

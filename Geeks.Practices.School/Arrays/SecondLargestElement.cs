@@ -14,10 +14,10 @@ namespace Geeks.Practices.School.Arrays
     /// Output:
     /// For each test case, in a new line, print the second largest element.
     /// </summary>
-    public class SecondLargestElement
+    internal class SecondLargestElement
     {
         [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
-        public static void Run()
+        internal static void Run()
         {
             int.TryParse(Console.ReadLine(), out var t);
             var input = new int[t][];

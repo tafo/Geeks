@@ -19,10 +19,10 @@ namespace Geeks.Practices.School.Arrays
     /// Anyway!!! ...
     /// 
     /// </summary>
-    public class DisplayLongestName
+    internal class DisplayLongestName
     {
         [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
-        public static void Run()
+        internal static void Run()
         {
             int.TryParse(Console.ReadLine(), out var t);
             var input = new string[t][];

@@ -13,10 +13,10 @@ namespace Geeks.Practices.School.Arrays
     /// Output:
     /// Print the maximum element in the array.
     /// </summary>
-    public class LargestElement
+    internal class LargestElement
     {
         /// Without displaying "incorrect input" warnings
-        public static void Run()
+        internal static void Run()
         {
             int.TryParse(Console.ReadLine(), out var t);
             var input = new int[t][];

@@ -10,10 +10,10 @@ namespace Geeks.Practices.School.Arrays
     /// Output:
     /// For each test case, print the sum of all elements of the array in separate line.
     /// </summary>
-    public class SumOfElements
+    internal class SumOfElements
     {
         /// Without displaying "incorrect input" warnings
-        public static void Run()
+        internal static void Run()
         {
             int.TryParse(Console.ReadLine(), out var t);
 
