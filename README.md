@@ -8,6 +8,8 @@ A class name might start with a verb even if it doesn't satisfy the default nami
 
 Because of (???) reason, a variable name might be a single character even if it isn't a good practice.  
 
+I am open to any kind of feedback. Bug report, suggestion, ...
+
 ## ABBREVIATIONS
 
  * GE >> Greater than or Equal to
