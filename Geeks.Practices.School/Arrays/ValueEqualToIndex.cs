@@ -17,6 +17,10 @@ namespace Geeks.Practices.School.Arrays
     /// Print the element whose value is equal to index value. Print "Not Found" when index value does not match with value.
     /// Note: There can be more than one element in the array which have same value as their index.
     /// You need to print every such element's index separated by a single space. Follows 1-based indexing of the array.
+    ///
+    /// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    /// To sum up, Find the elements that are equal to their indexes. 
+    /// 
     /// </summary>
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     internal class ValueEqualToIndex
