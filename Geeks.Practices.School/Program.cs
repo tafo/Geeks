@@ -15,7 +15,7 @@ namespace Geeks.Practices.School
             switch (args.Length)
             {
                 case 0:
-                    index = 16;
+                    index = 17;
                     break;
                 default:
                     int.TryParse(args[0], out index);
@@ -74,6 +74,9 @@ namespace Geeks.Practices.School
                     break;
                 case 16:
                     MovingAverage.Run();
+                    break;
+                case 17:
+                    SmallerAndLarger.Run();
                     break;
             }
         }
