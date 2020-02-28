@@ -18,6 +18,8 @@ namespace Geeks.Practices.School.Arrays
     /// For each test case
     ///     Print the number of elements LE the given value and then the number of elements GE that value.
     ///         They are separated by a space.
+    ///
+    ///  ToDo >> Add the binary search
     /// </summary>
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     internal class SeAndGeNumbersForSorted
