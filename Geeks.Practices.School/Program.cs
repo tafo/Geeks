@@ -15,7 +15,7 @@ namespace Geeks.Practices.School
             switch (args.Length)
             {
                 case 0:
-                    index = 17;
+                    index = 18;
                     break;
                 default:
                     int.TryParse(args[0], out index);
@@ -77,6 +77,9 @@ namespace Geeks.Practices.School
                     break;
                 case 17:
                     SmallerAndLarger.Run();
+                    break;
+                case 18:
+                    SeAndGeNumbersForSorted.Run();
                     break;
             }
         }
