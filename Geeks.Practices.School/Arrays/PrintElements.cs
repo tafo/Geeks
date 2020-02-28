@@ -5,6 +5,8 @@ namespace Geeks.Practices.School.Arrays
 {
     /// <summary>
     /// ToDo : Fix the original problem statement. 
+    ///
+    /// (The original title of the problem is "Print Elements of Array")
     /// 
     /// Given an array, print all its elements. 
     /// 
