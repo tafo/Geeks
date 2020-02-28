@@ -5,6 +5,7 @@ namespace Geeks.Practices.School.Arrays
 {
     /// <summary>
     /// !!! THE ORIGINAL PROBLEM STATEMENT HAS BEEN UPDATED !!!
+    /// (The original title is "Average")
     /// Print the moving average of the number stream.
     /// 
     /// Input: The first line of input is the number of test cases.
