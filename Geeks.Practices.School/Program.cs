@@ -15,7 +15,7 @@ namespace Geeks.Practices.School
             switch (args.Length)
             {
                 case 0:
-                    index = 19;
+                    index = 20;
                     break;
                 default:
                     int.TryParse(args[0], out index);
@@ -83,6 +83,9 @@ namespace Geeks.Practices.School
                     break;
                 case 19:
                     Reverse.Run();
+                    break;
+                case 20:
+                    FindIndex.Run();
                     break;
             }
         }
