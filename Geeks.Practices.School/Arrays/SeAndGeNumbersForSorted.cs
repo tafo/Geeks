@@ -52,6 +52,11 @@ namespace Geeks.Practices.School.Arrays
 
                     break;
                 }
+
+                if (string.IsNullOrEmpty(results[i]))
+                {
+                    results[i] = elements.Length + " 0";
+                }
             }
 
             foreach (var result in results)
