@@ -33,6 +33,7 @@ namespace Geeks.Practices.School.Arrays
             int.TryParse(Console.ReadLine(), out var t);
             var results = new string[t];
 
+            // The character encodings for digits starts from 48 >> 48 ('0') to 57 ('9')
             const char sub = '0';
             for (var i = 0; i < t; i++)
             {
