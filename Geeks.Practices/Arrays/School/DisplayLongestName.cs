@@ -19,6 +19,7 @@ namespace Geeks.Practices.Arrays.School
     /// Anyway!!! ...
     /// 
     /// </summary>
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
     internal class DisplayLongestName
     {
         [SuppressMessage("ReSharper", "PossibleNullReferenceException")]

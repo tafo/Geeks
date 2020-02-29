@@ -16,6 +16,7 @@ namespace Geeks.Practices.Arrays.School
     /// Anyway!!! At least I learned what "alternating (elements)" means.
     /// 
     /// </summary>
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
     internal class AlternateElements
     {
         [SuppressMessage("ReSharper", "PossibleNullReferenceException")]

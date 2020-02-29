@@ -26,6 +26,7 @@ namespace Geeks.Practices.Arrays.School
     /// </summary>
     [SuppressMessage("ReSharper", "StringLiteralTypo")]
     [SuppressMessage("ReSharper", "CommentTypo")]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
     internal class FascinatingNumber
     {
         internal static void Run()

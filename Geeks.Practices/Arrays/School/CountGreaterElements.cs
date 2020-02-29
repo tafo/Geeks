@@ -21,6 +21,7 @@ namespace Geeks.Practices.Arrays.School
     /// >>> Find the number of elements that are greater than the given number in order to have a more elegant class name :) 
     /// 
     /// </summary>
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
     internal class CountGreaterElements
     {
         [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
