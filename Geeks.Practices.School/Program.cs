@@ -15,7 +15,7 @@ namespace Geeks.Practices.School
             switch (args.Length)
             {
                 case 0:
-                    index = 23;
+                    index = 24;
                     break;
                 default:
                     int.TryParse(args[0], out index);
@@ -95,6 +95,9 @@ namespace Geeks.Practices.School
                     break;
                 case 23:
                     IsSorted.Run();
+                    break;
+                case 24:
+                    PascalTriangle.Run();
                     break;
             }
         }
