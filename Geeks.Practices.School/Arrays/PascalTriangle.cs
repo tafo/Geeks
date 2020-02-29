@@ -35,15 +35,15 @@ namespace Geeks.Practices.School.Arrays
             {
                 int.TryParse(Console.ReadLine(), out var row);
                 results[i] = new int[row];
+                results[i][0] = 1;
 
                 // The number of combinations of n things taken k at a time can be found by the below equation.
-                // C(n, k) = n! / k! * (n - k)!
-                results[i][0] = 1;
-                var numeratorFactor = results[i][1] = row - 1;
-                var denominatorFactor = 1;
+                // C(x, y) = x! / y! * (x - y)!
+                var x = results[i][1] = row - 1;
+                var y = 1;
                 for (var k = 2; k < row; k++)
                 {
-                    results[i][k] = results[i][k - 1] * --numeratorFactor / ++denominatorFactor;
+                    results[i][k] = results[i][k - 1] * --x / ++y;
                 }
             }
 
