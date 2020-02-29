@@ -15,7 +15,7 @@ namespace Geeks.Practices.School
             switch (args.Length)
             {
                 case 0:
-                    index = 24;
+                    index = 25;
                     break;
                 default:
                     int.TryParse(args[0], out index);
@@ -98,6 +98,9 @@ namespace Geeks.Practices.School
                     break;
                 case 24:
                     PascalTriangle.Run();
+                    break;
+                case 25:
+                    Perfect.Run();
                     break;
             }
         }
