@@ -41,6 +41,8 @@ namespace Geeks.Practices.School.Arrays
                 // C(x, y) = x! / y! * (x - y)!
                 var x = results[i][1] = row - 1;
                 var y = 1;
+
+                // ToDo : Skip the second half. Because it is equal to reverser order of first half. 
                 for (var k = 2; k < row; k++)
                 {
                     results[i][k] = results[i][k - 1] * --x / ++y;
