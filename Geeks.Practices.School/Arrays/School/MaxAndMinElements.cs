@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Geeks.Practices.School.Arrays
+namespace Geeks.Practices.School.Arrays.School
 {
     /// <summary>
     /// Given an array A[ ], find maximum and minimum elements from the array.

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Geeks.Practices.School.Arrays
+namespace Geeks.Practices.School.Arrays.School
 {
     /// <summary>
     /// Given an array of size N, swap the kth element from beginning with kth element from end.

@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 
-namespace Geeks.Practices.School.Arrays
+namespace Geeks.Practices.School.Arrays.School
 {
     /// <summary>
     /// Given an array of N distinct elements, the task is to find all elements in arrays except two greatest elements.

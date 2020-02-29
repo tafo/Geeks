@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Geeks.Practices.School.Arrays
+namespace Geeks.Practices.School.Arrays.School
 {
     /// <summary>
     /// Given an sorted array A of size N. Find number of elements which are less than or equal to given element X.

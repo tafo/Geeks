@@ -1,24 +1,22 @@
 ﻿using System;
 
-namespace Geeks.Practices.School.Arrays
+namespace Geeks.Practices.School.Arrays.School
 {
     /// <summary>
-    /// Given an array a[] of size N. The task is to find the largest element in it.
-    /// 
+    /// Given an integer array A of size N, find sum of elements in it.
     /// Input:
-    /// The first line of input contains an integer T, denoting the number of test cases.
-    /// Then T test cases follow. Each test case contains an integer N, the number of elements in the array.
-    /// Then next line contains N integers of the array separated by space.
-    /// 
+    /// First line contains an integer denoting the test cases 'T'.
+    /// Each test case contains two lines of input. First line contains N the size of the array A. The second line contains the elements of the array. 
     /// Output:
-    /// Print the maximum element in the array.
+    /// For each test case, print the sum of all elements of the array in separate line.
     /// </summary>
-    internal class LargestElement
+    internal class SumOfElements
     {
         /// Without displaying "incorrect input" warnings
         internal static void Run()
         {
             int.TryParse(Console.ReadLine(), out var t);
+
             var input = new int[t][];
 
             for (var i = 0; i < t; i++)
@@ -33,20 +31,18 @@ namespace Geeks.Practices.School.Arrays
                 }
             }
 
+            // Without converting into LINQ-Expression
             foreach (var elements in input)
             {
-                var max = 0;
-                
+                var sum = 0;
+
                 // ReSharper disable once LoopCanBeConvertedToQuery
-                foreach (var element in elements)
+                foreach (var e in elements)
                 {
-                    if (element > max)
-                    {
-                        max = element;
-                    }
+                    sum += e;
                 }
 
-                Console.WriteLine(max);
+                Console.WriteLine(sum);
             }
 
             Console.ReadKey();

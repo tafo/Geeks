@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Geeks.Practices.School.Arrays
+namespace Geeks.Practices.School.Arrays.School
 {
     /// <summary>
     /// ToDo : Fix the original problem statement

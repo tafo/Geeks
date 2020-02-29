@@ -1,18 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using Geeks.Practices.School.Arrays;
+using Geeks.Practices.School.Arrays.School;
 
 namespace Geeks.Practices.School
 {
     /// <summary>
     /// Even school practices are useful
     /// </summary>
-    internal class Program
+    internal class Program001ArraySchool
     {
-        private static void Main(string[] args)
+        // ReSharper disable once UnusedMember.Local
+        private static void MainArraySchool(IReadOnlyList<string> args)
         {
             int index;
-            switch (args.Length)
+            switch (args.Count)
             {
                 case 0:
                     index = 26;
