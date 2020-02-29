@@ -15,3 +15,8 @@ I am open to any kind of feedback. Bug report, suggestion, ...
  * GE >> Greater than or Equal to
  * LE >> Less than or Equal to
  
+## THE PATTERN OF COMMIT MESSAGES
+
+ * Subject - DifficultyLevel - ClassName - OriginalTitle
+ * Example >> Array - Basic - MissingNumber - Missing number in array
+ * This pattern was not used for school-level problems
