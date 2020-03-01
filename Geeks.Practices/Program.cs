@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            MissingNumber.Run();
+            Rotate.Run();
             Console.ReadKey();
         }
     }
