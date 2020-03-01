@@ -33,7 +33,47 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "UseIndexFromEndExpression")]
     internal class ImmediateSmallerElement
     {
+        /// <summary>
+        /// The execution time of this solution is 0.42
+        /// </summary>
         internal static void Run()
+        {
+            int.TryParse(Console.ReadLine(), out var t);
+            var input = new string[t];
+
+            for (var i = 0; i < t; i++)
+            {
+                Console.ReadLine(); // Skip the number of elements
+                input[i] = Console.ReadLine();
+            }
+
+            foreach (var elements in input)
+            {
+                var stringBuilder = new StringBuilder();
+                var scanner = new StringScanner(elements);
+                var left = scanner.NextInt();
+                do
+                {
+                    var right = scanner.NextInt();
+                    if (right < left)
+                    {
+                        stringBuilder.Append(right);
+                    }
+                    else
+                    {
+                        stringBuilder.Append("-1");
+                    }
+
+                    stringBuilder.Append(" ");
+                    left = right;
+                } while (scanner.HasNext);
+
+                stringBuilder.Append("-1");
+                Console.WriteLine(stringBuilder.ToString());
+            }
+        }
+
+        internal static void Run2()
         {
             int.TryParse(Console.ReadLine(), out var t);
             var input = new string[t];
