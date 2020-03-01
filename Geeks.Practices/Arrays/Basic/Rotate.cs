@@ -19,18 +19,49 @@ namespace Geeks.Practices.Arrays.Basic
     ///
     /// Explanation :
     /// 1 2 3 4 5  when rotated by 2 elements, it becomes 3 4 5 1 2.
-    ///
-    /// ToDo : Implement another solution that iterates every character one by one. This will be a better one. 
-    /// 
     /// </summary>
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     [SuppressMessage("ReSharper", "UseIndexFromEndExpression")]
     internal class Rotate
     {
         /// <summary>
-        /// This is accepted as the correct solution. 
+        /// This is a better solution than others. 
         /// </summary>
         internal static void Run()
+        {
+            int.TryParse(Console.ReadLine(), out var t);
+            var results = new string[t][];
+
+            for (var i = 0; i < t; i++)
+            {
+                results[i] = new string[2];
+                results[i][0] = Console.ReadLine();
+                results[i][1] = Console.ReadLine();
+            }
+
+            foreach (var result in results)
+            {
+                int.TryParse(result[0].Substring(result[0].IndexOf(' ')), out var r);
+                var elements = result[1];
+                var position = 0;
+                var index = 0;
+                do
+                {
+                    if (elements[index++] == ' ')
+                    {
+                        position++;
+                    }
+                    
+                } while (position < r);
+
+                Console.WriteLine(elements.Substring(index).TrimEnd() + " " + elements.Substring(0, index - 1));
+            }
+        }
+
+        /// <summary>
+        /// This is accepted as the correct solution. 
+        /// </summary>
+        internal static void Run3()
         {
             int.TryParse(Console.ReadLine(), out var t);
             var results = new string[t][];
@@ -95,7 +126,7 @@ namespace Geeks.Practices.Arrays.Basic
             }
         }
 
-        internal static void Run3()
+        internal static void Run1()
         {
             int.TryParse(Console.ReadLine(), out var t);
             var results = new string[t];
