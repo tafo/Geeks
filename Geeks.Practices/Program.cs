@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            ImmediateSmallerElement.Run();
+            MajorityElement.Run();
             Console.ReadKey();
         }
     }

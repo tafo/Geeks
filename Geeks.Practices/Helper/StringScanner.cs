@@ -12,8 +12,7 @@
         {
             _input = input.TrimEnd();
             _length = _input.Length;
-            Position = 0;
-            HasNext = true;
+            Reset();
         }
 
         internal int NextInt()
@@ -35,6 +34,12 @@
             }
 
             return result;
+        }
+
+        internal void Reset()
+        {
+            Position = 0;
+            HasNext = true;
         }
     }
 }
