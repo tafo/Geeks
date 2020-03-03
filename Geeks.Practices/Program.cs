@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            MajorityElement.Run();
+            PythagoreanTriple.Run();
             Console.ReadKey();
         }
     }

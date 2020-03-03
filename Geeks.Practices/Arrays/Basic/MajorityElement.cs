@@ -42,8 +42,8 @@ namespace Geeks.Practices.Arrays.Basic
 
             foreach (var testCase in input)
             {
-                var c = 0;
-                var m = -1;
+                var testCounter = 0;
+                var majorityElement = -1;
                 int.TryParse(testCase[0], out var length);
                 var elements = new int[length];
                 var elementIndex = 0;
@@ -51,36 +51,36 @@ namespace Geeks.Practices.Arrays.Basic
                 while (scanner.HasNext)
                 {
                     var n = elements[elementIndex++] = scanner.NextInt();
-                    if (c == 0)
+                    if (testCounter == 0)
                     {
-                        m = n;
-                        c = 1;
+                        majorityElement = n;
+                        testCounter = 1;
                     }
-                    else if (m == n)
+                    else if (majorityElement == n)
                     {
-                        c++;
+                        testCounter++;
                     }
                     else
                     {
-                        c--;
+                        testCounter--;
                     }
                 }
 
-                if (c > 0)
+                if (testCounter > 0)
                 {
-                    var counter = 0;
+                    var actualCounter = 0;
                     for (var i = 0; i < elements.Length; i++)
                     {
                         // ToDo : Check counter and i to break the loop
-                        if (m == elements[i])
+                        if (majorityElement == elements[i])
                         {
-                            counter++;
+                            actualCounter++;
                         }
                     }
 
-                    if (counter * 2 > length)
+                    if (actualCounter * 2 > length)
                     {
-                        Console.WriteLine(m);
+                        Console.WriteLine(majorityElement);
                     }
                     else
                     {
