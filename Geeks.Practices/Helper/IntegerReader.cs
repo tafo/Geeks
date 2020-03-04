@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Channels;
-
-namespace Geeks.Practices.Helper
+﻿namespace Geeks.Practices.Helper
 {
     /// <summary>
     /// It seems I need to have such a class in order to avoid repetition. 
