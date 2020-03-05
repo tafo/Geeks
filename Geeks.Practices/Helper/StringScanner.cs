@@ -1,7 +1,4 @@
-﻿using System;
-using System.Text;
-
-namespace Geeks.Practices.Helper
+﻿namespace Geeks.Practices.Helper
 {
     public class StringScanner
     {
@@ -58,29 +55,6 @@ namespace Geeks.Practices.Helper
             }
 
             return result;
-        }
-
-        internal string Next()
-        {
-            var elementBuilder = new StringBuilder();
-            char c;
-            do
-            {
-                if (Position < _length)
-                {
-                    c = _input[Position++];
-                    elementBuilder.Append(c);
-                }
-                else
-                {
-                    elementBuilder.Append(' ');
-                    HasNext = false;
-                    break;
-                }
-            } while (!char.IsWhiteSpace(c));
-
-
-            return elementBuilder.ToString();
         }
 
         internal void Reset()

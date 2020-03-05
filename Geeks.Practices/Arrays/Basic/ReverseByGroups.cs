@@ -49,9 +49,52 @@ namespace Geeks.Practices.Arrays.Basic
     {
         /// <summary>
         /// For fun
-        /// The execution time is 0.57 !!!
+        /// The execution time is 0.58
         /// </summary>
         internal static void Run()
+        {
+            var t = int.Parse(Console.ReadLine());
+            var input = new string[t][];
+
+            for (var i = 0; i < t; i++)
+            {
+                input[i] = new string[2];
+                input[i][0] = Console.ReadLine();
+                input[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var testCase in input)
+            {
+                var split = testCase[0].Split(' ');
+                var n = int.Parse(split[0]);
+                var elements = new long[n];
+                var k = int.Parse(split[1]);
+                var scanner = new StringScanner(testCase[1]);
+                var group = n / k;
+
+                for (var i = 0; i < group; i++)
+                {
+                    var step = i * k;
+                    for (var j = k - 1; j >= 0; j--)
+                    {
+                        elements[step + j] = scanner.NextInt64();
+                    }
+                }
+
+                for (var i = n - 1; i >= k * group; i--)
+                {
+                    elements[i] = scanner.NextInt64();
+                }
+
+                Console.WriteLine(string.Join(' ', elements));
+            }
+        }
+
+        /// <summary>
+        /// For fun
+        /// The execution time is 0.57 !!!
+        /// </summary>
+        internal static void Run6()
         {
             var t = int.Parse(Console.ReadLine());
             var input = new string[t][];
@@ -177,7 +220,7 @@ namespace Geeks.Practices.Arrays.Basic
 
         /// <summary>
         /// For fun
-        /// The execution time is 0.74
+        /// The execution time is 0.65
         /// </summary>
         internal static void Run3()
         {
@@ -193,25 +236,30 @@ namespace Geeks.Practices.Arrays.Basic
 
             foreach (var testCase in input)
             {
-                var resultBuilder = new StringBuilder();
                 var split = testCase[0].Split(' ');
+                var n = int.Parse(split[0]);
                 var k = int.Parse(split[1]);
-                var group = new string[k];
-                var scanner = new StringScanner(testCase[1]);
-                var i = 0;
-                while (scanner.HasNext)
-                {
-                    do
-                    {
-                        group[i++] = scanner.Next();
-                    } while (i < k && scanner.HasNext);
+                var elements = testCase[1].Split(' ');
+                var reversedElements = new string[n];
+                var step = k;
+                var sub = 0;
 
-                    do
+                foreach (var element in elements)
+                {
+                    if (step > n)
                     {
-                        resultBuilder.Append(group[--i]);
-                    } while (i > 0);
+                        step = n;
+                    }
+
+                    reversedElements[step - ++sub] = element;
+
+                    if (sub != k) continue;
+
+                    step += k;
+                    sub = 0;
                 }
-                Console.WriteLine(resultBuilder.ToString().TrimEnd());
+
+                Console.WriteLine(string.Join(' ', reversedElements));
             }
         }
 
