@@ -48,8 +48,55 @@ namespace Geeks.Practices.Arrays.Basic
     {
         /// <summary>
         /// This is not the best solution!
+        /// The execution time is 0.67
         /// </summary>
         internal static void Run()
+        {
+            var t = int.Parse(Console.ReadLine());
+            var input = new string[t][];
+
+            for (var i = 0; i < t; i++)
+            {
+                input[i] = new string[2];
+                input[i][0] = Console.ReadLine().Split(' ')[1];
+                input[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var testCase in input)
+            {
+                var k = int.Parse(testCase[0]);
+                var elements = testCase[1].Split(' ');
+                var resultBuilder = new StringBuilder();
+
+                var n = elements.Length;
+                var x = n / k;
+                for (var i = 0; i < x; i++)
+                {
+                    Array.Reverse(elements, i * k, k);
+                }
+
+                var position = x * k;
+
+                if (n > position)
+                {
+                    Array.Reverse(elements, position, n - position);
+                }
+
+                foreach (var element in elements)
+                {
+                    resultBuilder.Append(element);
+                    resultBuilder.Append(" ");
+                }
+
+                Console.WriteLine(resultBuilder.ToString().TrimEnd());
+            }
+        }
+
+        /// <summary>
+        /// This is not the best solution!
+        /// The execution time is 0.69
+        /// </summary>
+        internal static void Run1()
         {
             var t = int.Parse(Console.ReadLine());
             var input = new string[t][];
