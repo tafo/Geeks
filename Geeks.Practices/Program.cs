@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            PythagoreanTriple.Run();
+            ReverseByGroups.Run();
             Console.ReadKey();
         }
     }
