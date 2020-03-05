@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
+using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
 {
@@ -21,8 +22,8 @@ namespace Geeks.Practices.Arrays.Basic
     /// 
     /// Constraints:
     /// 1 ≤ T ≤ 200
-    /// 1 ≤ N, K ≤ 107
-    /// 1 ≤ A[i] ≤ 1018
+    /// 1 ≤ N, K ≤ 10e7
+    /// 1 ≤ A[i] ≤ 10e18
     /// 
     /// Example:
     /// Input
@@ -47,10 +48,178 @@ namespace Geeks.Practices.Arrays.Basic
     internal class ReverseByGroups
     {
         /// <summary>
+        /// For fun
+        /// The execution time is 0.57 !!!
+        /// </summary>
+        internal static void Run()
+        {
+            var t = int.Parse(Console.ReadLine());
+            var input = new string[t][];
+
+            for (var i = 0; i < t; i++)
+            {
+                input[i] = new string[2];
+                input[i][0] = Console.ReadLine();
+                input[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var testCase in input)
+            {
+                var split = testCase[0].Split(' ');
+                var n = int.Parse(split[0]);
+                var elements = new long[n];
+                var k = int.Parse(split[1]);
+                var scanner = new StringScanner(testCase[1]);
+                var step = 0;
+                while (scanner.HasNext)
+                {
+                    var sub = 0;
+                    step += k;
+                    if (step > n)
+                    {
+                        step = n;
+                    }
+                    do
+                    {
+                        elements[step - ++sub] = scanner.NextInt64();
+                    } while (sub < k && scanner.HasNext);
+                }
+
+                Console.WriteLine(string.Join(' ', elements));
+            }
+        }
+
+        /// <summary>
+        /// For fun
+        /// </summary>
+        internal static void Run5()
+        {
+            var t = int.Parse(Console.ReadLine());
+            var input = new string[t][];
+
+            for (var i = 0; i < t; i++)
+            {
+                input[i] = new string[2];
+                input[i][0] = Console.ReadLine();
+                input[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var testCase in input)
+            {
+                var resultBuilder = new StringBuilder();
+                var k = int.Parse(testCase[0].Split(' ')[1]);
+                var group = new long[k];
+                var scanner = new StringScanner(testCase[1]);
+                var g = 0;
+
+                while (scanner.HasNext)
+                {
+                    do
+                    {
+                        group[g++] = scanner.NextInt64();
+                    } while (g < k && scanner.HasNext);
+
+                    do
+                    {
+                        resultBuilder.Append(group[--g]);
+                        resultBuilder.Append(" ");
+                    } while (g > 0);
+                }
+
+                Console.WriteLine(resultBuilder.ToString().TrimEnd());
+            }
+        }
+
+        /// <summary>
+        /// For fun
+        /// The execution time is 0.78
+        /// </summary>
+        internal static void Run4()
+        {
+            var t = int.Parse(Console.ReadLine());
+            var input = new string[t][];
+
+            for (var i = 0; i < t; i++)
+            {
+                input[i] = new string[2];
+                input[i][0] = Console.ReadLine();
+                input[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var testCase in input)
+            {
+                var resultBuilder = new StringBuilder();
+                var split = testCase[0].Split(' ');
+                var n = int.Parse(split[0]);
+                var k = int.Parse(split[1]);
+                var group = new string[k];
+                var elements = testCase[1].Split(' ');
+                var g = 0;
+                var i = 0;
+
+                while (i < n)
+                {
+                    do
+                    {
+                        group[g++] = elements[i++];
+                    } while (g < k && i < n);
+
+                    do
+                    {
+                        resultBuilder.Append(group[--g]);
+                        resultBuilder.Append(" ");
+                    } while (g > 0);
+                }
+
+                Console.WriteLine(resultBuilder.ToString().TrimEnd());
+            }
+        }
+
+        /// <summary>
+        /// For fun
+        /// The execution time is 0.74
+        /// </summary>
+        internal static void Run3()
+        {
+            var t = int.Parse(Console.ReadLine());
+            var input = new string[t][];
+
+            for (var i = 0; i < t; i++)
+            {
+                input[i] = new string[2];
+                input[i][0] = Console.ReadLine();
+                input[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var testCase in input)
+            {
+                var resultBuilder = new StringBuilder();
+                var split = testCase[0].Split(' ');
+                var k = int.Parse(split[1]);
+                var group = new string[k];
+                var scanner = new StringScanner(testCase[1]);
+                var i = 0;
+                while (scanner.HasNext)
+                {
+                    do
+                    {
+                        group[i++] = scanner.Next();
+                    } while (i < k && scanner.HasNext);
+
+                    do
+                    {
+                        resultBuilder.Append(group[--i]);
+                    } while (i > 0);
+                }
+                Console.WriteLine(resultBuilder.ToString().TrimEnd());
+            }
+        }
+
+        /// <summary>
         /// This is not the best solution!
         /// The execution time is 0.67
         /// </summary>
-        internal static void Run()
+        internal static void Run2()
         {
             var t = int.Parse(Console.ReadLine());
             var input = new string[t][];

@@ -1,4 +1,7 @@
-﻿namespace Geeks.Practices.Helper
+﻿using System;
+using System.Text;
+
+namespace Geeks.Practices.Helper
 {
     public class StringScanner
     {
@@ -10,7 +13,7 @@
 
         public StringScanner(string input)
         {
-            _input = input.TrimEnd();
+            _input = input;
             _length = _input.Length;
             Reset();
         }
@@ -23,17 +26,61 @@
             while (!char.IsWhiteSpace(c))
             {
                 result = result * 10 + (c - Sub);
-                
+
                 if (Position == _length)
                 {
                     HasNext = false;
                     break;
                 }
-                
+
                 c = _input[Position++];
             }
 
             return result;
+        }
+
+        internal long NextInt64()
+        {
+            long result = 0;
+            var c = _input[Position++];
+
+            while (!char.IsWhiteSpace(c))
+            {
+                result = result * 10 + (c - Sub);
+
+                if (Position == _length)
+                {
+                    HasNext = false;
+                    break;
+                }
+
+                c = _input[Position++];
+            }
+
+            return result;
+        }
+
+        internal string Next()
+        {
+            var elementBuilder = new StringBuilder();
+            char c;
+            do
+            {
+                if (Position < _length)
+                {
+                    c = _input[Position++];
+                    elementBuilder.Append(c);
+                }
+                else
+                {
+                    elementBuilder.Append(' ');
+                    HasNext = false;
+                    break;
+                }
+            } while (!char.IsWhiteSpace(c));
+
+
+            return elementBuilder.ToString();
         }
 
         internal void Reset()
