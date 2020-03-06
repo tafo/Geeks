@@ -117,8 +117,6 @@ namespace Geeks.Practices.Arrays.Basic
             }
         }
 
-        // 1 2 3 4
-        // 1 2 3 4 5
         private static int BinSearch(IReadOnlyList<int> elements, int left, int right, int key)
         {
             while (true)
