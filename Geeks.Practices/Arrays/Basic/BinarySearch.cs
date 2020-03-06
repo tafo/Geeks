@@ -29,8 +29,8 @@ namespace Geeks.Practices.Arrays.Basic
     /// Prints the position of the key if its present in the array else print -1 if the key is not present in the array.
     /// 
     /// Constraints:
-    /// 1 &lt;= T &lt;= 100
-    /// 1 &lt;= N &lt;= 200
+    /// 1 <= T <= 100
+    /// 1 <= N <= 200
     /// 
     /// Example:
     /// Input:
@@ -82,6 +82,7 @@ namespace Geeks.Practices.Arrays.Basic
     /// </summary>
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
+    [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
     internal class BinarySearch
     {
         /// <summary>
