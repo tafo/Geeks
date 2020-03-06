@@ -65,12 +65,12 @@ namespace Geeks.Practices.Arrays.Basic
 
                 while (d > 0)
                 {
-                    elements[n - d--] = scanner.NextInt();
+                    elements[n - d--] = scanner.NextPositiveInt();
                 }
 
                 while (scanner.HasNext)
                 {
-                    elements[d++] = scanner.NextInt();
+                    elements[d++] = scanner.NextPositiveInt();
                 }
 
                 Console.WriteLine(string.Join(' ', elements));

@@ -35,11 +35,22 @@ namespace Geeks.Practices.Arrays.Basic
     /// 24
     ///
     /// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    /// Method signature
+    /// Method Signature
     /// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     /// public static Long product(Long arr[], Long mod, int n) { }
     /// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    /// 
+    /// Solution
+    /// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    /// public static Long product(Long arr[], Long mod, int n)
+    /// {
+    ///     long product = 1;
+    ///     for (int i = 0; i < n; i++)
+    ///     {
+    ///         product = product * arr[i] % mod;
+    ///     }
+    ///     return product;
+    /// }
+    /// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     /// </summary>
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
@@ -54,7 +65,7 @@ namespace Geeks.Practices.Arrays.Basic
             for (var i = 0; i < t; i++)
             {
                 input[i] = new string[2];
-                input[i][0] = Console.ReadLine();// Skip the number of elements
+                input[i][0] = Console.ReadLine();
                 input[i][1] = Console.ReadLine().TrimEnd();
             }
 
@@ -66,7 +77,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var index = 0;
                 while (scanner.HasNext)
                 {
-                    elements[index++] = scanner.NextInt();
+                    elements[index++] = scanner.NextPositiveInt();
                 }
 
                 Console.WriteLine(Product(elements, n, n));

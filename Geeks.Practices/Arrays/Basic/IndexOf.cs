@@ -68,7 +68,7 @@ namespace Geeks.Practices.Arrays.Basic
 
                 while (scanner.HasNext)
                 {
-                    if (scanner.NextInt() == value)
+                    if (scanner.NextPositiveInt() == value)
                     {
                         break;
                     }

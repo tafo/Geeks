@@ -19,6 +19,33 @@
         {
             var result = 0;
             var c = _input[Position++];
+            var isNegative = false;
+            while (!char.IsWhiteSpace(c))
+            {
+                if (c == '-')
+                {
+                    isNegative = true;
+                }
+                else
+                {
+                    result = result * 10 + (c - Sub);
+
+                    if (Position == _length)
+                    {
+                        HasNext = false;
+                        break;
+                    }
+                }
+                c = _input[Position++];
+            }
+
+            return result * (isNegative ? -1 : 1);
+        }
+
+        internal int NextPositiveInt()
+        {
+            var result = 0;
+            var c = _input[Position++];
 
             while (!char.IsWhiteSpace(c))
             {

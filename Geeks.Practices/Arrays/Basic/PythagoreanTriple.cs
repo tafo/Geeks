@@ -85,7 +85,7 @@ namespace Geeks.Practices.Arrays.Basic
                         if (total == numbers[c])
                         {
                             result = "Yes";
-                            break;
+                            goto endLoop;
                         }
 
                         if (total < numbers[c])
@@ -100,6 +100,7 @@ namespace Geeks.Practices.Arrays.Basic
 
                     c--;
                 }
+                endLoop:
                 Console.WriteLine(result);
             }
         }
@@ -154,7 +155,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var scanner = new StringScanner(input[index]);
                 while (scanner.HasNext)
                 {
-                    var number = scanner.NextInt();
+                    var number = scanner.NextPositiveInt();
                     for (var i = 0; i < k; i++)
                     {
                         if (triples[i, 0] == number)
@@ -241,7 +242,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var result = "No";
                 while (scanner.HasNext)
                 {
-                    var number = scanner.NextInt();
+                    var number = scanner.NextPositiveInt();
                     for (var i = 0; i < k; i++)
                     {
                         if (triples[i, 0] == number || triples[i, 1] == number || triples[i, 2] == number)
