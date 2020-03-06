@@ -47,9 +47,44 @@ namespace Geeks.Practices.Arrays.Basic
     internal class NumberOfOccurence
     {
         /// <summary>
-        /// The execution time is 0.13
+        /// The execution time is 0.13 >> Even if the execution time is same, this is a better solution then Run1
         /// </summary>
         internal static void Run()
+        {
+            var t = int.Parse(Console.ReadLine());
+            var input = new string[t][];
+
+            for (var i = 0; i < t; i++)
+            {
+                input[i] = new string[2];
+                input[i][0] = Console.ReadLine();
+                input[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var testCase in input)
+            {
+                var split = testCase[0].Split(' ');
+                // var n = int.Parse(split[0]); Skip the number of elements
+                var key = int.Parse(split[1]);
+                var scanner = new StringScanner(testCase[1]);
+                var counter = 0;
+                while (scanner.HasNext)
+                {
+                    if (key != scanner.NextPositiveInt()) continue;
+                    do
+                    {
+                        counter++;    
+                    } while (scanner.NextPositiveInt() == key);
+                    break;
+                }
+                Console.WriteLine(counter == 0 ? -1 : counter);
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.13
+        /// </summary>
+        internal static void Run1()
         {
             var t = int.Parse(Console.ReadLine());
             var input = new string[t][];
