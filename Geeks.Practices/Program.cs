@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            BinarySearch.Run();
+            LargestElements.Run();
             Console.ReadKey();
         }
     }
