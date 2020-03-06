@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            OrderOf.Run();
+            ProductOfElements.Run();
             Console.ReadKey();
         }
     }
