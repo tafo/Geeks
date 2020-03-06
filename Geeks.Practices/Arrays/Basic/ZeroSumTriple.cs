@@ -5,6 +5,8 @@ using Geeks.Practices.Helper;
 namespace Geeks.Practices.Arrays.Basic
 {
     /// <summary>
+    /// The title is "Find triplets with zero sum"
+    /// 
     /// Given an array A[] of N elements.
     /// The task is to complete the function which returns true if triplets exists in array A whose sum is zero else returns false.
     /// 
@@ -22,8 +24,8 @@ namespace Geeks.Practices.Arrays.Basic
     /// 
     /// Constrains:
     /// 1 <= T <= 100
-    /// 1 <= N <= 106
-    /// -106 <= A <= 106
+    /// 1 <= N <= 10e6
+    /// -106 <= A <= 10e6
     /// 
     /// Example:
     /// Input:

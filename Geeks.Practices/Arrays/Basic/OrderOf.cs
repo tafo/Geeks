@@ -21,9 +21,9 @@ namespace Geeks.Practices.Arrays.Basic
     /// 
     /// Constraints:
     /// 1 <= T <= 100
-    /// 1 <= N <= 106
-    /// 1 <= K <= 106
-    /// 1 <= A[i] <= 106
+    /// 1 <= N <= 10e6
+    /// 1 <= K <= 10e6
+    /// 1 <= A[i] <= 10e6
     /// 
     /// Example:
     /// Input :

@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            ZeroSumTriple.Run();
+            FindUniqueElement.Run();
             Console.ReadKey();
         }
     }
