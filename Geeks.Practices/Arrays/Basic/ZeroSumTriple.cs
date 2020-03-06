@@ -89,8 +89,8 @@ namespace Geeks.Practices.Arrays.Basic
             var first = 0;
             while (arr[first] <= 0)
             {
-                var third = n - 1;
                 var second = first + 1;
+                var third = n - 1;
                 while (second < third && arr[third] >= 0)
                 {
                     var total = arr[first] + arr[second] + arr[third];
