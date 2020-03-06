@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            Equality.Run();
+            OrderOf.Run();
             Console.ReadKey();
         }
     }
