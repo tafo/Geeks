@@ -11,12 +11,13 @@ Because of (???) reason, a variable name might be a single character even if it 
 I am open to any kind of feedback. Bug report, suggestion, ...
 
 ## ABBREVIATIONS
-
- * GE >> Greater than or Equal to
- * LE >> Less than or Equal to
+* GE >> Greater than or Equal to
+* LE >> Less than or Equal to
  
 ## THE PATTERN OF COMMIT MESSAGES
-
- * Subject - DifficultyLevel - ClassName - OriginalTitle
- * Example >> Array - Basic - MissingNumber - Missing number in array
- * This pattern was not used for school-level problems
+* Subject - DifficultyLevel - ClassName - OriginalTitle
+* Example >> Array - Basic - MissingNumber - Missing number in array
+* This pattern was not used for school-level problems
+ 
+## REMARKS
+* If C# is not an available programming language, then the C++ solution is included in the summary section of the practice
