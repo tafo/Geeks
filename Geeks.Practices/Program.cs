@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            ReverseByGroups.Run();
+            Rotating.Run();
             Console.ReadKey();
         }
     }
