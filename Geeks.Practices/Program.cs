@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            FindUniqueElement.Run();
+            NumberOfOccurence.Run();
             Console.ReadKey();
         }
     }
