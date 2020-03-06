@@ -48,6 +48,7 @@ namespace Geeks.Practices.Arrays.Basic
     {
         /// <summary>
         /// The execution time is 0.13 >> Even if the execution time is same, this is a better solution then Run1
+        /// If the array is sorted
         /// </summary>
         internal static void Run()
         {
@@ -83,6 +84,7 @@ namespace Geeks.Practices.Arrays.Basic
 
         /// <summary>
         /// The execution time is 0.13
+        /// If the array is not sorted
         /// </summary>
         internal static void Run1()
         {
