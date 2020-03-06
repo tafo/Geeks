@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            IndexOf.Run();
+            BinarySearch.Run();
             Console.ReadKey();
         }
     }
