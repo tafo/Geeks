@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            LargestElements.Run();
+            Equality.Run();
             Console.ReadKey();
         }
     }
