@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            StackImplementation.Run();
+            MinimumDistance.Run();
             Console.ReadKey();
         }
     }
