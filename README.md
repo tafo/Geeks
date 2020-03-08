@@ -15,8 +15,11 @@ I am open to any kind of feedback. Bug report, suggestion, ...
 * LE >> Less than or Equal to
  
 ## THE PATTERN OF COMMIT MESSAGES
-* Subject - DifficultyLevel - ClassName - OriginalTitle
-* Example >> Array - Basic - MissingNumber - Missing number in array
+* Subject - DifficultyLevel - ClassName - CommitType
+* Examples
+  * Arrays - Basic - MissingNumber - Create
+  * Arrays - Basic - MissingNumber - Add another solution
+  * Arrays - Basic - MissingNumber - Update
 * This pattern was not used for school-level problems
  
 ## REMARKS
