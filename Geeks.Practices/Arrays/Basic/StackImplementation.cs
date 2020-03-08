@@ -102,5 +102,60 @@ namespace Geeks.Practices.Arrays.Basic
                 Console.WriteLine(resultBuilder.ToString().TrimEnd());
             }
         }
+
+        /// <summary>
+        /// C# option was not available@"08 Mar 2020"
+        /// </summary>
+        public static void RunForGeeks()
+        {
+            var t = int.Parse(Console.ReadLine());
+            var input = new string[t];
+
+            for (var i = 0; i < t; i++)
+            {
+                input[i] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var query in input)
+            {
+                var resultBuilder = new StringBuilder();
+                var scanner = new StringScanner(query);
+                var stack = new ThatStack();
+                while (scanner.HasNext)
+                {
+                    var element = scanner.NextPositiveInt();
+                    switch (element)
+                    {
+                        case 1:
+                            stack.Push(scanner.NextPositiveInt());
+                            break;
+                        case 2:
+                            resultBuilder.Append(stack.Pop());
+                            resultBuilder.Append(" ");
+                            break;
+                    }
+                }
+
+                Console.WriteLine(resultBuilder.ToString());
+            }
+        }
+    }
+
+    /// <summary>
+    /// Fields and Method signatures were specified by GeeksForGeeks
+    /// </summary>
+    public class ThatStack
+    {
+        private int _top;
+        private readonly int[] _elements = new int[1000];
+
+        public ThatStack()
+        {
+            _top = -1;
+        }
+
+        public void Push(int element) => _elements[++_top] = element;
+
+        public int Pop() => _top == -1 ? -1 : _elements[_top--];
     }
 }
