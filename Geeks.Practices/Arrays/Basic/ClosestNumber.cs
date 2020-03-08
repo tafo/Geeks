@@ -45,10 +45,58 @@ namespace Geeks.Practices.Arrays.Basic
     internal class ClosestNumber
     {
         /// <summary>
-        /// Without using Math.Abs()
-        /// The execution time is 0.16
+        /// The execution time is 0.15
+        /// * If the array is sorted
         /// </summary>
         internal static void Run()
+        {
+            var t = int.Parse(Console.ReadLine());
+            var input = new string[t][];
+
+            for (var i = 0; i < t; i++)
+            {
+                input[i] = new string[2];
+                input[i][0] = Console.ReadLine();
+                input[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var testCase in input)
+            {
+                var split = testCase[0].Split(' ');
+                var n = int.Parse(split[0]);
+                if (n == 1)
+                {
+                    Console.WriteLine(testCase[1]);
+                    continue;
+                }
+
+                var key = int.Parse(split[1]);
+                var scanner = new StringScanner(testCase[1]);
+                var pre = scanner.NextPositiveInt();
+                var next = scanner.NextPositiveInt();
+
+                while (scanner.HasNext && next < key)
+                {
+                    pre = next;
+                    next = scanner.NextPositiveInt();
+                }
+
+                if (next < key)
+                {
+                    Console.WriteLine(next);
+                    continue;
+                }
+
+                Console.WriteLine(2 * key < pre + next ? pre : next);
+            }
+        }
+
+        /// <summary>
+        /// Without using Math.Abs()
+        /// The execution time is 0.16
+        /// * If the array is not sorted
+        /// </summary>
+        internal static void Run2()
         {
             var t = int.Parse(Console.ReadLine());
             var input = new string[t][];
@@ -100,6 +148,7 @@ namespace Geeks.Practices.Arrays.Basic
 
         /// <summary>
         /// The execution time is 0.15
+        /// * If the array is not sorted
         /// </summary>
         internal static void Run1()
         {
