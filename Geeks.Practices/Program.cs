@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            FirstAndLastIndexOf.Run();
+            PossibleTriangles.Run();
             Console.ReadKey();
         }
     }

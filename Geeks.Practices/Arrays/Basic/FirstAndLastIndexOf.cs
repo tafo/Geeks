@@ -48,8 +48,7 @@ namespace Geeks.Practices.Arrays.Basic
     public class FirstAndLastIndexOf
     {
         /// <summary>
-        /// The execution time is 0.26
-        /// * Just for fun
+        /// The execution time is 0.27
         /// </summary>
         public static void Run()
         {
@@ -68,58 +67,13 @@ namespace Geeks.Practices.Arrays.Basic
             {
                 // var n = int.Parse(testCase[0]); Skip the number of elements
                 var scanner = new StringScanner(testCase[1]);
-                
-                var key = long.Parse(testCase[2]);
-                var counter = 0;
-                while (scanner.HasNext)
-                {
-                    // ReSharper disable once InvertIf
-                    if (scanner.NextInt64() == key)
-                    {
-                        do
-                        {
-                            counter++;
-                        } while (scanner.HasNext && scanner.NextInt64() == key);
-                        break;
-                    }
-                }
-
-                if (counter == 0)
-                {
-                    Console.WriteLine(-1);
-                }
-                else
-                {
-                    Console.WriteLine("{0} {1}", scanner.Index - counter, scanner.Index - 1);
-                }
-            }
-        }
-
-        /// <summary>
-        /// The execution time is 0.27
-        /// </summary>
-        public static void Run2()
-        {
-            var t = int.Parse(Console.ReadLine());
-            var input = new string[t][];
-
-            for (var i = 0; i < t; i++)
-            {
-                input[i] = new string[3];
-                input[i][0] = Console.ReadLine();
-                input[i][1] = Console.ReadLine().Trim();
-                input[i][2] = Console.ReadLine();
-            }
-
-            foreach (var testCase in input)
-            {
-                // var n = int.Parse(testCase[0]); Skip the number of elements
-                var scanner = new StringScanner(testCase[1]);
                 var key = long.Parse(testCase[2]);
 
                 var counter = 0;
+                var index = -1;
                 while (scanner.HasNext)
                 {
+                    index++;
                     var number = scanner.NextInt64();
                     if (number < key)
                     {
@@ -142,7 +96,7 @@ namespace Geeks.Practices.Arrays.Basic
                 }
                 else
                 {
-                    Console.WriteLine("{0} {1}", scanner.Index - counter, scanner.Index - 1);
+                    Console.WriteLine("{0} {1}", index - counter, index - 1);
                 }
             }
         }

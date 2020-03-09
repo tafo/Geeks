@@ -12,7 +12,6 @@ namespace Geeks.Practices.Helper
         private readonly int _length;
         private const char Sub = '0';
 
-        public int Index { get; set; }
         public int Position { get; set; }
         public bool HasNext { get; set; }
 
@@ -25,7 +24,6 @@ namespace Geeks.Practices.Helper
 
         public int NextInt()
         {
-            Index++;
             var result = 0;
             var c = _input[Position++];
             var isNegative = false;
@@ -53,7 +51,6 @@ namespace Geeks.Practices.Helper
 
         public int NextPositiveInt()
         {
-            Index++;
             var result = 0;
             var c = _input[Position++];
 
@@ -75,7 +72,6 @@ namespace Geeks.Practices.Helper
 
         public long NextInt64()
         {
-            Index++;
             long result = 0;
             var c = _input[Position++];
 
@@ -97,7 +93,6 @@ namespace Geeks.Practices.Helper
 
         public void Reset()
         {
-            Index = -1;
             Position = 0;
             HasNext = true;
         }
