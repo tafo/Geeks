@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            SortBySpecificOrder.Run();
+            ZigZagOrder.Run();
             Console.ReadKey();
         }
     }
