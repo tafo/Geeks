@@ -24,3 +24,4 @@ I am open to any kind of feedback. Bug report, suggestion, ...
  
 ## REMARKS
 * If C# is not an available programming language, then its C++ or JAVA solution is included in the summary section
+* I used LINQ in the "SortBySpecificOrder" and subsequent practices. 
