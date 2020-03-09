@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            MinimumDistance.Run();
+            SortBySpecificOrder.Run();
             Console.ReadKey();
         }
     }

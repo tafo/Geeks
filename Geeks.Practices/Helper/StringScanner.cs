@@ -4,9 +4,10 @@
     {
         private readonly string _input;
         private readonly int _length;
-        internal int Position { get; set; }
         private const char Sub = '0';
-        internal bool HasNext { get; set; }
+
+        public int Position { get; set; }
+        public bool HasNext { get; set; }
 
         public StringScanner(string input)
         {
@@ -15,7 +16,7 @@
             Reset();
         }
 
-        internal int NextInt()
+        public int NextInt()
         {
             var result = 0;
             var c = _input[Position++];
@@ -42,7 +43,7 @@
             return result * (isNegative ? -1 : 1);
         }
 
-        internal int NextPositiveInt()
+        public int NextPositiveInt()
         {
             var result = 0;
             var c = _input[Position++];
@@ -63,7 +64,7 @@
             return result;
         }
 
-        internal long NextInt64()
+        public long NextInt64()
         {
             long result = 0;
             var c = _input[Position++];
@@ -84,7 +85,7 @@
             return result;
         }
 
-        internal void Reset()
+        public void Reset()
         {
             Position = 0;
             HasNext = true;
