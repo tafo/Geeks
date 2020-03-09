@@ -119,26 +119,24 @@ namespace Geeks.Practices.Arrays.Basic
                     elements[index++] = scanner.NextPositiveInt();
                 }
 
-                Array.Sort(elements);
-
                 var counter = 0;
-                var a = 0;
-                while (a < n - 2)
+                for (var a = 0; a < n - 2; a++)
                 {
-                    var b = a + 1;
-                    while (b < n - 1)
+                    for (var b = a + 1; b < n - 1; b++)
                     {
-                        var c = b + 1;
-                        while (c < n && elements[a] + elements[b] > elements[c])
+                        for (var c = b + 1; c < n; c++)
                         {
-                            counter++;
-                            c++;
+                            if (
+                                elements[a] + elements[b] > elements[c] && 
+                                elements[a] + elements[c] > elements[b] &&
+                                elements[b] + elements[c] > elements[a])
+                            {
+                                counter++;
+                            }
                         }
-
-                        b++;
                     }
-                    a++;
                 }
+
                 Console.WriteLine(counter);
             }
         }
