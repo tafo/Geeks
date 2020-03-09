@@ -15,7 +15,7 @@ namespace Geeks.Practices.Arrays.Basic
     /// The first line of input contains an integer T denoting the number of test cases.
     /// Then T test cases follow.
     /// Each test case consists of three lines of input.
-    /// The first line of each test case contains two integers N &amp; D,
+    /// The first line of each test case contains two integers N & D,
     /// The second line contains N space separated car numbers C
     /// The third line contains N space separated penalties P.
     /// 
