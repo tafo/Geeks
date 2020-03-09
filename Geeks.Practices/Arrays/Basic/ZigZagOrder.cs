@@ -30,18 +30,26 @@ namespace Geeks.Practices.Arrays.Basic
     /// 
     /// Example:
     /// Input:
-    /// 3
+    /// 4
     /// 7
     /// 4 3 7 8 6 2 1
     /// 4
     /// 1 4 3 2
     /// 33
     /// 6202 4625 5469 2038 5916 3405 5533 7004 2469 9853 4992 361 9819 3294 7195 4036 9404 8767 5404 1711 3214 3100 3751 2139 5437 4993 1759 9572 6270 3789 9623 2472 9493
+    /// 3
+    /// 5469 2038 5916
     /// 
     /// Output:
     /// 3 7 4 8 2 6 1
     /// 1 4 2 3
     /// 4625 6202 2038 5916 3405 5533 5469 7004 2469 9853 361 9819 3294 7195 4036 9404 4992 8767 1711 5404 3100 3751 2139 5437 3214 4993 1759 9572 3789 9623 2472 9493 6270
+    /// 5469 5916 2038
+    ///
+    /// Remark:
+    /// Actually, this practice is faulty!!!
+    ///     If the elements are "3, 2, 1", there is not a greater element than 3 at an index that is greater than the index of 3.
+    ///     So, do not mind the relative order. 
     /// </summary>
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]

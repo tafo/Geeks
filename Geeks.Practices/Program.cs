@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            ZigZagOrder.Run();
+            FindTheFine.Run();
             Console.ReadKey();
         }
     }
