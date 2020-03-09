@@ -55,10 +55,50 @@ namespace Geeks.Practices.Arrays.Basic
     public class FindTheFine
     {
         /// <summary>
+        /// The execution time is 0.20
+        /// * Without using StringScanner
+        /// </summary>
+        public static void Run()
+        {
+            var t = int.Parse(Console.ReadLine());
+            var input = new string[t][];
+
+            for (var i = 0; i < t; i++)
+            {
+                input[i] = new string[3];
+                input[i][0] = Console.ReadLine();
+                input[i][1] = Console.ReadLine().Trim();
+                input[i][2] = Console.ReadLine().Trim();
+            }
+
+            foreach (var testCase in input)
+            {
+                var split = testCase[0].Split(' ');
+                 var n = int.Parse(split[0]);
+                var date = int.Parse(split[1]);
+                var bit = date & 1;
+                var carNumbers = testCase[1].Split(' ');
+                var penalties = testCase[2].Split(' ');
+                var totalFine = 0;
+
+                for (var i = 0; i < n; i++)
+                {
+                    if (bit != (int.Parse(carNumbers[i]) & 1))
+                    {
+                        totalFine += int.Parse(penalties[i]);
+                    }
+                    
+                }
+
+                Console.WriteLine(totalFine);
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.13
         /// * Using bitwise logical AND
         /// </summary>
-        public static void Run()
+        public static void Run2()
         {
             var t = int.Parse(Console.ReadLine());
             var input = new string[t][];
