@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            FindTheFine.Run();
+            FirstAndLastIndexOf.Run();
             Console.ReadKey();
         }
     }

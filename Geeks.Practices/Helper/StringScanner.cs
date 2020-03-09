@@ -1,11 +1,18 @@
-﻿namespace Geeks.Practices.Helper
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace Geeks.Practices.Helper
 {
+    /// <summary>
+    /// int.MaxValue = 0x7fffffff >> 2,147,483,647
+    /// </summary>
+    [SuppressMessage("ReSharper", "CommentTypo")]
     public class StringScanner
     {
         private readonly string _input;
         private readonly int _length;
         private const char Sub = '0';
 
+        public int Index { get; set; }
         public int Position { get; set; }
         public bool HasNext { get; set; }
 
@@ -18,6 +25,7 @@
 
         public int NextInt()
         {
+            Index++;
             var result = 0;
             var c = _input[Position++];
             var isNegative = false;
@@ -45,6 +53,7 @@
 
         public int NextPositiveInt()
         {
+            Index++;
             var result = 0;
             var c = _input[Position++];
 
@@ -66,6 +75,7 @@
 
         public long NextInt64()
         {
+            Index++;
             long result = 0;
             var c = _input[Position++];
 
@@ -87,6 +97,7 @@
 
         public void Reset()
         {
+            Index = -1;
             Position = 0;
             HasNext = true;
         }
