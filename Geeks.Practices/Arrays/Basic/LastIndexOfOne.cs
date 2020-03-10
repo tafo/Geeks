@@ -16,7 +16,7 @@ namespace Geeks.Practices.Arrays.Basic
     /// 
     /// Constraints:
     /// 1 <= T <= 110
-    /// 1 <= |S| <= 106
+    /// 1 <= |S| <= 10e6
     /// 
     /// Example:
     /// Input:
