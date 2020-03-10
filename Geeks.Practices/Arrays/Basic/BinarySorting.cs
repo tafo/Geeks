@@ -40,9 +40,31 @@ namespace Geeks.Practices.Arrays.Basic
     public class BinarySorting
     {
         /// <summary>
-        /// The execution time is 0.93
+        /// Time Limit Exceeded !!!
+        /// Expected Time Limit < 7.816sec
+        /// Hint : Please optimize your code and submit again
+        /// :)
+        /// But, this is the easiest way
         /// </summary>
         public static void Run()
+        {
+            var t = int.Parse(Console.ReadLine());
+            var input = new string[t];
+
+            for (var i = 0; i < t; i++)
+            {
+                input[i] = Console.ReadLine().Trim();
+            }
+            foreach (var testCase in input)
+            {
+                Console.WriteLine(string.Join(' ', testCase.Split(' ').OrderBy(x => x)));
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.93
+        /// </summary>
+        public static void Run4()
         {
             var t = int.Parse(Console.ReadLine());
             var input = new string[t][];
