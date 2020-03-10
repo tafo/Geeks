@@ -38,8 +38,37 @@ namespace Geeks.Practices.Arrays.Basic
     {
         /// <summary>
         /// The execution time is 0.23
+        ///     !!! >> When test cases change the execution time will be better than Run1
         /// </summary>
         public static void Run()
+        {
+            var x = int.Parse(Console.ReadLine());
+            var input = new string[x];
+
+            for (var i = 0; i < x; i++)
+            {
+                input[i] = Console.ReadLine().Trim();
+            }
+
+            foreach (var elements in input)
+            {
+                int index;
+                for (index = elements.Length - 1; index >= 0; index--)
+                {
+                    if (elements[index] == '1')
+                    {
+                        break;
+                    }
+                }
+                
+                Console.WriteLine(index);
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.23
+        /// </summary>
+        public static void Run1()
         {
             var x = int.Parse(Console.ReadLine());
             var input = new string[x];
