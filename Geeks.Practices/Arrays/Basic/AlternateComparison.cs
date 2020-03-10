@@ -51,8 +51,66 @@ namespace Geeks.Practices.Arrays.Basic
     {
         /// <summary>
         /// The execution time is 0.66
+        /// ToDo : Use the end of the elements instead of backup array
         /// </summary>
         public static void Run()
+        {
+            var t = int.Parse(Console.ReadLine());
+            var input = new string[t][];
+
+            for (var i = 0; i < t; i++)
+            {
+                input[i] = new string[2];
+                input[i][0] = Console.ReadLine();
+                input[i][1] = Console.ReadLine().Trim();
+            }
+
+            foreach (var testCase in input)
+            {
+                var n = int.Parse(testCase[0]);
+                var elements = new int[n];
+                var scanner = new StringScanner(testCase[1]);
+                var index = 0;
+                var flag = true;
+                var backup = new int[n];
+                var backupIndex = 0;
+                var counter = 0;
+                while (scanner.HasNext)
+                {
+                    var number = scanner.NextInt();
+                    if (flag && number >= 0 || !flag && number < 0)
+                    {
+                        elements[index++] = number;
+                        if (backupIndex < counter)
+                        {
+                            elements[index++] = backup[backupIndex];
+                            backupIndex++;
+                            continue;
+                        }
+                    }
+                    else
+                    {
+                        backup[counter] = number;
+                        counter++;
+                        continue;
+                    }
+
+                    flag = !flag;
+                }
+
+                while (backupIndex < counter)
+                {
+                    elements[index++] = backup[backupIndex++];
+                }
+
+                Console.WriteLine(string.Join(' ', elements));
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.66
+        /// </summary>
+        public static void Run3()
         {
             var t = int.Parse(Console.ReadLine());
             var input = new string[t][];
