@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            RemoveDuplicates.Run();
+            ReplaceDigits.Run();
             Console.ReadKey();
         }
     }
