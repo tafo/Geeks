@@ -39,9 +39,6 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
     public class ReplaceDigits
     {
-        /// <summary>
-        /// The execution time is 0.15
-        /// </summary>
         public static void Run()
         {
             var t = int.Parse(Console.ReadLine());
@@ -58,7 +55,19 @@ namespace Geeks.Practices.Arrays.Basic
             }
         }
 
+        /// <summary>
+        /// The execution time of equivalent JAVA function is 0.16
+        ///     return Integer.valueOf(Integer.toString(num).replace('0', '5'));
+        /// </summary>
         private static int ConvertFive(int number)
+        {
+            return int.Parse(number.ToString().Replace("0", "5"));
+        }
+
+        /// <summary>
+        /// The execution time of equivalent JAVA function is 0.15
+        /// </summary>
+        private static int ConvertFive1(int number)
         {
             var result = 0;
             var factor = 1;
