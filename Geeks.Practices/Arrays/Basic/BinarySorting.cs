@@ -6,6 +6,8 @@ using Geeks.Practices.Helper;
 namespace Geeks.Practices.Arrays.Basic
 {
     /// <summary>
+    /// The title is "Binary Array Sorting"
+    /// 
     /// Given a binary array A[] of size N. The task is to arrange array in increasing order.
     /// 
     /// Note: The binary array contains only 0  and 1.

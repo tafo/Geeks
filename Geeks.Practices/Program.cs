@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            LastIndexOfOne.Run();
+            Pendulum.Run();
             Console.ReadKey();
         }
     }

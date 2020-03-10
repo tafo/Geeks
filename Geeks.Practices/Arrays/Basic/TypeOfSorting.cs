@@ -5,6 +5,8 @@ using Geeks.Practices.Helper;
 namespace Geeks.Practices.Arrays.Basic
 {
     /// <summary>
+    /// The title is "Type of array"
+    /// 
     /// You are given an array of size N having no duplicate elements. The array can be categorized into following:
     /// 1.  Ascending
     /// 2.  Descending

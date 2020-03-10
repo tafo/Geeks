@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
-using System.Runtime.InteropServices.ComTypes;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
 {
     /// <summary>
+    /// The title is "Minimum distance between two numbers"
+    /// 
     /// You are given an array A, of N elements. You need to find minimum distance between given two integers x and y.
     /// 
     /// Distance: The distance (index-based) between two elements of the array.

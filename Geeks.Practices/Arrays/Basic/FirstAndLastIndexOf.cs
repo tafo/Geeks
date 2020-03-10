@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
-using System.Runtime.InteropServices.ComTypes;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
 {
     /// <summary>
+    /// The title is "Find first and last occurrence of x"
+    /// 
     /// Given a sorted array with possibly duplicate elements.
     /// The task is to find indexes of first and last occurrences of an element X in the given array.
     /// 

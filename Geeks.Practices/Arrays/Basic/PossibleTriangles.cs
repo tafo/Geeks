@@ -5,6 +5,8 @@ using Geeks.Practices.Helper;
 namespace Geeks.Practices.Arrays.Basic
 {
     /// <summary>
+    /// The title is "Count possible triangles"
+    /// 
     /// Given an unsorted array of positive integers.
     /// Find the number of triangles that can be formed with three different array elements as lengths of three sides of triangles. 
     /// 
