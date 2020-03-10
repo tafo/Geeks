@@ -70,6 +70,20 @@ namespace Geeks.Practices.Helper
             return result;
         }
 
+        public int NextBit()
+        {
+            var bit = _input[Position] - Sub;
+            
+            Position += 2;
+            
+            if (Position > _length)
+            {
+                HasNext = false;
+            }
+
+            return bit;
+        }
+
         public long NextInt64()
         {
             long result = 0;
