@@ -58,6 +58,8 @@ namespace Geeks.Practices.Arrays.Basic
         /// <summary>
         /// The execution time of equivalent JAVA function is 0.16
         ///     return Integer.valueOf(Integer.toString(num).replace('0', '5'));
+        ///     OR
+        ///     return Integer.parseInt(Integer.toString(num).replace('0', '5'));
         /// </summary>
         private static int ConvertFive(int number)
         {
