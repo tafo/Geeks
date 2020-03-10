@@ -56,8 +56,72 @@ namespace Geeks.Practices.Arrays.Basic
     {
         /// <summary>
         /// The execution time is 0.28
+        /// * Just for fun
         /// </summary>
         public static void Run()
+        {
+            var x = int.Parse(Console.ReadLine());
+            var input = new string[x][];
+
+            for (var i = 0; i < x; i++)
+            {
+                input[i] = new string[2];
+                input[i][0] = Console.ReadLine();
+                input[i][1] = Console.ReadLine().Trim();
+            }
+
+            foreach (var testCase in input)
+            {
+                int sorting;
+                // var n = int.Parse(testCase[0]); Skip the number of elements
+                var scanner = new StringScanner(testCase[1]);
+                long max;
+                var current = max = scanner.NextInt64();
+                var next = scanner.NextInt64();
+                long previous;
+                do
+                {
+                    previous = current;
+                    current = next;
+                    next = scanner.NextInt64();
+                } while (scanner.HasNext && (previous < current && current < next || previous > current && current > next));
+
+                if (previous < current && current < next)
+                {
+                    sorting = 1;
+                    max = next;
+                }
+                else if (previous > current && current > next)
+                {
+                    sorting = 2;
+                }
+                else if (previous < current && current > next)
+                {
+                    max = current;
+                    sorting = previous < next ? 3 : 4;
+                }
+                else
+                {
+                    if (previous < next)
+                    {
+                        sorting = 3;
+                        max = next;
+                    }
+                    else
+                    {
+                        sorting = 4;
+                        max = previous;
+                    }
+                }
+
+                Console.WriteLine($"{max} {sorting}");
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.28
+        /// </summary>
+        public static void Run1()
         {
             var x = int.Parse(Console.ReadLine());
             var input = new string[x][];
