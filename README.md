@@ -21,7 +21,10 @@ I am open to any kind of feedback. Bug report, suggestion, ...
   * Arrays - Basic - MissingNumber - Add another solution
   * Arrays - Basic - MissingNumber - Update
 * This pattern was not used for school-level problems
- 
+
+## NOTES
+* This is also a practice repository for LINQ
+
 ## REMARKS
 * If C# is not an available programming language, then its C++ or JAVA solution is included in the summary section
 * I used LINQ in the "SortBySpecificOrder" and subsequent practices
