@@ -51,7 +51,6 @@ namespace Geeks.Practices.Arrays.Basic
     {
         /// <summary>
         /// The execution time is 0.66
-        /// ToDo : Use the end of the elements instead of backup array
         /// </summary>
         public static void Run()
         {

@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            AlternateComparison.Run();
+            QueueImplementation.Run();
             Console.ReadKey();
         }
     }
