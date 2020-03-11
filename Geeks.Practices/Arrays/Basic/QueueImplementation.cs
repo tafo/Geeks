@@ -87,6 +87,8 @@ namespace Geeks.Practices.Arrays.Basic
                             break;
                     }
                 }
+
+                Console.WriteLine();
             }
         }
     }
