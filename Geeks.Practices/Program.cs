@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            QueueImplementation.Run();
+            FirstElementOccurGivenTimes.Run();
             Console.ReadKey();
         }
     }
