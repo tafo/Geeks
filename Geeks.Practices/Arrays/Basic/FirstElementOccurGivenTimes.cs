@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -44,10 +45,139 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class FirstElementOccurGivenTimes
     {
+        private const char E = ' ';
+        /// <summary>
+        /// The execution time is 0.34
+        /// </summary>
+        public static void Run()
+        {
+            var t = int.Parse(Console.ReadLine());
+            var input = new string[t][];
+
+            for (var i = 0; i < t; i++)
+            {
+                input[i] = new string[2];
+                input[i][0] = Console.ReadLine();
+                input[i][1] = Console.ReadLine().Trim();
+            }
+
+            foreach (var m in input)
+            {
+                Console.WriteLine(m[1].Split(E).GroupBy(x => x).FirstOrDefault(x => x.Count() == int.Parse(m[0].Split(E)[1]))?.Key ?? "-1");
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.41
+        /// </summary>
+        public static void Run5()
+        {
+            var t = int.Parse(Console.ReadLine());
+            var input = new string[t][];
+
+            for (var i = 0; i < t; i++)
+            {
+                input[i] = new string[2];
+                input[i][0] = Console.ReadLine();
+                input[i][1] = Console.ReadLine().Trim();
+            }
+
+            foreach (var testCase in input)
+            {
+                var split = testCase[0].Split(' ');
+                // var n = int.Parse(split[0]); Skip the number of elements
+                var count = int.Parse(split[1]);
+
+                // Check Remark 2
+                if (count == 0)
+                {
+                    Console.WriteLine(-1);
+                    continue;
+                }
+
+                var result = testCase[1].Split(' ').Select(int.Parse).GroupBy(x => x).FirstOrDefault(x => x.Count() == count)?.Key ?? -1;
+                Console.WriteLine(result);
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.39
+        /// </summary>
+        public static void Run3()
+        {
+            var t = int.Parse(Console.ReadLine());
+            var input = new string[t][];
+
+            for (var i = 0; i < t; i++)
+            {
+                input[i] = new string[2];
+                input[i][0] = Console.ReadLine();
+                input[i][1] = Console.ReadLine().Trim();
+            }
+
+            foreach (var testCase in input)
+            {
+                var split = testCase[0].Split(' ');
+                // var n = int.Parse(split[0]); Skip the number of elements
+                var c = int.Parse(split[1]);
+
+                // Check Remark 2
+                if (c == 0)
+                {
+                    Console.WriteLine(-1);
+                    continue;
+                }
+
+                Console.WriteLine(testCase[1].Split(' ').Select(int.Parse).GroupBy(x => x).FirstOrDefault(x => x.Count() == c)?.Key ?? -1);
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.18
+        /// * Love LINQ :)
+        /// </summary>
+        public static void Run2()
+        {
+            var t = int.Parse(Console.ReadLine());
+            var input = new string[t][];
+
+            for (var i = 0; i < t; i++)
+            {
+                input[i] = new string[2];
+                input[i][0] = Console.ReadLine();
+                input[i][1] = Console.ReadLine().Trim();
+            }
+
+            foreach (var testCase in input)
+            {
+                var split = testCase[0].Split(' ');
+                var n = int.Parse(split[0]);
+                var occurence = int.Parse(split[1]);
+
+                // Check Remark 2
+                if (occurence == 0)
+                {
+                    Console.WriteLine(-1);
+                    continue;
+                }
+
+                var numbers = new int[n];
+                var scanner = new StringScanner(testCase[1]);
+
+                var index = 0;
+                while (scanner.HasNext)
+                {
+                    numbers[index++] = scanner.NextPositiveInt();
+                }
+
+                Console.WriteLine(numbers.GroupBy(x => x).FirstOrDefault(x => x.Count() == occurence)?.Key ?? -1);
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.69
         /// </summary>
-        public static void Run()
+        public static void Run1()
         {
             var t = int.Parse(Console.ReadLine());
             var input = new string[t][];
