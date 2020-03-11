@@ -51,26 +51,27 @@ namespace Geeks.Practices.Arrays.Basic
         /// </summary>
         public static void Run()
         {
-            var t = int.Parse(Console.ReadLine());
-            var input = new string[t][];
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
 
-            for (var i = 0; i < t; i++)
+            for (var i = 0; i < testCount; i++)
             {
-                input[i] = new string[2];
-                input[i][0] = Console.ReadLine();
-                input[i][1] = Console.ReadLine().Trim();
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().Trim();
             }
 
-            foreach (var m in input)
+            foreach (var test in tests)
             {
-                Console.WriteLine(m[1].Split(E).GroupBy(x => x).FirstOrDefault(x => x.Count() == int.Parse(m[0].Split(E)[1]))?.Key ?? "-1");
+                var result = test[1].Split(E).GroupBy(x => x).FirstOrDefault(x => x.Count() == int.Parse(test[0].Split(E)[1]))?.Key ?? "-1";
+                Console.WriteLine(result);
             }
         }
 
         /// <summary>
         /// The execution time is 0.41
         /// </summary>
-        public static void Run5()
+        public static void Run4()
         {
             var t = int.Parse(Console.ReadLine());
             var input = new string[t][];
@@ -134,35 +135,27 @@ namespace Geeks.Practices.Arrays.Basic
 
         /// <summary>
         /// The execution time is 0.18
-        /// * Love LINQ :)
+        /// * Love LINQ and Scanner :)
         /// </summary>
         public static void Run2()
         {
-            var t = int.Parse(Console.ReadLine());
-            var input = new string[t][];
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
 
-            for (var i = 0; i < t; i++)
+            for (var i = 0; i < testCount; i++)
             {
-                input[i] = new string[2];
-                input[i][0] = Console.ReadLine();
-                input[i][1] = Console.ReadLine().Trim();
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().Trim();
             }
 
-            foreach (var testCase in input)
+            foreach (var test in tests)
             {
-                var split = testCase[0].Split(' ');
+                var split = test[0].Split(' ');
                 var n = int.Parse(split[0]);
-                var occurence = int.Parse(split[1]);
-
-                // Check Remark 2
-                if (occurence == 0)
-                {
-                    Console.WriteLine(-1);
-                    continue;
-                }
-
+                var count = int.Parse(split[1]);
                 var numbers = new int[n];
-                var scanner = new StringScanner(testCase[1]);
+                var scanner = new StringScanner(test[1]);
 
                 var index = 0;
                 while (scanner.HasNext)
@@ -170,7 +163,7 @@ namespace Geeks.Practices.Arrays.Basic
                     numbers[index++] = scanner.NextPositiveInt();
                 }
 
-                Console.WriteLine(numbers.GroupBy(x => x).FirstOrDefault(x => x.Count() == occurence)?.Key ?? -1);
+                Console.WriteLine(numbers.GroupBy(x => x).FirstOrDefault(x => x.Count() == count)?.Key ?? -1);
             }
         }
 
