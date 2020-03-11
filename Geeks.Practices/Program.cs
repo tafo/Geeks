@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            FirstElementOccurGivenTimes.Run();
+            ThirdLargestElement.Run();
             Console.ReadKey();
         }
     }
