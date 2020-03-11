@@ -55,7 +55,7 @@ namespace Geeks.Practices.Arrays.Basic
     public class QueueImplementation
     {
         /// <summary>
-        ///  The execution time is 3.91
+        ///  The execution time of equivalent JAVA implementation is 3.91
         /// </summary>
         public static void Run()
         {
