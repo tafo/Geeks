@@ -63,13 +63,16 @@ namespace Geeks.Practices.Arrays.Basic
 
             foreach (var test in tests)
             {
-                var result = test[1].Split(E).GroupBy(x => x).FirstOrDefault(x => x.Count() == int.Parse(test[0].Split(E)[1]))?.Key ?? "-1";
+                var count = int.Parse(test[0].Split(E)[1]);
+                var result = test[1].Split(E).GroupBy(x => x).FirstOrDefault(x => x.Count() == count)?.Key ?? "-1";
                 Console.WriteLine(result);
             }
         }
 
         /// <summary>
         /// The execution time is 0.41
+        /// * Compare to Run3
+        /// * But the execution time has a margin of error of 30 milliseconds
         /// </summary>
         public static void Run4()
         {
@@ -88,14 +91,6 @@ namespace Geeks.Practices.Arrays.Basic
                 var split = testCase[0].Split(' ');
                 // var n = int.Parse(split[0]); Skip the number of elements
                 var count = int.Parse(split[1]);
-
-                // Check Remark 2
-                if (count == 0)
-                {
-                    Console.WriteLine(-1);
-                    continue;
-                }
-
                 var result = testCase[1].Split(' ').Select(int.Parse).GroupBy(x => x).FirstOrDefault(x => x.Count() == count)?.Key ?? -1;
                 Console.WriteLine(result);
             }
@@ -120,16 +115,8 @@ namespace Geeks.Practices.Arrays.Basic
             {
                 var split = testCase[0].Split(' ');
                 // var n = int.Parse(split[0]); Skip the number of elements
-                var c = int.Parse(split[1]);
-
-                // Check Remark 2
-                if (c == 0)
-                {
-                    Console.WriteLine(-1);
-                    continue;
-                }
-
-                Console.WriteLine(testCase[1].Split(' ').Select(int.Parse).GroupBy(x => x).FirstOrDefault(x => x.Count() == c)?.Key ?? -1);
+                var count = int.Parse(split[1]);
+                Console.WriteLine(testCase[1].Split(' ').Select(int.Parse).GroupBy(x => x).FirstOrDefault(x => x.Count() == count)?.Key ?? -1);
             }
         }
 
