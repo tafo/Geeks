@@ -70,6 +70,7 @@ namespace Geeks.Practices.Arrays.Basic
         /// <summary>
         /// The execution time is 0.13
         /// * Reverse read
+        /// Time complexity => O(n)
         /// </summary>
         public static void Run()
         {
