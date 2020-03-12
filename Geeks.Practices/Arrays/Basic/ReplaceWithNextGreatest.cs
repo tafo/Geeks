@@ -69,8 +69,44 @@ namespace Geeks.Practices.Arrays.Basic
     {
         /// <summary>
         /// The execution time is 0.13
+        /// * Reverse read
         /// </summary>
         public static void Run()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().Trim();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = new int[n];
+                var scanner = new StringScanner(test[1], true);
+                var max = numbers[--n] = -1;
+                while (scanner.HasNext && n > 0)
+                {
+                    var number = scanner.PreviousPositiveInt();
+                    if (number > max)
+                    {
+                        max = number;
+                    }
+                    numbers[--n] = max;
+                }
+
+                Console.WriteLine(string.Join(' ', numbers));
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.13
+        /// </summary>
+        public static void Run1()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount][];

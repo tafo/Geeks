@@ -15,11 +15,18 @@ namespace Geeks.Practices.Helper
         public int Position { get; set; }
         public bool HasNext { get; set; }
 
-        public StringScanner(string input)
+        public StringScanner(string input, bool isReverse = false)
         {
             _input = input;
             _length = _input.Length;
-            Reset();
+            if (isReverse)
+            {
+                Reset(_length - 1);
+            }
+            else
+            {
+                Reset();    
+            }
         }
 
         public int NextInt()
@@ -70,12 +77,34 @@ namespace Geeks.Practices.Helper
             return result;
         }
 
+        public int PreviousPositiveInt()
+        {
+            var result = 0;
+            var c = _input[Position--];
+            var factor = 1;
+            while (!char.IsWhiteSpace(c))
+            {
+                result += factor * (c - Sub);
+
+                if (Position < 0)
+                {
+                    HasNext = false;
+                    break;
+                }
+
+                factor *= 10;
+                c = _input[Position--];
+            }
+
+            return result;
+        }
+
         public int NextBit()
         {
             var bit = _input[Position] - Sub;
-            
+
             Position += 2;
-            
+
             if (Position > _length)
             {
                 HasNext = false;
@@ -105,9 +134,9 @@ namespace Geeks.Practices.Helper
             return result;
         }
 
-        public void Reset()
+        public void Reset(int position = 0)
         {
-            Position = 0;
+            Position = position;
             HasNext = true;
         }
     }
