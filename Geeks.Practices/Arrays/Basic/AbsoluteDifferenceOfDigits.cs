@@ -50,9 +50,79 @@ namespace Geeks.Practices.Arrays.Basic
     public class AbsoluteDifferenceOfDigits
     {
         /// <summary>
-        /// The execution time is 0.70
+        /// The execution time is 0.33
         /// </summary>
         public static void Run()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().Trim();
+            }
+
+            // 3 45
+            foreach (var test in tests)
+            {
+                var line = test[0].Split(' ');
+                var n = int.Parse(line[0]);
+                var key = long.Parse(line[1]);
+                var input = test[1];
+                var previousDigit = -1;
+                long number = 0;
+                const char sub = '0';
+                var numbers = new long[n];
+                var counter = 0;
+                for (var i = 0; i < input.Length; i++)
+                {
+                    var c = input[i];
+                    if (char.IsWhiteSpace(c))
+                    {
+                        if (number >= 10)
+                        {
+                            numbers[counter++] = number;
+                        }
+
+                        previousDigit = -1;
+                        number = 0;
+                        continue;
+                    }
+
+                    var currentDigit = c - sub;
+                    if ((number = number * 10 + currentDigit) >= key || previousDigit != -1 && Math.Abs(currentDigit - previousDigit) != 1)
+                    {
+                        number = 0;
+                        var nextIndex = input.IndexOf(' ', i);
+                        if (nextIndex == -1)
+                        {
+                            break;
+                        }
+
+                        previousDigit = -1;
+                        i = nextIndex;
+                        continue;
+                    }
+
+                    if (i == input.Length - 1 && number > 10 && number < key)
+                    {
+                        numbers[counter++] = number;
+                    }
+
+                    previousDigit = currentDigit;
+                }
+
+                Console.WriteLine(string.Join(' ', numbers.Take(counter).DefaultIfEmpty(-1)));
+            }
+        }
+
+
+        /// <summary>
+        /// The execution time is 0.70
+        /// </summary>
+        public static void Run2()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount][];
@@ -67,7 +137,7 @@ namespace Geeks.Practices.Arrays.Basic
             foreach (var test in tests)
             {
                 var line = test[0].Split(' ');
-                var n = int.Parse(line[0]);
+                // var n = int.Parse(line[0]); Skip the number of elements
                 var key = long.Parse(line[1]);
                 var numbers = test[1].Split(' ').Select(int.Parse).Where(x => IsQualifiedNumber(x, key)).DefaultIfEmpty(-1);
                 Console.WriteLine(string.Join(' ', numbers));
@@ -119,7 +189,7 @@ namespace Geeks.Practices.Arrays.Basic
                 while (scanner.HasNext)
                 {
                     var number = scanner.NextUInt64();
-                    
+
                     if (number >= key || number < 10) continue;
 
                     var num = number;
