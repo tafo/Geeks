@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -53,9 +54,31 @@ namespace Geeks.Practices.Arrays.Basic
     public class FindSecondLargest
     {
         /// <summary>
-        /// The execution time is 0.12
+        /// The execution time is 0.09
+        /// LINQ :)
         /// </summary>
         public static void Run()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine(); // Skip the number of elements
+                tests[i] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(test.Split(' ').Select(int.Parse).Distinct().OrderByDescending(x => x).Skip(1).DefaultIfEmpty(-1)
+                    .FirstOrDefault());
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.12
+        /// </summary>
+        public static void Run1()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount][];
@@ -86,7 +109,7 @@ namespace Geeks.Practices.Arrays.Basic
                         secondLargest = max;
                         max = number;
                     }
-                    else if(number < max)
+                    else if (number < max)
                     {
                         secondLargest = number;
                     }
