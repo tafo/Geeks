@@ -110,7 +110,7 @@ namespace Geeks.Practices.Arrays.Basic
 
             for (var i = 1; i < array.Length; i++)
             {
-                if (array[i] <= third) continue;
+                if (array[i] < third) continue;
 
                 if (array[i] > second)
                 {
