@@ -82,11 +82,11 @@ namespace Geeks.Practices.Arrays.Basic
                 
                 while (scanner.HasNext)
                 {
-                    var element = scanner.NextPositiveInt();
+                    var element = scanner.NextUInt();
                     switch (element)
                     {
                         case 1:
-                            stack[++position] = scanner.NextPositiveInt();
+                            stack[++position] = scanner.NextUInt();
                             break;
                         case 2 when position  == -1:
                             resultBuilder.Append("-1");
@@ -123,11 +123,11 @@ namespace Geeks.Practices.Arrays.Basic
                 var stack = new ThatStack();
                 while (scanner.HasNext)
                 {
-                    var element = scanner.NextPositiveInt();
+                    var element = scanner.NextUInt();
                     switch (element)
                     {
                         case 1:
-                            stack.Push(scanner.NextPositiveInt());
+                            stack.Push(scanner.NextUInt());
                             break;
                         case 2:
                             resultBuilder.Append(stack.Pop());

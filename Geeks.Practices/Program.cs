@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            FindSecondLargest.Run();
+            AbsoluteDifferenceOfDigits.Run();
             Console.ReadKey();
         }
     }

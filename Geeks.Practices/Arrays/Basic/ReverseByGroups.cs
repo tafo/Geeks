@@ -77,13 +77,13 @@ namespace Geeks.Practices.Arrays.Basic
                     var step = i * k;
                     for (var j = k - 1; j >= 0; j--)
                     {
-                        elements[step + j] = scanner.NextInt64();
+                        elements[step + j] = scanner.NextUInt64();
                     }
                 }
 
                 for (var i = n - 1; i >= k * group; i--)
                 {
-                    elements[i] = scanner.NextInt64();
+                    elements[i] = scanner.NextUInt64();
                 }
 
                 Console.WriteLine(string.Join(' ', elements));
@@ -124,7 +124,7 @@ namespace Geeks.Practices.Arrays.Basic
                     }
                     do
                     {
-                        elements[step - ++sub] = scanner.NextInt64();
+                        elements[step - ++sub] = scanner.NextUInt64();
                     } while (sub < k && scanner.HasNext);
                 }
 
@@ -159,7 +159,7 @@ namespace Geeks.Practices.Arrays.Basic
                 {
                     do
                     {
-                        group[g++] = scanner.NextInt64();
+                        group[g++] = scanner.NextUInt64();
                     } while (g < k && scanner.HasNext);
 
                     do

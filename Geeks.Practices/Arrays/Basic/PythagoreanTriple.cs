@@ -155,7 +155,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var scanner = new StringScanner(input[index]);
                 while (scanner.HasNext)
                 {
-                    var number = scanner.NextPositiveInt();
+                    var number = scanner.NextUInt();
                     for (var i = 0; i < k; i++)
                     {
                         if (triples[i, 0] == number)
@@ -242,7 +242,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var result = "No";
                 while (scanner.HasNext)
                 {
-                    var number = scanner.NextPositiveInt();
+                    var number = scanner.NextUInt();
                     for (var i = 0; i < k; i++)
                     {
                         if (triples[i, 0] == number || triples[i, 1] == number || triples[i, 2] == number)

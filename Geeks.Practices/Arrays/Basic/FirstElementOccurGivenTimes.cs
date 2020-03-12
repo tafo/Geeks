@@ -147,7 +147,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var index = 0;
                 while (scanner.HasNext)
                 {
-                    numbers[index++] = scanner.NextPositiveInt();
+                    numbers[index++] = scanner.NextUInt();
                 }
 
                 Console.WriteLine(numbers.GroupBy(x => x).FirstOrDefault(x => x.Count() == count)?.Key ?? -1);
@@ -188,7 +188,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var index = 0;
                 while (scanner.HasNext)
                 {
-                    var number = scanner.NextPositiveInt();
+                    var number = scanner.NextUInt();
                     var exists = false;
                     for (var i = 0; i < index; i++)
                     {

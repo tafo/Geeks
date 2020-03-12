@@ -123,8 +123,8 @@ namespace Geeks.Practices.Arrays.Basic
                 
                 while (scanner.HasNext)
                 {
-                    var carNumber = scanner.NextPositiveInt();
-                    var penalty = penaltyScanner.NextPositiveInt();
+                    var carNumber = scanner.NextUInt();
+                    var penalty = penaltyScanner.NextUInt();
                     if (bit != (carNumber & 1))
                     {
                         totalFine += penalty;
@@ -163,8 +163,8 @@ namespace Geeks.Practices.Arrays.Basic
                 
                 while (scanner.HasNext)
                 {
-                    var carNumber = scanner.NextPositiveInt();
-                    var penalty = penaltyScanner.NextPositiveInt();
+                    var carNumber = scanner.NextUInt();
+                    var penalty = penaltyScanner.NextUInt();
                     if (((carNumber ^ date) & 1) == 1)
                     {
                         totalFine += penalty;

@@ -79,10 +79,10 @@ namespace Geeks.Practices.Arrays.Basic
                 
                 while (scanner.HasNext)
                 {
-                    switch (scanner.NextPositiveInt())
+                    switch (scanner.NextUInt())
                     {
                         case 1:
-                            queue.Push(scanner.NextPositiveInt());
+                            queue.Push(scanner.NextUInt());
                             break;
                         case 2:
                             Console.Write("{0} ", queue.Pop());

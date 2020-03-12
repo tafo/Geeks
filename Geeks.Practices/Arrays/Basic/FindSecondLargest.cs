@@ -77,7 +77,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var i = 0;
                 while (scanner.HasNext)
                 {
-                    numbers[i++] = scanner.NextPositiveInt();
+                    numbers[i++] = scanner.NextUInt();
                 }
 
                 Console.WriteLine(numbers.Distinct().OrderByDescending(x => x).Skip(1).DefaultIfEmpty(-1).FirstOrDefault());
@@ -132,7 +132,7 @@ namespace Geeks.Practices.Arrays.Basic
 
                 while (scanner.HasNext)
                 {
-                    var number = scanner.NextPositiveInt();
+                    var number = scanner.NextUInt();
                     if (number <= secondLargest) continue;
 
                     if (number > max)

@@ -56,7 +56,7 @@ namespace Geeks.Practices.Helper
             return result * (isNegative ? -1 : 1);
         }
 
-        public int NextPositiveInt()
+        public int NextUInt()
         {
             var result = 0;
             var c = _input[Position++];
@@ -77,7 +77,7 @@ namespace Geeks.Practices.Helper
             return result;
         }
 
-        public int PreviousPositiveInt()
+        public int PreviousUInt()
         {
             var result = 0;
             var c = _input[Position--];
@@ -113,7 +113,7 @@ namespace Geeks.Practices.Helper
             return bit;
         }
 
-        public long NextInt64()
+        public long NextUInt64()
         {
             long result = 0;
             var c = _input[Position++];

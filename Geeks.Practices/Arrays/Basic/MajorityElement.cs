@@ -50,7 +50,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var scanner = new StringScanner(testCase[1]);
                 while (scanner.HasNext)
                 {
-                    var n = elements[elementIndex++] = scanner.NextPositiveInt();
+                    var n = elements[elementIndex++] = scanner.NextUInt();
                     if (testCounter == 0)
                     {
                         majorityElement = n;
@@ -117,7 +117,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var scanner = new StringScanner(testCase[1]);
                 while (scanner.HasNext)
                 {
-                    var n = scanner.NextPositiveInt();
+                    var n = scanner.NextUInt();
                     if (c == 0)
                     {
                         m = n;
@@ -139,7 +139,7 @@ namespace Geeks.Practices.Arrays.Basic
                     scanner.Reset();
                     while (scanner.HasNext)
                     {
-                        if (m == scanner.NextPositiveInt())
+                        if (m == scanner.NextUInt())
                         {
                             counter++;
                         }

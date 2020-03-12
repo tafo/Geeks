@@ -51,10 +51,10 @@ namespace Geeks.Practices.Arrays.Basic
             {
                 var stringBuilder = new StringBuilder();
                 var scanner = new StringScanner(elements);
-                var left = scanner.NextPositiveInt();
+                var left = scanner.NextUInt();
                 do
                 {
-                    var right = scanner.NextPositiveInt();
+                    var right = scanner.NextUInt();
                     if (right < left)
                     {
                         stringBuilder.Append(right);

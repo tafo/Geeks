@@ -70,7 +70,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var counter = 0;
                 while (scanner.HasNext)
                 {
-                    elements[counter++] = scanner.NextPositiveInt();
+                    elements[counter++] = scanner.NextUInt();
                 }
                 Console.WriteLine(string.Join(' ', elements.OrderByDescending(x => x).Take(top)));
             }
@@ -101,7 +101,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var counter = 0;
                 while (scanner.HasNext)
                 {
-                    elements[counter++] = scanner.NextPositiveInt();
+                    elements[counter++] = scanner.NextUInt();
                 }
                 var largestElements = elements.OrderByDescending(x => x).Take(top);
                 Console.WriteLine(string.Join(' ', largestElements));
@@ -159,7 +159,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var counter = 0;
                 while (scanner.HasNext)
                 {
-                    elements[counter++] = scanner.NextPositiveInt();
+                    elements[counter++] = scanner.NextUInt();
                 }
 
                 Array.Sort(elements, (a, b) => b.CompareTo(a));
@@ -195,7 +195,7 @@ namespace Geeks.Practices.Arrays.Basic
                 while (scanner.HasNext)
                 {
                     var index = 0;
-                    var number = scanner.NextPositiveInt();
+                    var number = scanner.NextUInt();
 
                     while (index < top)
                     {

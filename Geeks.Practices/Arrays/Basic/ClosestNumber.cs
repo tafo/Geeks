@@ -72,13 +72,13 @@ namespace Geeks.Practices.Arrays.Basic
 
                 var key = int.Parse(split[1]);
                 var scanner = new StringScanner(testCase[1]);
-                var pre = scanner.NextPositiveInt();
-                var next = scanner.NextPositiveInt();
+                var pre = scanner.NextUInt();
+                var next = scanner.NextUInt();
 
                 while (scanner.HasNext && next < key)
                 {
                     pre = next;
-                    next = scanner.NextPositiveInt();
+                    next = scanner.NextUInt();
                 }
 
                 if (next < key)
@@ -114,7 +114,7 @@ namespace Geeks.Practices.Arrays.Basic
                 //var n = int.Parse(split[0]); Skip the number of elements
                 var key = int.Parse(split[1]);
                 var scanner = new StringScanner(testCase[1]);
-                var result = scanner.NextPositiveInt();
+                var result = scanner.NextUInt();
                 var difference = result - key;
                 if (difference < 0)
                 {
@@ -124,7 +124,7 @@ namespace Geeks.Practices.Arrays.Basic
                 difference = difference < 0 ? -1 * difference : difference;
                 while (scanner.HasNext)
                 {
-                    var number = scanner.NextPositiveInt();
+                    var number = scanner.NextUInt();
                     var currentDifference = number - key;
                     if (currentDifference < 0)
                     {
@@ -168,12 +168,12 @@ namespace Geeks.Practices.Arrays.Basic
                 //var n = int.Parse(split[0]); Skip the number of elements
                 var key = int.Parse(split[1]);
                 var scanner = new StringScanner(testCase[1]);
-                var result = scanner.NextPositiveInt();
+                var result = scanner.NextUInt();
                 var difference = Math.Abs(result - key);
                 
                 while (scanner.HasNext)
                 {
-                    var number = scanner.NextPositiveInt();
+                    var number = scanner.NextUInt();
                     var currentDifference = Math.Abs(number - key);
                     if (currentDifference < difference)
                     {
