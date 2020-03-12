@@ -55,9 +55,40 @@ namespace Geeks.Practices.Arrays.Basic
     {
         /// <summary>
         /// The execution time is 0.09
-        /// LINQ :)
+        ///     * I was expecting to get a better result!!!
         /// </summary>
         public static void Run()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().Trim();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = new int[n];
+                var scanner = new StringScanner(test[1]);
+                var i = 0;
+                while (scanner.HasNext)
+                {
+                    numbers[i++] = scanner.NextPositiveInt();
+                }
+
+                Console.WriteLine(numbers.Distinct().OrderByDescending(x => x).Skip(1).DefaultIfEmpty(-1).FirstOrDefault());
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.09
+        /// LINQ :)
+        /// </summary>
+        public static void Run2()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount];
