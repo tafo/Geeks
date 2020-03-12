@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            ReplaceWithNextGreatest.Run();
+            FindSecondLargest.Run();
             Console.ReadKey();
         }
     }
