@@ -50,9 +50,56 @@ namespace Geeks.Practices.Arrays.Basic
     public class AbsoluteDifferenceOfDigits
     {
         /// <summary>
-        /// The execution time is 0.33
+        /// The execution time is 0.51
         /// </summary>
         public static void Run()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().Trim();
+            }
+
+            foreach (var test in tests)
+            {
+                var line = test[0].Split(' ');
+                // var n = int.Parse(line[0]); Skip the number of elements
+                var key = long.Parse(line[1]);
+                var numbers = test[1].Split(' ').Where(IsQualified).Select(int.Parse).Where(x => x < key).DefaultIfEmpty(-1);
+                Console.WriteLine(string.Join(' ', numbers));
+            }
+        }
+
+        
+        private static bool IsQualified(string input)
+        {
+            var result = true;
+
+            if (input.Length == 1)
+            {
+                result = false;
+            }
+            else    
+            {
+                for (var i = 0; i < input.Length - 1; i++)
+                {
+                    if (Math.Abs(input[i] - input[i + 1]) == 1) continue;
+                    result = false;
+                    break;
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// The execution time is 0.33
+        /// </summary>
+        public static void Run3()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount][];
