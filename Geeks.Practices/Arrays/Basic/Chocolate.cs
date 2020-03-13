@@ -80,6 +80,7 @@ namespace Geeks.Practices.Arrays.Basic
     {
         /// <summary>
         /// The execution time is 0.18
+        /// * Single line solution
         /// </summary>
         public static void Run()
         {
