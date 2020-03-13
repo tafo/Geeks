@@ -15,13 +15,13 @@ I am open to any kind of feedback. Bug report, suggestion, ...
 * LE >> Less than or Equal to
  
 ## THE PATTERN OF COMMIT MESSAGES
-* Subject - DifficultyLevel - ClassName - CommitType
+* Subject - DifficultyLevel - ClassName - Action - ActionExpression 
 * Examples
-  * Arrays - Basic - MissingNumber - Create
-  * Arrays - Basic - MissingNumber - Add another solution
-  * Arrays - Basic - MissingNumber - Update
-* This pattern was not used for school-level problems
-
+  * Arrays - Basic - MissingNumber - Create - Solution
+  * Arrays - Basic - MissingNumber - Add - Comment
+  * Arrays - Basic - MissingNumber - Update - Solution
+* This pattern was used for "Chocolate" and the subsequent practices
+  * Previous pattern was "Subject - DifficultyLevel - ClassName - Expression"
 ## NOTES
 * This is also a practice repository for LINQ
 
