@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            MinimizeSumOfProduct.Run();
+            MaxProductOfTwoNumbers.Run();
             Console.ReadKey();
         }
     }
