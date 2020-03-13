@@ -57,10 +57,60 @@ namespace Geeks.Practices.Arrays.Basic
     public class MinimizeSumOfProduct
     {
         /// <summary>
+        /// The execution time is 1.18
+        /// * Compare this with Run6
+        /// * We have got better performance by declaring the collections
+        /// </summary>
+        public static void Run()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                Console.ReadLine(); // Skip the number of elements
+                tests[i][0] = Console.ReadLine().TrimEnd();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var left = test[0].Split(' ').Select(long.Parse).OrderBy(x => x);
+                var right = test[1].Split(' ').Select(long.Parse).OrderByDescending(x => x);
+                Console.WriteLine(left.Zip(right, (a, b) => a * b).Sum());
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 1.23
+        /// * Single line solution
+        /// </summary>
+        public static void Run6()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                Console.ReadLine(); // Skip the number of elements
+                tests[i][0] = Console.ReadLine().TrimEnd();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(test[0].Split(' ').Select(long.Parse).OrderBy(x => x)
+                    .Zip(test[1].Split(' ').Select(long.Parse).OrderByDescending(x => x), (a, b) => a * b).Sum());
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.52
         /// * Using Zip
         /// </summary>
-        public static void Run()
+        public static void Run5()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount][];
