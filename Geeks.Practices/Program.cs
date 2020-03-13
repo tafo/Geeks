@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            AbsoluteDifferenceOfDigits.Run();
+            MinimizeSumOfProduct.Run();
             Console.ReadKey();
         }
     }

@@ -69,7 +69,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var line = test[0].Split(' ');
                 // var n = int.Parse(line[0]); Skip the number of elements
                 var key = long.Parse(line[1]);
-                var numbers = test[1].Split(' ').Where(IsQualified).Select(int.Parse).Where(x => x < key).DefaultIfEmpty(-1);
+                var numbers = test[1].Split(' ').Where(IsQualified).Select(long.Parse).Where(x => x < key).DefaultIfEmpty(-1);
                 Console.WriteLine(string.Join(' ', numbers));
             }
         }

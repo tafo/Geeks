@@ -29,6 +29,18 @@ namespace Geeks.Practices.Helper
             }
         }
 
+        public long[] GetInt64Numbers(int n)
+        {
+            var result = new long[n];
+            var i = 0;
+            while (HasNext)
+            {
+                result[i++] = NextUInt64();
+            }
+
+            return result;
+        }
+
         public int NextInt()
         {
             var result = 0;
