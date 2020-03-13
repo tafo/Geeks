@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            MaxInStructArray.Run();
+            SmallestPair.RunThis();
             Console.ReadKey();
         }
     }
