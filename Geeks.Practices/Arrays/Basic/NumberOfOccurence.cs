@@ -71,11 +71,11 @@ namespace Geeks.Practices.Arrays.Basic
                 var counter = 0;
                 while (scanner.HasNext)
                 {
-                    if (key != scanner.NextUInt()) continue;
+                    if (key != scanner.NextPositiveInt()) continue;
                     do
                     {
                         counter++;    
-                    } while (scanner.NextUInt() == key);
+                    } while (scanner.NextPositiveInt() == key);
                     break;
                 }
                 Console.WriteLine(counter == 0 ? -1 : counter);
@@ -107,7 +107,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var counter = 0;
                 while (scanner.HasNext)
                 {
-                    if (key == scanner.NextUInt())
+                    if (key == scanner.NextPositiveInt())
                     {
                         counter++;
                     }

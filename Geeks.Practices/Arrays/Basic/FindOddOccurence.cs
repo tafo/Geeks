@@ -62,10 +62,10 @@ namespace Geeks.Practices.Arrays.Basic
             foreach (var testCase in input)
             {
                 var scanner = new StringScanner(testCase[1]);
-                var number = scanner.NextUInt();
+                var number = scanner.NextPositiveInt();
                 while (scanner.HasNext)
                 {
-                    number ^= scanner.NextUInt();
+                    number ^= scanner.NextPositiveInt();
                 }
 
                 Console.WriteLine(number);
@@ -99,7 +99,7 @@ namespace Geeks.Practices.Arrays.Basic
                     var i = 0;
                     while (scanner.HasNext)
                     {
-                        elements[i++] = scanner.NextUInt();
+                        elements[i++] = scanner.NextPositiveInt();
                     }
 
                     var sortedElements = elements.OrderBy(x => x).ToArray();

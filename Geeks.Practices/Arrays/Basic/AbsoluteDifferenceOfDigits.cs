@@ -235,7 +235,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var i = 0;
                 while (scanner.HasNext)
                 {
-                    var number = scanner.NextUInt64();
+                    var number = scanner.NextPositiveInt64();
 
                     if (number >= key || number < 10) continue;
 

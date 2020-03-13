@@ -65,7 +65,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var index = 0;
                 while (scanner.HasNext)
                 {
-                    elements[index++] = scanner.NextUInt();
+                    elements[index++] = scanner.NextPositiveInt();
                 }
 
                 Array.Sort(elements);
@@ -118,7 +118,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var index = 0;
                 while (scanner.HasNext)
                 {
-                    elements[index++] = scanner.NextUInt();
+                    elements[index++] = scanner.NextPositiveInt();
                 }
 
                 var counter = 0;

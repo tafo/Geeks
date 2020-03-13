@@ -92,7 +92,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var max = numbers[--n] = -1;
                 while (scanner.HasNext && n > 0)
                 {
-                    var number = scanner.PreviousUInt();
+                    var number = scanner.PreviousPositiveInt();
                     if (number > max)
                     {
                         max = number;
@@ -124,11 +124,11 @@ namespace Geeks.Practices.Arrays.Basic
                 var n = int.Parse(test[0]);
                 var numbers = new int[n];
                 var scanner = new StringScanner(test[1]);
-                scanner.NextUInt(); // Skip the first number;
+                scanner.NextPositiveInt(); // Skip the first number;
                 var index = 0;
                 while (scanner.HasNext)
                 {
-                    var number = scanner.NextUInt();
+                    var number = scanner.NextPositiveInt();
                     numbers[index] = number;
                     var k = index - 1;
                     while (k >= 0 && number > numbers[k])

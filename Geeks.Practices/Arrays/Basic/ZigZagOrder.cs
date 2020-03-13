@@ -79,10 +79,10 @@ namespace Geeks.Practices.Arrays.Basic
                 var i = 0;
 
                 var flag = true;
-                var left = scanner.NextUInt();
+                var left = scanner.NextPositiveInt();
                 while (scanner.HasNext)
                 {
-                    var right = scanner.NextUInt();
+                    var right = scanner.NextPositiveInt();
                     if (flag && left < right || !flag && left > right)
                     {
                         elements[i++] = left;
@@ -125,7 +125,7 @@ namespace Geeks.Practices.Arrays.Basic
 
                 while (scanner.HasNext)
                 {
-                    elements[i++] = scanner.NextUInt();
+                    elements[i++] = scanner.NextPositiveInt();
                 }
 
                 var flag = true;

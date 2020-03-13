@@ -29,13 +29,23 @@ namespace Geeks.Practices.Helper
             }
         }
 
-        public long[] GetInt64Numbers(int n)
+        public long[] GetAllPositiveInt64(int n)
         {
             var result = new long[n];
             var i = 0;
-            while (HasNext)
+            long number = 0;
+
+            for (var p = 0; p < _length; p++)
             {
-                result[i++] = NextUInt64();
+                var c = _input[Position++];
+                if (char.IsWhiteSpace(c))
+                {
+                    result[i++] = number;
+                    number = 0;
+                    continue;
+                }
+                
+                number = number * 10 + (c - Sub);
             }
 
             return result;
@@ -68,7 +78,7 @@ namespace Geeks.Practices.Helper
             return result * (isNegative ? -1 : 1);
         }
 
-        public int NextUInt()
+        public int NextPositiveInt()
         {
             var result = 0;
             var c = _input[Position++];
@@ -89,7 +99,7 @@ namespace Geeks.Practices.Helper
             return result;
         }
 
-        public int PreviousUInt()
+        public int PreviousPositiveInt()
         {
             var result = 0;
             var c = _input[Position--];
@@ -125,7 +135,7 @@ namespace Geeks.Practices.Helper
             return bit;
         }
 
-        public long NextUInt64()
+        public long NextPositiveInt64()
         {
             long result = 0;
             var c = _input[Position++];

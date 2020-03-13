@@ -77,7 +77,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var index = 0;
                 while (scanner.HasNext)
                 {
-                    elements[index++] = scanner.NextUInt();
+                    elements[index++] = scanner.NextPositiveInt();
                 }
 
                 Console.WriteLine(Product(elements, n, n));

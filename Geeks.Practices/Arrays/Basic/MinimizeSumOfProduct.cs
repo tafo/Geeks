@@ -57,7 +57,7 @@ namespace Geeks.Practices.Arrays.Basic
     public class MinimizeSumOfProduct
     {
         /// <summary>
-        /// The execution time is 0.48
+        /// The execution time is 0.47
         /// * The best solution in this class!!!
         /// </summary>
         public static void Run()
@@ -76,8 +76,8 @@ namespace Geeks.Practices.Arrays.Basic
             foreach (var test in tests)
             {
                 var n = int.Parse(test[0]);
-                var leftNumbers = new StringScanner(test[1]).GetInt64Numbers(n);
-                var rightNumbers = new StringScanner(test[2]).GetInt64Numbers(n);
+                var leftNumbers = new StringScanner(test[1]).GetAllPositiveInt64(n);
+                var rightNumbers = new StringScanner(test[2]).GetAllPositiveInt64(n);
                 Array.Sort(leftNumbers);
                 Array.Sort(rightNumbers, (a, b) => b.CompareTo(a));
                 long sum = 0;
@@ -110,8 +110,8 @@ namespace Geeks.Practices.Arrays.Basic
             foreach (var test in tests)
             {
                 var n = int.Parse(test[0]);
-                var leftNumbers = new StringScanner(test[1]).GetInt64Numbers(n).OrderBy(x => x).ToArray();
-                var rightNumbers = new StringScanner(test[2]).GetInt64Numbers(n).OrderByDescending(x => x).ToArray();
+                var leftNumbers = new StringScanner(test[1]).GetAllPositiveInt64(n).OrderBy(x => x).ToArray();
+                var rightNumbers = new StringScanner(test[2]).GetAllPositiveInt64(n).OrderByDescending(x => x).ToArray();
                 long sum = 0;
                 for (var i = 0; i < n; i++)
                 {
@@ -140,8 +140,8 @@ namespace Geeks.Practices.Arrays.Basic
             foreach (var test in tests)
             {
                 var n = int.Parse(test[0]);
-                var leftNumbers = new StringScanner(test[1]).GetInt64Numbers(n).OrderBy(x => x);
-                var rightNumbers = new StringScanner(test[2]).GetInt64Numbers(n).OrderByDescending(x => x).ToArray();
+                var leftNumbers = new StringScanner(test[1]).GetAllPositiveInt64(n).OrderBy(x => x);
+                var rightNumbers = new StringScanner(test[2]).GetAllPositiveInt64(n).OrderByDescending(x => x).ToArray();
                 Console.WriteLine(leftNumbers.Select((x, k) => x * rightNumbers[k]).Sum());
             }
         }
