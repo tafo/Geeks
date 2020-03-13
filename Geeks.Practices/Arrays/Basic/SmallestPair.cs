@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -42,6 +43,28 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class SmallestPair
     {
+        /// <summary>
+        /// The execution time is 0.09
+        /// * LOVE LINQ
+        /// </summary>
+        public static void Run()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine(); // Skip the number of elements
+                tests[i] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var result = test.Split(' ').Distinct().Select(int.Parse).OrderBy(x => x).Take(2).ToArray();
+                Console.WriteLine(result.Length == 1 ? "-1" : string.Join(' ', result));
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.13
         /// </summary>

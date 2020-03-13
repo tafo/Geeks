@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            SmallestPair.RunThis();
+            SmallestPair.Run();
             Console.ReadKey();
         }
     }
