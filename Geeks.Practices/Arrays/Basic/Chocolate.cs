@@ -71,6 +71,10 @@ namespace Geeks.Practices.Arrays.Basic
     /// 2 2 2
     /// 2 2
     /// 2
+    ///
+    /// Remarks:
+    /// 1) The statement is not clear
+    /// 
     /// </summary>
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
