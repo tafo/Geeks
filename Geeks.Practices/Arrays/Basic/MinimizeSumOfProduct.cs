@@ -57,11 +57,44 @@ namespace Geeks.Practices.Arrays.Basic
     public class MinimizeSumOfProduct
     {
         /// <summary>
+        /// The execution time is 0.48
+        /// * The best solution in this class!!!
+        /// </summary>
+        public static void Run()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[3];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().Trim();
+                tests[i][2] = Console.ReadLine().Trim();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var leftNumbers = new StringScanner(test[1]).GetInt64Numbers(n);
+                var rightNumbers = new StringScanner(test[2]).GetInt64Numbers(n);
+                Array.Sort(leftNumbers);
+                Array.Sort(rightNumbers, (a, b) => b.CompareTo(a));
+                long sum = 0;
+                for (var i = 0; i < n; i++)
+                {
+                    sum += leftNumbers[i] * rightNumbers[i];
+                }
+                Console.WriteLine(sum);
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.73
         /// * Evaluating Iteration vs LINQ
         /// * Iteration is better !!!
         /// </summary>
-        public static void Run()
+        public static void Run3()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount][];
