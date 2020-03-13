@@ -59,7 +59,7 @@ namespace Geeks.Practices.Arrays.Basic
         /// <summary>
         /// The execution time is 1.18
         /// * Compare this with Run6
-        /// * We have got better performance by declaring the collections
+        /// * We have got a better performance by declaring the collections
         /// </summary>
         public static void Run()
         {

@@ -51,6 +51,28 @@ namespace Geeks.Practices.Helper
             return result;
         }
 
+        public int[] GetAllPositiveInt(int n)
+        {
+            var result = new int[n];
+            var i = 0;
+            var number = 0;
+
+            for (var p = 0; p < _length; p++)
+            {
+                var c = _input[Position++];
+                if (char.IsWhiteSpace(c))
+                {
+                    result[i++] = number;
+                    number = 0;
+                    continue;
+                }
+                
+                number = number * 10 + (c - Sub);
+            }
+
+            return result;
+        }
+
         public int NextInt()
         {
             var result = 0;
