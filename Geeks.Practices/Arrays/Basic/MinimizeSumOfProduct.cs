@@ -28,16 +28,24 @@ namespace Geeks.Practices.Arrays.Basic
     /// 
     /// Example:
     /// Input:
-    /// 2
+    /// 4
     /// 3 
     /// 3 1 1
     /// 6 5 4
     /// 5
     /// 6 1 9 5 4
     /// 3 4 8 2 4
+    /// 4
+    /// 7 18 16 14 
+    /// 16 7 13 10
+    /// 2
+    /// 3 8 
+    /// 11 20
     /// Output:
     /// 23 
     /// 80
+    /// 580
+    /// 148
     /// 
     /// Explanation:
     /// For testcase1: 1*6+1*5+3*4 = 6+5+12 = 23 is the minimum sum
@@ -49,7 +57,9 @@ namespace Geeks.Practices.Arrays.Basic
     public class MinimizeSumOfProduct
     {
         /// <summary>
-        /// The execution time is 1.2
+        /// The execution time is 0.73
+        /// * Evaluating Iteration vs LINQ
+        /// * Iteration is better !!!
         /// </summary>
         public static void Run()
         {
@@ -58,16 +68,23 @@ namespace Geeks.Practices.Arrays.Basic
 
             for (var i = 0; i < testCount; i++)
             {
-                tests[i] = new string[2];
-                Console.ReadLine();
-                tests[i][0] = Console.ReadLine().Trim();
+                tests[i] = new string[3];
+                tests[i][0] = Console.ReadLine();
                 tests[i][1] = Console.ReadLine().Trim();
+                tests[i][2] = Console.ReadLine().Trim();
             }
 
             foreach (var test in tests)
             {
-                var right = test[1].Split(' ').Select(long.Parse).OrderByDescending(x => x).ToArray();
-                Console.WriteLine(test[0].Split(' ').Select(long.Parse).OrderBy(x => x).Select((x, k) => x * right[k]).Sum());
+                var n = int.Parse(test[0]);
+                var leftNumbers = new StringScanner(test[1]).GetInt64Numbers(n).OrderBy(x => x).ToArray();
+                var rightNumbers = new StringScanner(test[2]).GetInt64Numbers(n).OrderByDescending(x => x).ToArray();
+                long sum = 0;
+                for (var i = 0; i < n; i++)
+                {
+                    sum += leftNumbers[i] * rightNumbers[i];
+                }
+                Console.WriteLine(sum);
             }
         }
 
