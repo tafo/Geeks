@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
 {
@@ -48,9 +49,32 @@ namespace Geeks.Practices.Arrays.Basic
     public class MinimizeSumOfProduct
     {
         /// <summary>
-        /// The execution time is 1.21
+        /// The execution time is 1.2
         /// </summary>
         public static void Run()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                Console.ReadLine();
+                tests[i][0] = Console.ReadLine().Trim();
+                tests[i][1] = Console.ReadLine().Trim();
+            }
+
+            foreach (var test in tests)
+            {
+                var right = test[1].Split(' ').Select(long.Parse).OrderByDescending(x => x).ToArray();
+                Console.WriteLine(test[0].Split(' ').Select(long.Parse).OrderBy(x => x).Select((x, k) => x * right[k]).Sum());
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.77
+        /// </summary>
+        public static void Run2()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount][];
@@ -63,11 +87,35 @@ namespace Geeks.Practices.Arrays.Basic
                 tests[i][2] = Console.ReadLine().Trim();
             }
 
-            for (var i = 0; i < tests.GetLength(0); i++)
+            foreach (var test in tests)
             {
-                var n = int.Parse(tests[i][0]);
-                var leftNumbers = tests[i][1].Split(' ').Select(long.Parse).OrderBy(x => x);
-                var rightNumbers = tests[i][2].Split(' ').Select(long.Parse).OrderByDescending(x => x).ToArray();
+                var n = int.Parse(test[0]);
+                var leftNumbers = new StringScanner(test[1]).GetInt64Numbers(n).OrderBy(x => x);
+                var rightNumbers = new StringScanner(test[2]).GetInt64Numbers(n).OrderByDescending(x => x).ToArray();
+                Console.WriteLine(leftNumbers.Select((x, k) => x * rightNumbers[k]).Sum());
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 1.21
+        /// </summary>
+        public static void Run1()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                Console.ReadLine(); // Skip the number of elements
+                tests[i][0] = Console.ReadLine().Trim();
+                tests[i][1] = Console.ReadLine().Trim();
+            }
+
+            foreach (var test in tests)
+            {
+                var leftNumbers = test[0].Split(' ').Select(long.Parse).OrderBy(x => x);
+                var rightNumbers = test[1].Split(' ').Select(long.Parse).OrderByDescending(x => x).ToArray();
                 Console.WriteLine(leftNumbers.Select((x, k) => x * rightNumbers[k]).Sum());
             }
         }
