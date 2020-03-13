@@ -57,10 +57,36 @@ namespace Geeks.Practices.Arrays.Basic
     public class MinimizeSumOfProduct
     {
         /// <summary>
+        /// The execution time is 0.52
+        /// * Using Zip
+        /// </summary>
+        public static void Run()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[3];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().Trim();
+                tests[i][2] = Console.ReadLine().Trim();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var leftNumbers = new StringScanner(test[1]).GetAllPositiveInt64(n).OrderBy(x => x);
+                var rightNumbers = new StringScanner(test[2]).GetAllPositiveInt64(n).OrderByDescending(x => x).ToArray();
+                Console.WriteLine(leftNumbers.Zip(rightNumbers, (a, b) => a * b).Sum());
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.47
         /// * The best solution in this class!!!
         /// </summary>
-        public static void Run()
+        public static void Run4()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount][];
