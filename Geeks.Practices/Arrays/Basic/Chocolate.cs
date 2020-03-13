@@ -78,6 +78,8 @@ namespace Geeks.Practices.Arrays.Basic
     public class Chocolate
     {
         /// <summary>
+        /// If Ishaan being greedy eats the more tasty square first, his sister gets the lowest tastiness level.
+        /// * So, fint the min
         /// The execution time is 0.13
         /// </summary>
         public static void Run()
