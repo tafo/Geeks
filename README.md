@@ -29,5 +29,5 @@ I am open to any kind of feedback. Bug report, suggestion, ...
 * If C# is not an available programming language, then its C++ or JAVA solution is included in the summary section
 * I used LINQ in the "SortBySpecificOrder" and subsequent practices
 * The execution time has a margin of error of &#0177;30 miliseconds
-  * The execution time is not related with the input examples that are specified at the end of the summary section of a class. It is the result of submitted solution to GeeksForGeeks. 
+  * The execution time is not related with the input examples that are specified at the end of the summary section of a class. It is the result of the submitted solution to GeeksForGeeks. 
 * I stopped using StringScanner if it is not crucial in the "Pendulum" and subsequent practices
