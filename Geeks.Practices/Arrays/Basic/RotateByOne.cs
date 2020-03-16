@@ -40,6 +40,32 @@ namespace Geeks.Practices.Arrays.Basic
     public class RotateByOne
     {
         /// <summary>
+        /// the execution time is 0.13
+        /// </summary>
+        public static void RunBest()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var elements = test[1].Split(' ');
+                var savedElement = elements[n - 1];
+                Array.Copy(elements, 0, elements, 1, n - 1);
+                elements[0] = savedElement;
+                Console.WriteLine(string.Join(' ', elements));
+            }
+        }
+
+        /// <summary>
         /// the execution time is 0.14 (Same!)
         /// </summary>
         public static void Run()
