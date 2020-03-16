@@ -22,7 +22,7 @@ namespace Geeks.Practices.Arrays.Basic
     /// Constraints:
     /// 1 <= T <= 100
     /// 1 <= N <= 10e7
-    /// 0 <= Ai <= 10e18
+    /// 0 <= Ai <= 10e18    (>>> This is wrong!!!)
     /// 
     /// Example:
     /// Input:
@@ -44,6 +44,9 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class IndexOfOne
     {
+        /// <summary>
+        /// The execution time is 0.27
+        /// </summary>
         public static void Run()
         {
             var testCount = int.Parse(Console.ReadLine());

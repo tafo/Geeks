@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            FindMissingNumber.Run();
+            IndexOfOne.Run();
             Console.ReadKey();
         }
     }
