@@ -24,15 +24,20 @@ namespace Geeks.Practices.Arrays.Basic
     /// 
     /// Example:
     /// Input:
-    /// 2
+    /// 4
     /// 5
     /// 1 2 3 4 5
     /// 8
     /// 9 8 7 6 4 2 1 3
-    /// 
+    /// 1
+    /// 1
+    /// 2
+    /// 1 2
     /// Output:
     /// 5 1 2 3 4
     /// 3 9 8 7 6 4 2 1
+    /// 1
+    /// 2 1
     /// </summary>
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
