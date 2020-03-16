@@ -45,7 +45,27 @@ namespace Geeks.Practices.Arrays.Basic
         /// <summary>
         /// The execution time is 0.18
         /// </summary>
-        public static void Run()
+        public static void RunSingleLine()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new long[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine(); // Skip the number of elements
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(long.Parse).OrderBy(x => x).ToArray();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine("{0} {1}", test[0], test[^1]);
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.18
+        /// </summary>
+        public static void RunLinq()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount];
@@ -66,7 +86,7 @@ namespace Geeks.Practices.Arrays.Basic
         /// <summary>
         /// The execution time is 0.10
         /// </summary>
-        public static void RunThis()
+        public static void Run()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount][];
@@ -92,7 +112,7 @@ namespace Geeks.Practices.Arrays.Basic
         /// <summary>
         /// The execution time is 0.15
         /// </summary>
-        public static void RunAlsoThis()
+        public static void RunThis()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount];
