@@ -48,6 +48,8 @@ namespace Geeks.Practices.Helper
                 number = number * 10 + (c - Sub);
             }
 
+            result[i] = number;
+
             return result;
         }
 

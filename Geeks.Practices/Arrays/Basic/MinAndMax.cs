@@ -42,9 +42,35 @@ namespace Geeks.Practices.Arrays.Basic
     public class MinAndMax
     {
         /// <summary>
-        /// The execution time is 0.15
+        /// The execution time is 0.10
         /// </summary>
         public static void Run()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var scanner = new StringScanner(test[1]);
+                var numbers = scanner.GetAllPositiveInt64(n);
+                Array.Sort(numbers);
+
+                Console.WriteLine("{0} {1}", numbers[0], numbers[n - 1]);
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.15
+        /// </summary>
+        public static void RunThis()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount];
