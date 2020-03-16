@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -37,7 +38,7 @@ namespace Geeks.Practices.Arrays.Basic
     /// -1
     /// 
     /// Explanation:
-    /// Testcase 1: First index where 1 is presented is 6.
+    /// Test case 1: First index where 1 is presented is 6.
     /// </summary>
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
@@ -45,9 +46,28 @@ namespace Geeks.Practices.Arrays.Basic
     public class IndexOfOne
     {
         /// <summary>
-        /// The execution time is 0.27
+        /// The execution time is 1.05
         /// </summary>
         public static void Run()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(Array.IndexOf(test.Split(' '), "1"));
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.27
+        /// </summary>
+        public static void RunThis()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount][];
