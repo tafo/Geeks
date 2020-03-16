@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Geeks.Practices.Helper
@@ -24,6 +25,23 @@ namespace Geeks.Practices.Helper
                 {
                     yield return e2.Current;
                 }
+            }
+        }
+
+        public static IEnumerable<TSource> First<TSource>(IEnumerable<TSource> source, Func<TSource, int, bool> predicate)
+        {
+            var index = -1;
+            foreach (var element in source)
+            {
+                checked
+                {
+                    index++;
+                }
+
+                if (!predicate(element, index)) continue;
+
+                yield return element;
+                yield break;
             }
         }
     }
