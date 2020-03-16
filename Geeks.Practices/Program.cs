@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            BinaryMaxHeap.RunSingleLine();
+            BinaryMaxHeap.Run();
             Console.ReadKey();
         }
     }

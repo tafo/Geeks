@@ -51,6 +51,47 @@ namespace Geeks.Practices.Arrays.Basic
     public class BinaryMaxHeap
     {
         /// <summary>
+        /// The execution time is 0.31
+        /// </summary>
+        public static void Run()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = new long[n];
+                var scanner = new StringScanner(test[1]);
+                var i = 0;
+                numbers[i++] = scanner.NextPositiveInt64();
+                var result = "1";
+                while (scanner.HasNext)
+                {
+                    var number = scanner.NextPositiveInt64();
+                    if (number < numbers[(i - 1) / 2])
+                    {
+                        numbers[i++] = number;
+                    }
+                    else
+                    {
+                        result = "0";
+                        break;
+                    }
+
+                }
+                Console.WriteLine(result);
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.79
         /// </summary>
         public static void RunSingleLine()
@@ -105,7 +146,7 @@ namespace Geeks.Practices.Arrays.Basic
         /// <summary>
         /// The execution time is 0.32
         /// </summary>
-        public static void Run()
+        public static void Run1()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount][];
