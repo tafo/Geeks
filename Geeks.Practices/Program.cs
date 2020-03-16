@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            BinaryMaxHeap.Run();
+            FindMissingNumber.Run();
             Console.ReadKey();
         }
     }

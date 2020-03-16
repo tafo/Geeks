@@ -27,22 +27,5 @@ namespace Geeks.Practices.Helper
                 }
             }
         }
-
-        public static IEnumerable<TSource> First<TSource>(IEnumerable<TSource> source, Func<TSource, int, bool> predicate)
-        {
-            var index = -1;
-            foreach (var element in source)
-            {
-                checked
-                {
-                    index++;
-                }
-
-                if (!predicate(element, index)) continue;
-
-                yield return element;
-                yield break;
-            }
-        }
     }
 }
