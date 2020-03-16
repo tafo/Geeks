@@ -51,7 +51,7 @@ namespace Geeks.Practices.Arrays.Basic
     public class BinaryMaxHeap
     {
         /// <summary>
-        /// The execution time is 0.31
+        /// The execution time is 0.23
         /// </summary>
         public static void Run()
         {
@@ -85,8 +85,8 @@ namespace Geeks.Practices.Arrays.Basic
                         result = "0";
                         break;
                     }
-
                 }
+
                 Console.WriteLine(result);
             }
         }
