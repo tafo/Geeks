@@ -46,7 +46,7 @@ namespace Geeks.Practices.Arrays.Basic
     public class IndexOfOne
     {
         /// <summary>
-        /// The execution time is 1.05
+        /// The execution time is 0.24
         /// </summary>
         public static void Run()
         {
@@ -55,6 +55,28 @@ namespace Geeks.Practices.Arrays.Basic
 
             for (var i = 0; i < testCount; i++)
             {
+                Console.ReadLine(); // Skip the number of elements
+                tests[i] = Console.ReadLine();
+            }
+
+            foreach (var test in tests)
+            {
+                var result = test.IndexOf('1');
+                Console.WriteLine(result == -1 ? -1 : result / 2);
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 1.05
+        /// </summary>
+        public static void RunSingleLine()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine(); // Skip the number of elements
                 tests[i] = Console.ReadLine().TrimEnd();
             }
 
