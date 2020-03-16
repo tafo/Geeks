@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -49,6 +50,26 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class BinaryMaxHeap
     {
+        /// <summary>
+        /// The execution time is 0.79
+        /// </summary>
+        public static void RunSingleLine()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new long[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine(); // Skip the number of elements
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(long.Parse).ToArray();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(test.Where((x, i) => test[(i - 1) / 2] < x).Any() ? "0" : "1");
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.31
         /// </summary>
