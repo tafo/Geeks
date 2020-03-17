@@ -43,6 +43,39 @@ namespace Geeks.Practices.Arrays.Basic
     public class IndexOfAndLastIndexOf
     {
         /// <summary>
+        /// The execution time is 0.09
+        /// </summary>
+        public static void RunThis()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var split = test[0].Split(' ');
+                var n = int.Parse(split[0]);
+                var key = int.Parse(split[1]);
+                var numbers = StringScanner.GetPositiveInt(test[1], n);
+                var indexOf = Array.IndexOf(numbers, key);
+                if (indexOf == -1)
+                {
+                    Console.WriteLine("-1");
+                }
+                else
+                {
+                    Console.WriteLine("{0} {1}", indexOf, Array.LastIndexOf(numbers, key));
+                }
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.12
         /// </summary>
         public static void RunLinq()
