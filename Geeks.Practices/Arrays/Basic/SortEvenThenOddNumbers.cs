@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -39,6 +40,29 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class SortEvenThenOddNumbers
     {
+        /// <summary>
+        /// The execution time is 1.51
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine(); // Skip the number of elements
+                tests[i] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var numbers = test.Split(' ').Select(int.Parse).ToArray();
+                var left = numbers.Where(x => (x & 1) == 0).OrderBy(x => x);
+                var right = numbers.Where(x => (x & 1) == 1).OrderBy(x => x);
+                Console.WriteLine(string.Join(' ', left.Concat(right)));
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.87
         /// </summary>
