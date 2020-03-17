@@ -29,7 +29,7 @@ namespace Geeks.Practices.Helper
             }
         }
 
-        public static long[] GetPositiveLongs(string input, int n)
+        public static long[] GetPositive(string input, int n)
         {
             var result = new long[n];
             var i = 0;
@@ -52,15 +52,14 @@ namespace Geeks.Practices.Helper
             return result;
         }
 
-        public int[] GetPositiveIntegers(int n)
+        public static int[] GetPositiveInt(string input, int n)
         {
             var result = new int[n];
             var i = 0;
             var number = 0;
 
-            for (var p = 0; p < _length; p++)
+            foreach (var c in input)
             {
-                var c = _input[p++];
                 if (char.IsWhiteSpace(c))
                 {
                     result[i++] = number;
@@ -76,7 +75,7 @@ namespace Geeks.Practices.Helper
             return result;
         }
 
-        public static int[] GetIntegers(string input, int n)
+        public static int[] GetInt(string input, int n)
         {
             var result = new int[n];
             var i = 0;

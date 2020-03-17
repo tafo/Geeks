@@ -126,8 +126,8 @@ namespace Geeks.Practices.Arrays.Basic
             foreach (var test in tests)
             {
                 var n = int.Parse(test[0]);
-                var leftNumbers = StringScanner.GetPositiveLongs(test[1], n).OrderBy(x => x);
-                var rightNumbers = StringScanner.GetPositiveLongs(test[2], n).OrderByDescending(x => x).ToArray();
+                var leftNumbers = StringScanner.GetPositive(test[1], n).OrderBy(x => x);
+                var rightNumbers = StringScanner.GetPositive(test[2], n).OrderByDescending(x => x).ToArray();
                 Console.WriteLine(leftNumbers.Zip(rightNumbers, (a, b) => a * b).Sum());
             }
         }
@@ -152,8 +152,8 @@ namespace Geeks.Practices.Arrays.Basic
             foreach (var test in tests)
             {
                 var n = int.Parse(test[0]);
-                var leftNumbers = StringScanner.GetPositiveLongs(test[1], n);
-                var rightNumbers = StringScanner.GetPositiveLongs(test[2], n);
+                var leftNumbers = StringScanner.GetPositive(test[1], n);
+                var rightNumbers = StringScanner.GetPositive(test[2], n);
                 Array.Sort(leftNumbers);
                 Array.Sort(rightNumbers, (a, b) => b.CompareTo(a));
                 long sum = 0;
@@ -186,8 +186,8 @@ namespace Geeks.Practices.Arrays.Basic
             foreach (var test in tests)
             {
                 var n = int.Parse(test[0]);
-                var leftNumbers = StringScanner.GetPositiveLongs(test[1], n).OrderBy(x => x).ToArray();
-                var rightNumbers = StringScanner.GetPositiveLongs(test[2], n).OrderByDescending(x => x).ToArray();
+                var leftNumbers = StringScanner.GetPositive(test[1], n).OrderBy(x => x).ToArray();
+                var rightNumbers = StringScanner.GetPositive(test[2], n).OrderByDescending(x => x).ToArray();
                 long sum = 0;
                 for (var i = 0; i < n; i++)
                 {
@@ -216,8 +216,8 @@ namespace Geeks.Practices.Arrays.Basic
             foreach (var test in tests)
             {
                 var n = int.Parse(test[0]);
-                var leftNumbers = StringScanner.GetPositiveLongs(test[1], n).OrderBy(x => x);
-                var rightNumbers = StringScanner.GetPositiveLongs(test[2], n).OrderByDescending(x => x).ToArray();
+                var leftNumbers = StringScanner.GetPositive(test[1], n).OrderBy(x => x);
+                var rightNumbers = StringScanner.GetPositive(test[2], n).OrderByDescending(x => x).ToArray();
                 Console.WriteLine(leftNumbers.Select((x, k) => x * rightNumbers[k]).Sum());
             }
         }

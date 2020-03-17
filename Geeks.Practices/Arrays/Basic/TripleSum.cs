@@ -64,7 +64,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var split = test[0].Split(' ');
                 var n = int.Parse(split[0]);
                 var key = int.Parse(split[1]);
-                var numbers = StringScanner.GetIntegers(test[1], n);
+                var numbers = StringScanner.GetInt(test[1], n);
                 Array.Sort(numbers);
                 var count = 0;
                 var a = 0;
