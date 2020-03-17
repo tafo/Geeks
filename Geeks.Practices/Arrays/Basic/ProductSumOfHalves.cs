@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -39,6 +40,29 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class ProductSumOfHalves
     {
+        /// <summary>
+        /// The execution time is 0.18
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var elements = test[1].Split(' ').Select(int.Parse).ToArray();
+                var h = int.Parse(test[0]) / 2;
+                Console.WriteLine(elements.Take(h).Sum() * elements.Skip(h).Sum());
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.13
         /// </summary>
