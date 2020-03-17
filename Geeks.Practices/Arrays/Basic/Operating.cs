@@ -62,7 +62,7 @@ namespace Geeks.Practices.Arrays.Basic
     public class Operating
     {
         /// <summary>
-        /// The execution time of the equivalent JAVA function is 0.34
+        /// The execution time of the equivalent JAVA functions is 0.34
         /// </summary>
         public static void Run()
         {
