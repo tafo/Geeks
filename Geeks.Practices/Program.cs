@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            CountGivenDigit.Run();
+            Operating.Run();
             Console.ReadKey();
         }
     }
