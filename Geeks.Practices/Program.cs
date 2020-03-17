@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            PositiveAndNegative.Run();
+            PositiveAndNegative.RunLinq();
             Console.ReadKey();
         }
     }

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -46,6 +48,27 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class PositiveAndNegative
     {
+        /// <summary>
+        /// The execution time is 0.59
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine(); // Skip the number of elements
+                tests[i] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var numbers = test.Split(' ').Select(int.Parse).ToArray();
+                Console.WriteLine(string.Join(' ', numbers.Where(x => x >= 0).Interleave(numbers.Where(x => x < 0))));
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.51
         /// </summary>
