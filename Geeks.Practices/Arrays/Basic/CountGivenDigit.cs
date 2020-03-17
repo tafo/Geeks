@@ -60,6 +60,57 @@ namespace Geeks.Practices.Arrays.Basic
 
             for (var i = 0; i < testCount; i++)
             {
+                tests[i] = new string[3];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+                tests[i][2] = Console.ReadLine();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var k = int.Parse(test[2]);
+                var numbers = test[1].Split(' ').Select(int.Parse).ToArray();
+                Console.WriteLine(Num(numbers, n, k));
+            }
+        }
+
+        /// <summary>
+        /// The execution time of the equivalent JAVA function is 0.19 
+        /// </summary>
+        // ReSharper disable once SuggestBaseTypeForParameter
+        private static int Num(int[] a, int n, int k)
+        {
+            var count = 0;
+            for (var i = 0; i < n; i++)
+            {
+                var number = a[i];
+
+                do
+                {
+                    if (number % 10 == k)
+                    {
+                        count++;
+                    }
+
+                    number /= 10;
+
+                } while (number > 0);
+            }
+
+            return count;
+        }
+
+        /// <summary>
+        /// Without the specified method
+        /// </summary>
+        public static void RunThis()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
                 tests[i] = new string[2];
                 Console.ReadLine();
                 tests[i][0] = Console.ReadLine().TrimEnd();
