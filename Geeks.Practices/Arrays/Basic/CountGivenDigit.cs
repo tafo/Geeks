@@ -79,12 +79,12 @@ namespace Geeks.Practices.Arrays.Basic
         /// The execution time of the equivalent JAVA function is 0.19 
         /// </summary>
         // ReSharper disable once SuggestBaseTypeForParameter
-        private static int Num(int[] a, int n, int k)
+        private static int Num(int[] numbers, int n, int k)
         {
             var count = 0;
             for (var i = 0; i < n; i++)
             {
-                var number = a[i];
+                var number = numbers[i];
 
                 do
                 {
