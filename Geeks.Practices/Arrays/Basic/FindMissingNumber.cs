@@ -73,7 +73,7 @@ namespace Geeks.Practices.Arrays.Basic
             {
                 var n = int.Parse(test[0]) - 1;
                 var scanner = new StringScanner(test[1]);
-                var numbers = scanner.GetAllPositiveInt(n);
+                var numbers = scanner.GetPositiveIntegers(n);
                 Array.Sort(numbers);
                 int i;
                 for (i = 0; i < n; i++)

@@ -129,8 +129,7 @@ namespace Geeks.Practices.Arrays.Basic
             foreach (var test in tests)
             {
                 var n = int.Parse(test[0]);
-                var scanner = new StringScanner(test[1]);
-                var numbers = scanner.GetAllPositiveInt64(n);
+                var numbers = StringScanner.GetPositiveLongs(test[1], n);
                 var result = "1";
                 for (var i = 1; i < n; i++)
                 {
@@ -161,8 +160,7 @@ namespace Geeks.Practices.Arrays.Basic
             foreach (var test in tests)
             {
                 var n = int.Parse(test[0]);
-                var scanner = new StringScanner(test[1]);
-                var numbers = scanner.GetAllPositiveInt64(n);
+                var numbers = StringScanner.GetPositiveLongs(test[1], n);
                 var level = (int)Math.Log(n, 2);
                 var k = Math.Pow(2, level) - 1;
                 var result = "1";

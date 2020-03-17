@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            Operating.Run();
+            TripleSum.Run();
             Console.ReadKey();
         }
     }

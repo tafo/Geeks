@@ -25,26 +25,25 @@ namespace Geeks.Practices.Helper
             }
             else
             {
-                Reset();    
+                Reset();
             }
         }
 
-        public long[] GetAllPositiveInt64(int n)
+        public static long[] GetPositiveLongs(string input, int n)
         {
             var result = new long[n];
             var i = 0;
             long number = 0;
 
-            for (var p = 0; p < _length; p++)
+            foreach (var c in input)
             {
-                var c = _input[Position++];
                 if (char.IsWhiteSpace(c))
                 {
                     result[i++] = number;
                     number = 0;
                     continue;
                 }
-                
+
                 number = number * 10 + (c - Sub);
             }
 
@@ -53,7 +52,7 @@ namespace Geeks.Practices.Helper
             return result;
         }
 
-        public int[] GetAllPositiveInt(int n)
+        public int[] GetPositiveIntegers(int n)
         {
             var result = new int[n];
             var i = 0;
@@ -61,15 +60,44 @@ namespace Geeks.Practices.Helper
 
             for (var p = 0; p < _length; p++)
             {
-                var c = _input[Position++];
+                var c = _input[p++];
                 if (char.IsWhiteSpace(c))
                 {
                     result[i++] = number;
                     number = 0;
                     continue;
                 }
-                
+
                 number = number * 10 + (c - Sub);
+            }
+
+            result[i] = number;
+
+            return result;
+        }
+
+        public static int[] GetIntegers(string input, int n)
+        {
+            var result = new int[n];
+            var i = 0;
+            var number = 0;
+            var isNegative = false;
+            foreach (var c in input)
+            {
+                if (c == '-')
+                {
+                    isNegative = true;
+                }
+                else if (char.IsWhiteSpace(c))
+                {
+                    result[i++] = number * (isNegative ? -1 : 1);
+                    number = 0;
+                    isNegative = false;
+                }
+                else
+                {
+                    number = number * 10 + (c - Sub);    
+                }
             }
 
             result[i] = number;
