@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -56,7 +57,27 @@ namespace Geeks.Practices.Arrays.Basic
     public class MaximizeProductOfIndexAndNumber
     {
         /// <summary>
-        /// The execution time is 0.53
+        /// The execution time is 1.3
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine(); // Skip the number of elements
+                tests[i] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(test.Split(' ').Select(long.Parse).OrderBy(x => x).Select((x, i) => x * i).Sum() % 1000000007);
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.54
         /// </summary>
         public static void Run()
         {
@@ -73,16 +94,15 @@ namespace Geeks.Practices.Arrays.Basic
             foreach (var test in tests)
             {
                 var n = int.Parse(test[0]);
-                var numbers = StringScanner.GetPositiveInt(test[1], n);
+                var numbers = StringScanner.GetPositive(test[1], n);
                 Array.Sort(numbers);
-                var sum = 0;
+                long sum = 0;
                 for (var i = 0; i < n; i++)
                 {
                     sum += i * numbers[i];
-                    sum %= 1000000007;
                 }
 
-                Console.WriteLine(sum);
+                Console.WriteLine(sum % 1000000007);
             }
         }
     }
