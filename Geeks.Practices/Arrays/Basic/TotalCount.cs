@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -57,7 +58,31 @@ namespace Geeks.Practices.Arrays.Basic
     public class TotalCount
     {
         /// <summary>
-        /// The execution time is "0.31"
+        /// The execution time is 0.82
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var split = test[0].Split(' ');
+                // var n = int.Parse(split[0]); skip the number of elements
+                var k = double.Parse(split[1]);
+                Console.WriteLine(test[1].Split(' ').Sum(x => Math.Ceiling(int.Parse(x) / k)));
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.31
         /// </summary>
         public static void Run()
         {
