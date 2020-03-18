@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -48,7 +49,7 @@ namespace Geeks.Practices.Arrays.Basic
     /// 168 372 141 96 439 187 144 42 425 286 272 87 421 311 49 341 282 255 52 363 425 350 
     /// 8
     /// 10
-    ///  223
+    /// 381 313 442 77 40 244 428 9 344 223
     /// 9
     /// 
     /// Output:
@@ -63,6 +64,28 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class MinimumProduct
     {
+        /// <summary>
+        /// The execution time is 0.27
+        /// </summary>
+        public static void RunSingeLine()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                Console.ReadLine();
+                tests[i][0] = Console.ReadLine().TrimEnd();
+                tests[i][1] = Console.ReadLine();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(test[0].Split(' ').Select(int.Parse).OrderBy(x => x).Take(int.Parse(test[1])).Aggregate(1L, (x, y) => x * y % 100));
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.13
         /// </summary>
