@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            TotalCount.Run();
+            ThatFunction.RunLinq();
             Console.ReadKey();
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -49,8 +50,30 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
-    public class StrangeFunction
+    public class ThatFunction
     {
+        /// <summary>
+        /// The execution time is 0.14
+        /// * Single line solution
+        /// * Mastering "Linq to Objects"
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new int[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).ToArray();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(test.SelectMany((x, a) => test.Where((y, b) => b > a && Math.Abs(y - x) > 1).Select(y => y - x)).Sum());
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.15
         /// </summary>
