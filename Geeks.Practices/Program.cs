@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            ReverseSubArray.Run();
+            TotalCount.Run();
             Console.ReadKey();
         }
     }

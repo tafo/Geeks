@@ -152,6 +152,27 @@ namespace Geeks.Practices.Helper
             return result;
         }
 
+        public double NextPositiveDouble()
+        {
+            double result = 0;
+            var c = _input[Position++];
+
+            while (!char.IsWhiteSpace(c))
+            {
+                result = result * 10 + (c - Sub);
+
+                if (Position == _length)
+                {
+                    HasNext = false;
+                    break;
+                }
+
+                c = _input[Position++];
+            }
+
+            return result;
+        }
+
         public int PreviousPositiveInt()
         {
             var result = 0;
