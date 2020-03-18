@@ -77,7 +77,7 @@ namespace Geeks.Practices.Arrays.Basic
                 
                 while (scanner.HasNext)
                 {
-                    var number = scanner.NextPositiveInt64();
+                    var number = scanner.NextPositiveLong();
                     if ((number & 1) == 1)
                     {
                         oddElements[oddIndex++] = number;

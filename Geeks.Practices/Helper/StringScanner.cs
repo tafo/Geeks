@@ -209,7 +209,7 @@ namespace Geeks.Practices.Helper
             return bit;
         }
 
-        public long NextPositiveInt64()
+        public long NextPositiveLong()
         {
             long result = 0;
             var c = _input[Position++];

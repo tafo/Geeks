@@ -75,7 +75,7 @@ namespace Geeks.Practices.Arrays.Basic
                 while (scanner.HasNext)
                 {
                     index++;
-                    var number = scanner.NextPositiveInt64();
+                    var number = scanner.NextPositiveLong();
                     if (number < key)
                     {
                         continue;
@@ -129,7 +129,7 @@ namespace Geeks.Practices.Arrays.Basic
                 while (scanner.HasNext)
                 {
                     index++;
-                    var number = scanner.NextPositiveInt64();
+                    var number = scanner.NextPositiveLong();
                     if (number < key)
                     {
                         continue;

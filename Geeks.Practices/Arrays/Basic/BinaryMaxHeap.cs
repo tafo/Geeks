@@ -71,11 +71,11 @@ namespace Geeks.Practices.Arrays.Basic
                 var numbers = new long[n];
                 var scanner = new StringScanner(test[1]);
                 var i = 0;
-                numbers[i++] = scanner.NextPositiveInt64();
+                numbers[i++] = scanner.NextPositiveLong();
                 var result = "1";
                 while (scanner.HasNext)
                 {
-                    var number = scanner.NextPositiveInt64();
+                    var number = scanner.NextPositiveLong();
                     if (number < numbers[(i - 1) / 2])
                     {
                         numbers[i++] = number;

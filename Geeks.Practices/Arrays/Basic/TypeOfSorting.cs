@@ -78,14 +78,14 @@ namespace Geeks.Practices.Arrays.Basic
                 // var n = int.Parse(testCase[0]); Skip the number of elements
                 var scanner = new StringScanner(testCase[1]);
                 long max;
-                var current = max = scanner.NextPositiveInt64();
-                var next = scanner.NextPositiveInt64();
+                var current = max = scanner.NextPositiveLong();
+                var next = scanner.NextPositiveLong();
                 long previous;
                 do
                 {
                     previous = current;
                     current = next;
-                    next = scanner.NextPositiveInt64();
+                    next = scanner.NextPositiveLong();
                 } while (scanner.HasNext && (previous < current && current < next || previous > current && current > next));
 
                 if (previous < current && current < next)
@@ -140,8 +140,8 @@ namespace Geeks.Practices.Arrays.Basic
                 var sorting = 1;
                 // var n = int.Parse(testCase[0]); Skip the number of elements
                 var scanner = new StringScanner(testCase[1]);
-                var previous = scanner.NextPositiveInt64();
-                var current = scanner.NextPositiveInt64();
+                var previous = scanner.NextPositiveLong();
+                var current = scanner.NextPositiveLong();
                 long max;
                 if (previous > current)
                 {
@@ -155,7 +155,7 @@ namespace Geeks.Practices.Arrays.Basic
 
                 while (scanner.HasNext)
                 {
-                    var next = scanner.NextPositiveInt64();
+                    var next = scanner.NextPositiveLong();
                     if (sorting == 1)
                     {
                         if (next < current)

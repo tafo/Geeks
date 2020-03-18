@@ -129,7 +129,7 @@ namespace Geeks.Practices.Arrays.Basic
                 long max = 0;
                 while (scanner.HasNext)
                 {
-                    var number = scanner.NextPositiveInt64();
+                    var number = scanner.NextPositiveLong();
                     if (number < min)
                     {
                         min = number;

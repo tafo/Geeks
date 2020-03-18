@@ -82,14 +82,14 @@ namespace Geeks.Practices.Arrays.Basic
                 var i = 0;
                 while (scanner.HasNext)
                 {
-                    first[i++] = scanner.NextPositiveInt64();
+                    first[i++] = scanner.NextPositiveLong();
                 }
 
                 i = 0;
                 scanner = new StringScanner(testCase[2]);
                 while (scanner.HasNext)
                 {
-                    second[i++] = scanner.NextPositiveInt64();
+                    second[i++] = scanner.NextPositiveLong();
                 }
 
                 var result = first.OrderBy(x => x).SequenceEqual(second.OrderBy(x => x));
@@ -123,14 +123,14 @@ namespace Geeks.Practices.Arrays.Basic
                 var i = 0;
                 while (scanner.HasNext)
                 {
-                    first[i++] = scanner.NextPositiveInt64();
+                    first[i++] = scanner.NextPositiveLong();
                 }
 
                 i = 0;
                 scanner = new StringScanner(testCase[2]);
                 while (scanner.HasNext)
                 {
-                    second[i++] = scanner.NextPositiveInt64();
+                    second[i++] = scanner.NextPositiveLong();
                 }
 
                 Array.Sort(first);
