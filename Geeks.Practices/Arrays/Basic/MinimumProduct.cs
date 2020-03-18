@@ -82,7 +82,7 @@ namespace Geeks.Practices.Arrays.Basic
 
             foreach (var test in tests)
             {
-                Console.WriteLine(test[0].Split(' ').Select(int.Parse).OrderBy(x => x).Take(int.Parse(test[1])).Aggregate(1L, (x, y) => x * y % 100));
+                Console.WriteLine(test[0].Split(' ').Select(int.Parse).OrderBy(x => x).Take(int.Parse(test[1])).Aggregate(1L, (x, y) => x * y % 100000007));
             }
         }
 
