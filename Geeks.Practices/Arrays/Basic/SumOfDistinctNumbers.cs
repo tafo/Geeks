@@ -45,6 +45,26 @@ namespace Geeks.Practices.Arrays.Basic
     public class SumOfDistinctNumbers
     {
         /// <summary>
+        /// The execution time is 0.69
+        /// </summary>
+        public static void RunCompareToSingleLine()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var results = new int[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                results[i] = Console.ReadLine().TrimEnd().Split(' ').Distinct().Sum(int.Parse);
+            }
+
+            foreach (var result in results)
+            {
+                Console.WriteLine(result);
+            }
+        }
+
+        /// <summary>
         /// The execution time is 1.14
         /// </summary>
         public static void RunSingleLine()
