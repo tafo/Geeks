@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            UniqueOrNot.RunAnother();
+            SumOfDistinctNumbers.Run();
             Console.ReadKey();
         }
     }
