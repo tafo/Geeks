@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -26,11 +27,18 @@ namespace Geeks.Practices.Arrays.Basic
     /// 
     /// Example:
     /// Input:
-    /// 1
+    /// 3
     /// 5
     /// 2 4 6 8 12
+    /// 18
+    /// 935 200 141 771 73 328 452 197 883 611 495 99 393 583 954 54 803 848 
+    /// 1
+    /// 617
     /// Output:
     /// 5
+    /// 1
+    /// 0
+    /// 
     /// </summary>
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
@@ -38,24 +46,50 @@ namespace Geeks.Practices.Arrays.Basic
     public class Prime
     {
         /// <summary>
-        /// The execution time is 0.14
+        /// The execution time is 0.18
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var sum = test.Split(' ').Sum(int.Parse);
+                var k = sum;
+                while (!k.IsPrime())
+                {
+                    k++;
+                }
+
+                Console.WriteLine(k - sum);
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.13
         /// </summary>
         public static void Run()
         {
             var testCount = int.Parse(Console.ReadLine());
-            var tests = new string[testCount][];
+            var tests = new string[testCount];
 
             for (var i = 0; i < testCount; i++)
             {
-                tests[i] = new string[2];
-                tests[i][0] = Console.ReadLine();
-                tests[i][1] = Console.ReadLine().TrimEnd();
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd();
             }
 
             foreach (var test in tests)
             {
                 // var n = int.Parse(test[0]);
-                var sum = StringScanner.SumPositiveInt(test[1]);
+                var sum = StringScanner.SumPositiveInt(test);
                 var k = sum;
                 while (!k.IsPrime())
                 {
