@@ -47,6 +47,8 @@ namespace Geeks.Practices.Arrays.Basic
     /// Explanation:
     /// In the first testcase, all the colors are unique so it's a GIRLS party.
     /// In the second testcase, there are two colors 1. So it's a BOYS party.
+    ///
+    /// ToDo: Implement a solution without Array.Sort(...)
     /// </summary>
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
