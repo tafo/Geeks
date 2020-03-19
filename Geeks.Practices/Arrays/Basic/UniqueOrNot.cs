@@ -54,6 +54,27 @@ namespace Geeks.Practices.Arrays.Basic
     public class UniqueOrNot
     {
         /// <summary>
+        /// The execution time is 0.79
+        /// </summary>
+        public static void RunFun()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(int.Parse(test[0]) > test[1].Split(' ').Distinct().Count() ? "BOYS" : "GIRLS");
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.94
         /// * Compare this solution to RunAnother
         /// * The effect of OrderBy 
