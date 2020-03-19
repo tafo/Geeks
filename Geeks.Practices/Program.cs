@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            MinimumProduct.RunSingeLine();
+            MostFrequentNumber.Run();
             Console.ReadKey();
         }
     }
