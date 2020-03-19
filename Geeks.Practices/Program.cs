@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            MostFrequentNumber.Run();
+            LeftRotate.Run();
             Console.ReadKey();
         }
     }
