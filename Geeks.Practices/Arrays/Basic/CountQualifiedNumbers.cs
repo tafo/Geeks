@@ -41,6 +41,46 @@ namespace Geeks.Practices.Arrays.Basic
     {
         /// <summary>
         /// The execution time is 0.12
+        /// * Compare this solution with RunThis
+        /// </summary>
+        public static void RunCompare()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new int[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = int.Parse(Console.ReadLine());
+            }
+
+            foreach (var test in tests)
+            {
+                var count = 0;
+                for (var i = 1; i <= test; i++)
+                {
+                    var k = i;
+                    do
+                    {
+                        var d = k % 10;
+                        if (d == 1 || d == 2 || d == 3 || d == 4 || d == 5)
+                        {
+                            k /= 10;
+                        }
+                        else
+                        {
+                            count++;
+                            break;
+                        }
+
+                    } while (k > 0);
+                }
+
+                Console.WriteLine(test - count);
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.12
         /// </summary>
         public static void RunThis()
         {
