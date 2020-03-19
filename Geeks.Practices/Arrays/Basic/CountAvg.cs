@@ -59,6 +59,27 @@ namespace Geeks.Practices.Arrays.Basic
         /// <summary>
         /// The execution time is 0.14
         /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new int[testCount][][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new int[2][];
+                tests[i][0] = Console.ReadLine().Split(' ').Skip(1).Select(int.Parse).ToArray();
+                tests[i][1] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).ToArray();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(string.Join(' ', test[1].Select(x => test[1].Count(y => y == (x + test[0][0]) / 2))));
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.14
+        /// </summary>
         public static void RunLinq()
         {
             var testCount = int.Parse(Console.ReadLine());
