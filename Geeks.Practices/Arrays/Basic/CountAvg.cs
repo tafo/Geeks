@@ -106,7 +106,7 @@ namespace Geeks.Practices.Arrays.Basic
         /// <summary>
         /// The execution time is 0.14
         /// </summary>
-        public static void RunThis()
+        public static void RunAnother()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount][];
