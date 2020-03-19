@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -35,6 +36,35 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class LeftRotate
     {
+        /// <summary>
+        /// The execution time is 0.36
+        /// </summary>
+        public static void RunThis()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var split = test[0].Split(' ');
+                var n = int.Parse(split[0]);
+                var k = int.Parse(split[1]);
+                var shift = n - k % n;
+                var elements = test[1].Split(' ');
+                var result = new string[n];
+                Array.Copy(elements, 0, result, shift, n - shift);
+                Array.Copy(elements, n - shift, result, 0, shift);
+                Console.WriteLine(string.Join(' ', result));
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.26
         /// </summary>
