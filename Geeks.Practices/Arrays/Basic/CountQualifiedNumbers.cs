@@ -40,9 +40,28 @@ namespace Geeks.Practices.Arrays.Basic
     public class CountQualifiedNumbers
     {
         /// <summary>
+        /// The execution time is 0.15
+        /// </summary>
+        public static void RunSingleLine()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new int[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = int.Parse(Console.ReadLine());
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(Enumerable.Range(1, test).Count(x => x.ToString().Select(c => c - '0').All(d => d > 0 && d < 6)));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.14
         /// </summary>
-        public static void Run()
+        public static void RunThis()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new int[testCount];
