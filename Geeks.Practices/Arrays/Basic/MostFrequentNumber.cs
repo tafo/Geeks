@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -48,6 +49,26 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class MostFrequentNumber
     {
+        /// <summary>
+        /// The execution time is 1.05
+        /// </summary>
+        public static void RunSingleLine()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new int[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).ToArray();;
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(test.GroupBy(x => x).OrderByDescending(x => x.Count()).ThenBy(x => x.Key).First().Key);
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.28
         /// </summary>
