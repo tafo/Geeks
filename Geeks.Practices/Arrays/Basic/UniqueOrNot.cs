@@ -51,6 +51,28 @@ namespace Geeks.Practices.Arrays.Basic
     public class UniqueOrNot
     {
         /// <summary>
+        /// The execution time is 1.27
+        /// * Interesting!
+        /// * Compare this solution with RunLinq
+        /// </summary>
+        public static void RunLinqCompare()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new long[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(long.Parse).OrderBy(x => x).ToArray();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(test.Skip(1).Where((x, i) => x == test[i]).Any() ? "BOYS" : "GIRLS");
+            }
+        }
+
+        /// <summary>
         /// The execution time is 1.30
         /// </summary>
         public static void RunLinq()
@@ -66,7 +88,7 @@ namespace Geeks.Practices.Arrays.Basic
 
             foreach (var test in tests)
             {
-                Console.WriteLine(test.Skip(1).Where((x, i) => x == test[i]).Any() ? "BOYS" : "GIRLS");
+                Console.WriteLine(test.Where((x, i) => i > 0 && x == test[i - 1]).Any() ? "BOYS" : "GIRLS");
             }
         }
 
