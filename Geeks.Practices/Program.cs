@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            UniqueOrNot.RunLinq();
+            UniqueOrNot.RunAnother();
             Console.ReadKey();
         }
     }

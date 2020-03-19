@@ -36,9 +36,12 @@ namespace Geeks.Practices.Arrays.Basic
     /// 1 2 3 4 7
     /// 6
     /// 1 3 2 4 5 1
+    /// 100
+    /// 712 291 146 707 561 680 563 506 704 441 476 699 559 446 294 536 361 496 529 510 521 157 560 407 199 713 567 162 417 529 154 197 349 378 16 282 27 142 368 330 240 186 606 77 329 148 486 338 654 747 440 564 159 735 310 443 14 413 80 183 546 80 442 547 702 651 21 679 276 610 369 203 326 61 256 182 503 168 477 598 583 440 635 525 674 72 650 433 365 283 375 34 78 132 43 562 242 36 719 221
     /// 
     /// Output
     /// GIRLS
+    /// BOYS
     /// BOYS
     /// 
     /// Explanation:
@@ -50,6 +53,26 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class UniqueOrNot
     {
+        /// <summary>
+        /// The execution time is 1.43
+        /// </summary>
+        public static void RunAnother()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new long[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(long.Parse).OrderBy(x => x).ToArray();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(test.Length > test.Distinct().Count() ? "BOYS" : "GIRLS");
+            }
+        }
+
         /// <summary>
         /// The execution time is 1.27
         /// * Interesting!
