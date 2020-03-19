@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            CountQualifiedNumbers.RunSingleLine();
+            UniqueOrNot.Run();
             Console.ReadKey();
         }
     }
