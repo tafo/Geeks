@@ -37,6 +37,31 @@ namespace Geeks.Practices.Arrays.Basic
     public class LeftRotate
     {
         /// <summary>
+        /// The execution time is 0.37
+        /// * Compare with RunLinq
+        /// </summary>
+        public static void RunTest()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var split = test[0].Split(' ');
+                var rotate = int.Parse(split[1]) % int.Parse(split[0]);
+                var elements = test[1].Split(' ');
+                Console.WriteLine(string.Join(' ', elements.Skip(rotate).Concat(elements.Take(rotate))));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.39
         /// </summary>
         public static void RunLinq()
@@ -48,7 +73,7 @@ namespace Geeks.Practices.Arrays.Basic
             {
                 tests[i] = new string[2][];
                 tests[i][0] = Console.ReadLine().Split(' ');
-                tests[i][1] = Console.ReadLine().TrimEnd().Split(' ');;
+                tests[i][1] = Console.ReadLine().TrimEnd().Split(' '); ;
             }
 
             foreach (var test in tests)
