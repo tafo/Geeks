@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            Prime.Run();
+            CountQualifiedNumbers.Run();
             Console.ReadKey();
         }
     }
