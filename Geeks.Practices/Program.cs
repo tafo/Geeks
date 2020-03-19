@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            LeftRotate.Run();
+            Prime.Run();
             Console.ReadKey();
         }
     }

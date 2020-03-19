@@ -52,6 +52,28 @@ namespace Geeks.Practices.Helper
             return result;
         }
 
+        public static int SumPositiveInt(string input)
+        {
+            var result = 0;
+            var number = 0;
+
+            foreach (var c in input)
+            {
+                if (char.IsWhiteSpace(c))
+                {
+                    result += number;
+                    number = 0;
+                    continue;
+                }
+
+                number = number * 10 + (c - Sub);
+            }
+
+            result += number;
+
+            return result;
+        }
+
         public static int[] GetPositiveInt(string input, int n)
         {
             var result = new int[n];
@@ -95,7 +117,7 @@ namespace Geeks.Practices.Helper
                 }
                 else
                 {
-                    number = number * 10 + (c - Sub);    
+                    number = number * 10 + (c - Sub);
                 }
             }
 
