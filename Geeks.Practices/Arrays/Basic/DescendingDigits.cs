@@ -53,7 +53,7 @@ namespace Geeks.Practices.Arrays.Basic
         /// The execution time is 0.71
         /// * The best solution in this class !!!
         /// </summary>
-        public static void RunClassic()
+        public static void RunBest()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount][];
