@@ -205,6 +205,7 @@ namespace Geeks.Practices.Helper
             var result = new char[n];
             var i = 0;
 
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var c in input)
             {
                 if (!char.IsWhiteSpace(c))
@@ -219,6 +220,33 @@ namespace Geeks.Practices.Helper
         public int NextInt()
         {
             var result = 0;
+            var c = _input[Position++];
+            var isNegative = false;
+            while (!char.IsWhiteSpace(c))
+            {
+                if (c == '-')
+                {
+                    isNegative = true;
+                }
+                else
+                {
+                    result = result * 10 + (c - Sub);
+
+                    if (Position == _length)
+                    {
+                        HasNext = false;
+                        break;
+                    }
+                }
+                c = _input[Position++];
+            }
+
+            return result * (isNegative ? -1 : 1);
+        }
+
+        public long NextLong()
+        {
+            long result = 0;
             var c = _input[Position++];
             var isNegative = false;
             while (!char.IsWhiteSpace(c))
