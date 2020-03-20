@@ -50,6 +50,31 @@ namespace Geeks.Practices.Arrays.Basic
     public class DescendingDigits
     {
         /// <summary>
+        /// The execution time is 0.74
+        /// * The best solution in this class !!!
+        /// </summary>
+        public static void RunTest()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = StringScanner.GetChar(test[1], n);
+                Array.Sort(numbers, (a,b) => b.CompareTo(a));
+                Console.WriteLine(new StringBuilder(n).Append(numbers).ToString());
+            }
+        }
+
+        /// <summary>
         /// The execution time is 1.74
         /// * Compare with CompareToThis
         /// * Array.Sort(...) is better

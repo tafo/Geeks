@@ -148,8 +148,23 @@ namespace Geeks.Practices.Helper
             result[i] = digit;
 
             return result;
-        }        
+        }    
+        
+        public static char[] GetChar(string input, int n)
+        {
+            var result = new char[n];
+            var i = 0;
 
+            foreach (var c in input)
+            {
+                if (!char.IsWhiteSpace(c))
+                {
+                    result[i++] = c;
+                }
+            }
+
+            return result;
+        }        
 
         public int NextInt()
         {
