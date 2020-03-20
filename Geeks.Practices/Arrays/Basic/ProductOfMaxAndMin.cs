@@ -69,6 +69,29 @@ namespace Geeks.Practices.Arrays.Basic
     public class ProductOfMaxAndMin
     {
         /// <summary>
+        /// The execution time is 0.73
+        /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                Console.ReadLine();
+                tests[i][0] = Console.ReadLine().TrimEnd();
+                Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(test[0].Split(' ').Max(int.Parse) * test[1].Split(' ').Min(int.Parse));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.30
         /// </summary>
         public static void RunCompareTo()
