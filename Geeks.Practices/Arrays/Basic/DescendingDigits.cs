@@ -50,10 +50,10 @@ namespace Geeks.Practices.Arrays.Basic
     public class DescendingDigits
     {
         /// <summary>
-        /// The execution time is 0.74
+        /// The execution time is 0.71
         /// * The best solution in this class !!!
         /// </summary>
-        public static void RunTest()
+        public static void RunClassic()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount][];
@@ -68,9 +68,19 @@ namespace Geeks.Practices.Arrays.Basic
             foreach (var test in tests)
             {
                 var n = int.Parse(test[0]);
-                var numbers = StringScanner.GetChar(test[1], n);
-                Array.Sort(numbers, (a,b) => b.CompareTo(a));
-                Console.WriteLine(new StringBuilder(n).Append(numbers).ToString());
+                var chars = new char[n];
+                var i = 0;
+
+                foreach (var c in test[1])
+                {
+                    if (!char.IsWhiteSpace(c))
+                    {
+                        chars[i++] = c;
+                    }
+                }
+
+                Array.Sort(chars, (a, b) => b.CompareTo(a));
+                Console.WriteLine(new StringBuilder(n).Append(chars).ToString());
             }
         }
 
@@ -114,7 +124,7 @@ namespace Geeks.Practices.Arrays.Basic
             foreach (var test in tests)
             {
                 var digits = test.Where(c => !char.IsWhiteSpace(c)).ToArray();
-                Array.Sort(digits, (a,b) => b.CompareTo(a));
+                Array.Sort(digits, (a, b) => b.CompareTo(a));
                 Console.WriteLine(new StringBuilder().Append(digits).ToString());
             }
         }
@@ -137,7 +147,7 @@ namespace Geeks.Practices.Arrays.Basic
             foreach (var test in tests)
             {
                 var digits = test.Where(c => !char.IsWhiteSpace(c)).ToArray();
-                Array.Sort(digits, (a,b) => b.CompareTo(a));
+                Array.Sort(digits, (a, b) => b.CompareTo(a));
                 Console.WriteLine(string.Join(string.Empty, digits));
             }
         }
@@ -203,7 +213,7 @@ namespace Geeks.Practices.Arrays.Basic
             {
                 var n = int.Parse(test[0]);
                 var numbers = StringScanner.GetDigit(test[1], n);
-                Array.Sort(numbers, (a,b) => b.CompareTo(a));
+                Array.Sort(numbers, (a, b) => b.CompareTo(a));
                 Console.WriteLine(string.Join(string.Empty, numbers));
             }
         }
