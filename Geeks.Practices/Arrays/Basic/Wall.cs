@@ -131,5 +131,75 @@ namespace Geeks.Practices.Arrays.Basic
                 Console.WriteLine(StringScanner.GetPositiveInt(test[1], n).Sum(x => Math.Ceiling(x / k) - 1));
             }
         }
+
+        /// <summary>
+        /// The execution time is 0.17
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var split = test[0].Split(' ');
+                // var n = int.Parse(split[0]);
+                var k = double.Parse(split[1]);
+                Console.WriteLine(test[1].Split(' ').Select(int.Parse).Sum(x => Math.Ceiling(x / k) - 1));
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.17
+        /// * Compare this solution with RunLinq
+        /// * Same performance
+        /// </summary>
+        public static void RunCompareToLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var split = test[0].Split(' ');
+                // var n = int.Parse(split[0]);
+                var k = double.Parse(split[1]);
+                Console.WriteLine(test[1].Split(' ').Sum(x => Math.Ceiling(int.Parse(x) / k) - 1));
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.18
+        /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new int[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = Console.ReadLine().Split(' ').Skip(1).Select(int.Parse)
+                    .Concat(Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse)).ToArray();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(test.Skip(1).Sum(x => Math.Ceiling(x / (double)test[0]) - 1));
+            }
+        }
     }
 }
