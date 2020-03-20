@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Text;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -49,7 +50,28 @@ namespace Geeks.Practices.Arrays.Basic
     public class DescendingDigits
     {
         /// <summary>
-        /// The execution time is 3.42!
+        /// The execution time is 2.15
+        /// * Interesting
+        /// </summary>
+        public static void RunAnotherSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(string.Join(string.Empty, test.Where(c => !char.IsWhiteSpace(c)).OrderByDescending(x => x)));
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 3.42   !!!
         /// * Interesting
         /// </summary>
         public static void RunSingleLineLinq()

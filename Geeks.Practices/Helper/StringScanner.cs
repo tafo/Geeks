@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 namespace Geeks.Practices.Helper
 {
@@ -147,7 +148,7 @@ namespace Geeks.Practices.Helper
             result[i] = digit;
 
             return result;
-        }
+        }        
 
         public int NextInt()
         {
