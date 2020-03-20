@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            FirstNegativeThenPositive.RunLinq();
+            MaxTripletSum.Run();
             Console.ReadKey();
         }
     }

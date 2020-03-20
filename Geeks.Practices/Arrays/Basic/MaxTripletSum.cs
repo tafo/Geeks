@@ -26,22 +26,73 @@ namespace Geeks.Practices.Arrays.Basic
     /// Example:
     /// 
     /// Input:
-    /// 2
+    /// 4
     /// 6
     /// 1 0 8 6 4 2
     /// 7
     /// 1 2 3 0 -1 8 10
-    ///
+    /// 4
+    /// 55 100 33 61 
+    /// 15
+    /// 57 44 92 28 66 60 37 33 52 38 29 76 8 75 22
     /// Output:
     /// 18
     /// 21
-    ///
+    /// 216
+    /// 243
+    /// 
     /// </summary>
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class MaxTripletSum
     {
+        /// <summary>
+        /// The execution time is 0.17
+        /// </summary>
+        public static void RunBest()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var first = int.MinValue;
+                var second = int.MinValue;
+                var third = int.MinValue;
+                var scanner = new StringScanner(test);
+                while (scanner.HasNext)
+                {
+                    var number = scanner.NextInt();
+                    if (number < third) continue;
+                    if (number > second)
+                    {
+                        third = second;
+                        if (number > first)
+                        {
+                            second = first;
+                            first = number;
+                        }
+                        else
+                        {
+                            second = number;
+                        }
+                    }
+                    else
+                    {
+                        third = number;
+                    }
+                }
+                Console.WriteLine(first + second + third);
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.35
         /// </summary>
