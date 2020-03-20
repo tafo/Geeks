@@ -101,7 +101,7 @@ namespace Geeks.Practices.Arrays.Basic
                 double result = 0;
                 while (scanner.HasNext)
                 {
-                    result +=  Math.Ceiling(scanner.NextPositiveInt() / k) - 1;
+                    result += Math.Ceiling(scanner.NextPositiveInt() / k) - 1;
                 }
 
                 Console.WriteLine(result);
@@ -199,6 +199,28 @@ namespace Geeks.Practices.Arrays.Basic
             foreach (var test in tests)
             {
                 Console.WriteLine(test.Skip(1).Sum(x => Math.Ceiling(x / (double)test[0]) - 1));
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.17
+        /// * Compare this solution with RunSingleLineLinq
+        /// </summary>
+        public static void RunCompareToSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new double[testCount][][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new double[2][];
+                tests[i][0] = Console.ReadLine().Split(' ').Skip(1).Select(double.Parse).ToArray();
+                tests[i][1] = Console.ReadLine().TrimEnd().Split(' ').Select(double.Parse).ToArray();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(test[1].Sum(x => Math.Ceiling(x / test[0][0]) - 1));
             }
         }
     }
