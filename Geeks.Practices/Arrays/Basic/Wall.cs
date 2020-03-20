@@ -222,6 +222,29 @@ namespace Geeks.Practices.Arrays.Basic
             {
                 Console.WriteLine(test[1].Sum(x => Math.Ceiling(x / test[0][0]) - 1));
             }
-        }
+        }    
+        
+        /// <summary>
+        /// The execution time is 0.18
+        /// </summary>
+        public static void RunAnother()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var split = test[0].Split(' ');
+                var n = int.Parse(split[0]);
+                var k = double.Parse(split[1]);
+                Console.WriteLine(test[1].Split(' ').Select(int.Parse).Sum(x => Math.Ceiling(x / k)) - n);
+            }        }
     }
 }
