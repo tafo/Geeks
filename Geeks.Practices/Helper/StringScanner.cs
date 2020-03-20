@@ -76,6 +76,26 @@ namespace Geeks.Practices.Helper
             return Math.Max(max, number * (isNegative ? -1 : 1));
         }
 
+        public static int MaxPositiveInt(string input)
+        {
+            var max = int.MinValue;
+            var number = 0;
+            foreach (var c in input)
+            {
+                if (char.IsWhiteSpace(c))
+                {
+                    max = Math.Max(max, number);
+                    number = 0;
+                }
+                else
+                {
+                    number = number * 10 + (c - Sub);
+                }
+            }
+
+            return Math.Max(max, number);
+        }
+
         public static int MinInt(string input)
         {
             var min = int.MaxValue;

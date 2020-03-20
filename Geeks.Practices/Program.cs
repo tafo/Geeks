@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            MaxTripletSum.Run();
+            SumOfDiagonalNumbers.Run();
             Console.ReadKey();
         }
     }
