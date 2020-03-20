@@ -29,6 +29,28 @@ namespace Geeks.Practices.Helper
             }
         }
 
+        public static int SumPositiveInt(string input)
+        {
+            var result = 0;
+            var number = 0;
+
+            foreach (var c in input)
+            {
+                if (char.IsWhiteSpace(c))
+                {
+                    result += number;
+                    number = 0;
+                    continue;
+                }
+
+                number = number * 10 + (c - Sub);
+            }
+
+            result += number;
+
+            return result;
+        }
+
         public static long[] GetPositive(string input, int n)
         {
             var result = new long[n];
@@ -48,28 +70,6 @@ namespace Geeks.Practices.Helper
             }
 
             result[i] = number;
-
-            return result;
-        }
-
-        public static int SumPositiveInt(string input)
-        {
-            var result = 0;
-            var number = 0;
-
-            foreach (var c in input)
-            {
-                if (char.IsWhiteSpace(c))
-                {
-                    result += number;
-                    number = 0;
-                    continue;
-                }
-
-                number = number * 10 + (c - Sub);
-            }
-
-            result += number;
 
             return result;
         }
@@ -122,6 +122,29 @@ namespace Geeks.Practices.Helper
             }
 
             result[i] = number;
+
+            return result;
+        }
+
+        public static int[] GetDigit(string input, int n)
+        {
+            var result = new int[n];
+            var i = 0;
+            var digit = 0;
+
+            foreach (var c in input)
+            {
+                if (char.IsWhiteSpace(c))
+                {
+                    result[i++] = digit;
+                }
+                else
+                {
+                    digit = c - Sub;    
+                }
+            }
+
+            result[i] = digit;
 
             return result;
         }
