@@ -50,6 +50,28 @@ namespace Geeks.Practices.Arrays.Basic
     public class DescendingDigits
     {
         /// <summary>
+        /// The execution time is 1.74
+        /// * Compare with CompareToThis
+        /// * Array.Sort(...) is better
+        /// </summary>
+        public static void RunAnother()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(new StringBuilder().Append(test.Where(c => !char.IsWhiteSpace(c)).OrderByDescending(x => x).ToArray()).ToString());
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.81
         /// * Even faster !!!
         /// </summary>
