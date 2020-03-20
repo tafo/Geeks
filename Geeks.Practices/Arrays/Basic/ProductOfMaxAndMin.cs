@@ -69,6 +69,30 @@ namespace Geeks.Practices.Arrays.Basic
     public class ProductOfMaxAndMin
     {
         /// <summary>
+        /// The execution time is 0.28(or 0.29)
+        /// * A little improvement in performance
+        /// </summary>
+        public static void RunBest()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                Console.ReadLine();
+                tests[i][0] = Console.ReadLine().TrimEnd();
+                Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(StringScanner.MaxInt(test[0]) * StringScanner.MinInt(test[1]));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.73
         /// </summary>
         public static void RunSingleLineLinq()
@@ -93,6 +117,7 @@ namespace Geeks.Practices.Arrays.Basic
 
         /// <summary>
         /// The execution time is 0.30
+        /// * Compare this solution with Run
         /// </summary>
         public static void RunCompareTo()
         {

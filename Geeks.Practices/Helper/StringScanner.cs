@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Geeks.Practices.Helper
 {
@@ -47,6 +48,58 @@ namespace Geeks.Practices.Helper
             result += number;
 
             return result;
+        }
+
+        public static int MaxInt(string input)
+        {
+            var max = int.MinValue;
+            var number = 0;
+            var isNegative = false;
+            foreach (var c in input)
+            {
+                if (c == '-')
+                {
+                    isNegative = true;
+                }
+                else if (char.IsWhiteSpace(c))
+                {
+                    max = Math.Max(max, number * (isNegative ? -1 : 1));
+                    number = 0;
+                    isNegative = false;
+                }
+                else
+                {
+                    number = number * 10 + (c - Sub);
+                }
+            }
+
+            return Math.Max(max, number * (isNegative ? -1 : 1));;
+        }
+
+        public static int MinInt(string input)
+        {
+            var min = int.MaxValue;
+            var number = 0;
+            var isNegative = false;
+            foreach (var c in input)
+            {
+                if (c == '-')
+                {
+                    isNegative = true;
+                }
+                else if (char.IsWhiteSpace(c))
+                {
+                    min = Math.Min(min, number * (isNegative ? -1 : 1));
+                    number = 0;
+                    isNegative = false;
+                }
+                else
+                {
+                    number = number * 10 + (c - Sub);
+                }
+            }
+
+            return Math.Min(min, number * (isNegative ? -1 : 1));;
         }
 
         public static long[] GetPositive(string input, int n)
@@ -138,15 +191,15 @@ namespace Geeks.Practices.Helper
                 }
                 else
                 {
-                    digit = c - Sub;    
+                    digit = c - Sub;
                 }
             }
 
             result[i] = digit;
 
             return result;
-        }    
-        
+        }
+
         public static char[] GetChar(string input, int n)
         {
             var result = new char[n];
@@ -161,7 +214,7 @@ namespace Geeks.Practices.Helper
             }
 
             return result;
-        }        
+        }
 
         public int NextInt()
         {
