@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -104,6 +105,30 @@ namespace Geeks.Practices.Arrays.Basic
                 }
 
                 Console.WriteLine(result);
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.20
+        /// </summary>
+        public static void RunMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var split = test[0].Split(' ');
+                var n = int.Parse(split[0]);
+                var k = double.Parse(split[1]);
+                Console.WriteLine(StringScanner.GetPositiveInt(test[1], n).Sum(x => Math.Ceiling(x / k) - 1));
             }
         }
     }
