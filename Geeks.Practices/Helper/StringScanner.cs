@@ -150,6 +150,7 @@ namespace Geeks.Practices.Helper
             return result;
         }        
 
+
         public int NextInt()
         {
             var result = 0;

@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            SumOfDistinctNumbers.Run();
+            DescendingDigits.Run();
             Console.ReadKey();
         }
     }

@@ -50,6 +50,29 @@ namespace Geeks.Practices.Arrays.Basic
     public class DescendingDigits
     {
         /// <summary>
+        /// The execution time is 1.13
+        /// * Interesting
+        /// </summary>
+        public static void RunThis()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var digits = test.Where(c => !char.IsWhiteSpace(c)).ToArray();
+                Array.Sort(digits, (a,b) => b.CompareTo(a));
+                Console.WriteLine(string.Join(string.Empty, digits));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 2.15
         /// * Interesting
         /// </summary>
