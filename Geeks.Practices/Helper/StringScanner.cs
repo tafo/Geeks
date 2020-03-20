@@ -73,7 +73,7 @@ namespace Geeks.Practices.Helper
                 }
             }
 
-            return Math.Max(max, number * (isNegative ? -1 : 1));;
+            return Math.Max(max, number * (isNegative ? -1 : 1));
         }
 
         public static int MinInt(string input)
@@ -99,7 +99,7 @@ namespace Geeks.Practices.Helper
                 }
             }
 
-            return Math.Min(min, number * (isNegative ? -1 : 1));;
+            return Math.Min(min, number * (isNegative ? -1 : 1));
         }
 
         public static long[] GetPositive(string input, int n)
