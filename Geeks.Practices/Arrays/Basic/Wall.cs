@@ -226,6 +226,7 @@ namespace Geeks.Practices.Arrays.Basic
         
         /// <summary>
         /// The execution time is 0.18
+        /// * Subtract n from sum
         /// </summary>
         public static void RunAnother()
         {
