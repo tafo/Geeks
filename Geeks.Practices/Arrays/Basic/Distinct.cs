@@ -27,12 +27,21 @@ namespace Geeks.Practices.Arrays.Basic
     /// 1<=a[i]<=100
     /// 
     /// Example:
+    ///
     /// Input:
-    /// 1
+    /// 3
     /// 6
     /// 1 2 3 1 4 2
+    /// 15
+    /// 88 57 44 92 28 66 60 37 33 52 38 29 76 8 75 
+    /// 22
+    /// 59 96 30 38 36 94 19 29 44 12 29 30 77 5 44 64 14 39 7 41 5 19
+    /// 
     /// Output:
     /// 1 2 3 4
+    /// 88 57 44 92 28 66 60 37 33 52 38 29 76 8 75
+    /// 59 96 30 38 36 94 19 29 44 12 77 5 64 14 39 7 41
+    /// 
     /// </summary>
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
