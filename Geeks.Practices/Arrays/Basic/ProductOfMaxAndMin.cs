@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -42,7 +43,7 @@ namespace Geeks.Practices.Arrays.Basic
     /// 5
     /// 0 0 0 0 0
     /// 1
-    /// 9 9 9
+    /// 999
     /// 6
     /// -1 -2 -3 -4 -5 -6
     /// 6
@@ -67,6 +68,31 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class ProductOfMaxAndMin
     {
+        /// <summary>
+        /// The execution time is 0.30
+        /// </summary>
+        public static void RunCompareTo()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[4];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+                tests[i][2] = Console.ReadLine();
+                tests[i][3] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var max = StringScanner.GetInt(test[1], int.Parse(test[0])).Max();
+                var min = StringScanner.GetInt(test[3], int.Parse(test[2])).Min();
+                Console.WriteLine(max * min);
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.30
         /// </summary>

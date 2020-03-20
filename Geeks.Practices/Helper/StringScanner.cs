@@ -119,7 +119,7 @@ namespace Geeks.Practices.Helper
                 }
             }
 
-            result[i] = number;
+            result[i] = number * (isNegative ? -1 : 1);
 
             return result;
         }
