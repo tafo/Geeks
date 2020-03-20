@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 
 namespace Geeks.Practices.Helper
 {
@@ -9,8 +8,8 @@ namespace Geeks.Practices.Helper
     [SuppressMessage("ReSharper", "CommentTypo")]
     public class StringScanner
     {
-        private readonly string _input;
-        private readonly int _length;
+        private string _input;
+        private int _length;
         private const char Sub = '0';
 
         public int Position { get; set; }
@@ -18,15 +17,13 @@ namespace Geeks.Practices.Helper
 
         public StringScanner(string input, bool isReverse = false)
         {
-            _input = input;
-            _length = _input.Length;
             if (isReverse)
             {
-                Reset(_length - 1);
+                Reset(_length - 1, input);
             }
             else
             {
-                Reset();
+                Reset(0, input);
             }
         }
 
@@ -292,9 +289,15 @@ namespace Geeks.Practices.Helper
             return result;
         }
 
-        public void Reset(int position = 0)
+        public void Reset(int position = 0, string input = null)
         {
             Position = position;
+            if (input != null)
+            {
+                _input = input;
+                _length = input.Length;
+            }
+
             HasNext = true;
         }
     }
