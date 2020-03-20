@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -48,6 +49,31 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class FirstNegativeThenPositive
     {
+        /// <summary>
+        /// The execution time is 0.40
+        /// </summary>
+        public static void RunCompareTo()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = StringScanner.GetLong(test[1], n);
+                var negatives = numbers.Where(x => x < 0);
+                var positives = numbers.Where(x => x >= 0);
+                Console.WriteLine(string.Join(' ', negatives.Concat(positives)));
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.39
         /// </summary>

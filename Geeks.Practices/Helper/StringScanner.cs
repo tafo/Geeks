@@ -177,6 +177,35 @@ namespace Geeks.Practices.Helper
             return result;
         }
 
+        public static long[] GetLong(string input, int n)
+        {
+            var result = new long[n];
+            var i = 0;
+            long number = 0;
+            var isNegative = false;
+            foreach (var c in input)
+            {
+                if (c == '-')
+                {
+                    isNegative = true;
+                }
+                else if (char.IsWhiteSpace(c))
+                {
+                    result[i++] = number * (isNegative ? -1 : 1);
+                    number = 0;
+                    isNegative = false;
+                }
+                else
+                {
+                    number = number * 10 + (c - Sub);
+                }
+            }
+
+            result[i] = number * (isNegative ? -1 : 1);
+
+            return result;
+        }
+
         public static int[] GetDigit(string input, int n)
         {
             var result = new int[n];
