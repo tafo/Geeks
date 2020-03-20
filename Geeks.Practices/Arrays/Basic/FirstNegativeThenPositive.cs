@@ -52,7 +52,7 @@ namespace Geeks.Practices.Arrays.Basic
         /// <summary>
         /// The execution time is 0.52
         /// </summary>
-        public static void RunSingleLineLinq()
+        public static void RunCompareToMix()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount][];
