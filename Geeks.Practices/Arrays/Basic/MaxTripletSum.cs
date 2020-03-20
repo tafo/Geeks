@@ -69,6 +69,27 @@ namespace Geeks.Practices.Arrays.Basic
         }
 
         /// <summary>
+        /// The execution time is 0.20
+        /// </summary>
+        public static void RunMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(StringScanner.GetInt(test[1], int.Parse(test[0])).OrderByDescending(x => x).Take(3).Sum());
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.17
         /// </summary>
         public static void RunBest()
