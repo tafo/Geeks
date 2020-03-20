@@ -41,6 +41,28 @@ namespace Geeks.Practices.Arrays.Basic
     {
         /// <summary>
         /// The execution time is 0.08
+        /// * I could not get a better performance than 0.08 :)
+        /// </summary>
+        public static void RunCompareToBest()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(string.Join(' ', StringScanner.GetPositiveInt(test[1], int.Parse(test[0])).Distinct()));
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.08
         /// </summary>
         public static void RunBest()
         {
