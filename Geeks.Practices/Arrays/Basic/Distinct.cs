@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Text;
 using Geeks.Practices.Helper;
 
@@ -38,6 +39,26 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class Distinct
     {
+        /// <summary>
+        /// The execution time is 0.08 !!!
+        /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(new StringBuilder().AppendJoin(' ', test.Split(' ').Distinct()).ToString());
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.13-0.14
         /// * Check different types of appending operations
