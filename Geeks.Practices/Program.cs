@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            ProductOfMaxAndMin.RunCompareTo();
+            FirstNegativeThenPositive.RunLinq();
             Console.ReadKey();
         }
     }

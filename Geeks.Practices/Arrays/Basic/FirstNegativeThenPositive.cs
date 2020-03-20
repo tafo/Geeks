@@ -50,9 +50,30 @@ namespace Geeks.Practices.Arrays.Basic
     public class FirstNegativeThenPositive
     {
         /// <summary>
+        /// The execution time is 0.52
+        /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(string.Join(' ', StringScanner.GetLong(test[1], int.Parse(test[0])).OrderBy(x => x >= 0)));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.40
         /// </summary>
-        public static void RunCompareTo()
+        public static void RunMix()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount][];
