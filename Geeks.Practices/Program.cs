@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            SumOfDiagonalNumbers.Run();
+            AlternateSorting.Run();
             Console.ReadKey();
         }
     }
