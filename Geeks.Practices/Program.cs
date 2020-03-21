@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            Shuffle.RunAnother();
+            Shuffle.RunLinq();
             Console.ReadKey();
         }
     }

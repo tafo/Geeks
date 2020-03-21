@@ -7,7 +7,7 @@ namespace Geeks.Practices.Helper
     [SuppressMessage("ReSharper", "ConvertToUsingDeclaration")]
     public static class EnumerableExtensions
     {
-        public static IEnumerable<int> Interleave(this IEnumerable<int> first, IEnumerable<int> second)
+        public static IEnumerable<T> Interleave<T>(this IEnumerable<T> first, IEnumerable<T> second)
         {
             using (var e1 = first.GetEnumerator())
             using (var e2 = second.GetEnumerator())

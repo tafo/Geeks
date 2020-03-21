@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -53,6 +54,26 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class Shuffle
     {
+        /// <summary>
+        /// The execution time is 0.13
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ');
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(string.Join(' ', test.Take(test.Length / 2).Interleave(test.Skip(test.Length/ 2))));
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.12
         /// </summary>
