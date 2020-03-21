@@ -72,6 +72,28 @@ namespace Geeks.Practices.Arrays.Basic
         }
 
         /// <summary>
+        /// The execution time is 0.11
+        /// * I liked this
+        /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new int[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).OrderBy(x => x).ToArray();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(string.Join(' ',
+                    Enumerable.Range(0, test.Length).Select(x => (x & 1) == 0 ? test.SkipLast(x / 2).Last() : test.Skip(x / 2).First())));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.10
         /// </summary>
         public static void RunMix()

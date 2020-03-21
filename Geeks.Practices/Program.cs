@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            AlternateSorting.Run();
+            AlternateSorting.RunSingleLineLinq();
             Console.ReadKey();
         }
     }
