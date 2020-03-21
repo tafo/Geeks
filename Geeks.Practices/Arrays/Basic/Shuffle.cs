@@ -54,6 +54,40 @@ namespace Geeks.Practices.Arrays.Basic
     public class Shuffle
     {
         /// <summary>
+        /// The execution time is 0.12
+        /// </summary>
+        public static void RunCompareToAnother()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var result = new int[n];
+                var numbers = StringScanner.GetPositiveInt(test[1], n);
+                var half = n / 2;
+                var i = 0;
+                while (i < n - 1)
+                {
+                    result[i++] = numbers[i / 2];
+                    result[i] = numbers[half + i / 2];
+                    i++;
+                }
+
+                result[n - 1] = numbers[n - 1];
+                Console.WriteLine(string.Join(' ', result));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.13
         /// </summary>
         public static void RunAnother()
