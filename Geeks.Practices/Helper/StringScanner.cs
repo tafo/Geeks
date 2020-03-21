@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Text;
 
 namespace Geeks.Practices.Helper
 {
@@ -417,6 +418,26 @@ namespace Geeks.Practices.Helper
             }
 
             return result;
+        }
+
+        public string NextString()
+        {
+            var stringBuilder = new StringBuilder();
+            var c = _input[Position++];
+            while (!char.IsWhiteSpace(c))
+            {
+                stringBuilder.Append(c);
+
+                if (Position == _length)
+                {
+                    HasNext = false;
+                    break;
+                }
+
+                c = _input[Position++];
+            }
+
+            return stringBuilder.ToString();
         }
 
         public void Reset(int position = 0, string input = null)
