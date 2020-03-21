@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            SortingWorker.Run();
+            SortingWorker.RunMix();
             Console.ReadKey();
         }
     }

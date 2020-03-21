@@ -267,6 +267,29 @@ namespace Geeks.Practices.Helper
             return result;
         }
 
+        public static string[] GetString(string input, int n)
+        {
+            var result = new string[n];
+            var i = 0;
+            var element = string.Empty;
+
+            foreach (var c in input)
+            {
+                if (char.IsWhiteSpace(c))
+                {
+                    result[i++] = element;
+                    element = string.Empty;
+                    continue;
+                }
+
+                element += c;
+            }
+
+            result[i] = element;
+
+            return result;
+        }
+
         public int NextInt()
         {
             var result = 0;

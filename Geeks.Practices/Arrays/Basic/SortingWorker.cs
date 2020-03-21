@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Text;
 using Geeks.Practices.Helper;
 
@@ -53,6 +54,40 @@ namespace Geeks.Practices.Arrays.Basic
     public class SortingWorker
     {
         /// <summary>
+        /// The execution time is 0.24
+        /// </summary>
+        public static void RunMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var workers = new string[n];
+                var salaries = new int[n];
+                var index = 0;
+                var scanner = new StringScanner(test[1]);
+                while (scanner.HasNext)
+                {
+                    workers[index] = scanner.NextString();
+                    salaries[index++] = scanner.NextPositiveInt();
+                }
+
+                Console.WriteLine(string.Join(' ',
+                    salaries.Select((x, i) => new {Salary = x, Worker = workers[i]}).OrderBy(x => x.Salary).ThenBy(x => x.Worker)
+                        .SelectMany(x => new[] {x.Worker, x.Salary.ToString()})));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.21
         /// </summary>
         public static void Run()
@@ -83,7 +118,7 @@ namespace Geeks.Practices.Arrays.Basic
 
                 var k = 1;
                 var length = 1;
-                while (k  < n)
+                while (k < n)
                 {
                     if (salaries[k] == salaries[k - 1])
                     {
