@@ -54,6 +54,30 @@ namespace Geeks.Practices.Arrays.Basic
     public class SortingWorker
     {
         /// <summary>
+        /// The execution time is 0.32
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var elements = test.Split(' ');
+                var workers = elements.Where((x, i) => (i & 1) == 0).ToArray();
+                var salaries = elements.Where((x, i) => (i & 1) == 1).Select(int.Parse);
+                Console.WriteLine(string.Join(' ',
+                    salaries.Select((x, i) => new {Salary = x, Worker = workers[i]}).OrderBy(x => x.Salary).ThenBy(x => x.Worker)
+                        .SelectMany(x => new[] {x.Worker, x.Salary.ToString()})));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.24
         /// </summary>
         public static void RunMix()
