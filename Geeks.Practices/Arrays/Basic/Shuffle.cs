@@ -55,6 +55,28 @@ namespace Geeks.Practices.Arrays.Basic
     public class Shuffle
     {
         /// <summary>
+        /// The execution time is 0.12
+        /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ');
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(string.Join(' ',
+                    Enumerable.Range(0, test.Length - 1).Select(x => (x & 1) == 0 ? test[x / 2] : test[test.Length / 2 + x / 2])
+                        .Concat(test.TakeLast(1))));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.13
         /// </summary>
         public static void RunLinq()
