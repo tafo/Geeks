@@ -52,9 +52,10 @@ namespace Geeks.Practices.Arrays.Basic
     public class AlternateSorting
     {
         /// <summary>
-        /// The execution time is 0.10
+        /// The execution time is 0.09
+        /// * !!!
         /// </summary>
-        public static void RunLinq()
+        public static void RunCompareToSingleLineLinq()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new int[testCount][];
@@ -62,12 +63,13 @@ namespace Geeks.Practices.Arrays.Basic
             for (var i = 0; i < testCount; i++)
             {
                 Console.ReadLine();
-                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).OrderBy(x => x).ToArray();
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).OrderByDescending(x => x).ToArray();
             }
 
             foreach (var test in tests)
             {
-                Console.WriteLine(string.Join(' ', test.Skip(test.Length / 2).Reverse().Interleave(test.Take(test.Length / 2))));
+                Console.WriteLine(string.Join(' ',
+                    Enumerable.Range(1, test.Length).Select(x => (x & 1) == 1 ? test[x / 2] : test[^(x / 2)])));
             }
         }
 
@@ -90,6 +92,26 @@ namespace Geeks.Practices.Arrays.Basic
             {
                 Console.WriteLine(string.Join(' ',
                     Enumerable.Range(0, test.Length).Select(x => (x & 1) == 0 ? test.SkipLast(x / 2).Last() : test.Skip(x / 2).First())));
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.10
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new int[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).OrderBy(x => x).ToArray();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(string.Join(' ', test.Skip(test.Length / 2).Reverse().Interleave(test.Take(test.Length / 2))));
             }
         }
 
