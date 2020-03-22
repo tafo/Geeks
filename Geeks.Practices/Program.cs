@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            Shuffle.RunSingleLineLinq();
+            SubtractNumberFromSum.Run();
             Console.ReadKey();
         }
     }
