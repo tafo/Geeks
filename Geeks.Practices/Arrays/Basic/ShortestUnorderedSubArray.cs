@@ -90,6 +90,42 @@ namespace Geeks.Practices.Arrays.Basic
         }
 
         /// <summary>
+        /// The execution time is 0.13
+        /// </summary>
+        public static void RunAnother()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var result = 0;
+                if (n > 2)
+                {
+                    var scanner = new StringScanner(test[1]);
+                    var number = scanner.NextPositiveInt();
+                    var flag = number < (number = scanner.NextPositiveInt());
+                    while (scanner.HasNext)
+                    {
+                        if (flag != number > (number = scanner.NextPositiveInt())) continue;
+                        result = 3;
+                        break;
+                    }
+                }
+
+                Console.WriteLine(result);
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.12
         /// </summary>
         public static void Run()
@@ -107,7 +143,7 @@ namespace Geeks.Practices.Arrays.Basic
             foreach (var test in tests)
             {
                 var n = int.Parse(test[0]);
-                if (n == 1)
+                if (n < 3)
                 {
                     Console.WriteLine(0);
                     continue;
