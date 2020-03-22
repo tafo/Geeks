@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            OddIsGreaterThanEven.Run();
+            OddIsGreaterThanEven.RunRequired();
             Console.ReadKey();
         }
     }

@@ -51,6 +51,42 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class OddIsGreaterThanEven
     {
+        public static void RunRequired()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = StringScanner.GetPositiveInt(test[1], n);
+                Console.WriteLine(string.Join(' ', FormatArray(numbers, n)));
+            }
+        }
+
+        /// <summary>
+        /// The signature of this method is given by GfG
+        /// </summary>
+        public static int[] FormatArray(int[] a, int n)
+        {
+            for (var i = 0; i < n; i += 2)
+            {
+                if (i == n - 1 || a[i] < a[i + 1]) continue;
+                var temp = a[i];
+                a[i] = a[i + 1];
+                a[i + 1] = temp;
+            }
+
+            return a;
+        }
+
         public static void Run()
         {
             var testCount = int.Parse(Console.ReadLine());
