@@ -71,6 +71,57 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class ReverseGroups
     {
+        /// <summary>
+        /// The execution time of the equivalent JAVA solution is 1.31. But, ... Anyway!
+        /// </summary>
+        public static void RunThis()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var split = test[0].Split(' ');
+                var n = int.Parse(split[0]);
+                var k = int.Parse(split[1]);
+                var numbers = StringScanner.GetPositiveInt(test[1], n);
+
+                Console.WriteLine(string.Join(' ', ReverseInGroups(numbers, n, k)));
+            }
+        }
+
+        /// <summary>
+        /// The signature of this method is given by GfG
+        /// </summary>
+        public static int[] ReverseInGroups(int[] mv, int n, int k)
+        {
+            var result = new int[n];
+            var groupCount = n / k;
+            var i = 0;
+            for (var a = 0; a < groupCount; a++)
+            {
+                for (var b = k - 1; b >= 0; b--)
+                {
+                    result[a * k + b] = mv[i++];
+                }
+            }
+
+            var m = n;
+            while (i < n)
+            {
+                result[--m] = mv[i++];
+            }
+
+            return result;
+        }
+        
         public static void Run()
         {
             var testCount = int.Parse(Console.ReadLine());
