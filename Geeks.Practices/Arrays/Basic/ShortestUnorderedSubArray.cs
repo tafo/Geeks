@@ -61,6 +61,38 @@ namespace Geeks.Practices.Arrays.Basic
     public class ShortestUnorderedSubArray
     {
         /// <summary>
+        /// The execution time is 0.11
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var result = 0;
+                if (n > 2)
+                {
+                    var elements = test[1].Split(' ').Select(int.Parse).ToArray();
+                    if (elements.Skip(1).Select((x, i) => x > elements[i]).Distinct().Count() > 1)
+                    {
+                        result = 3;
+                    }
+                }
+
+                Console.WriteLine(result);
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.08
         /// </summary>
         public static void RunMix()
@@ -115,7 +147,7 @@ namespace Geeks.Practices.Arrays.Basic
                     var flag = number < (number = scanner.NextPositiveInt());
                     while (scanner.HasNext)
                     {
-                        if (flag != number > (number = scanner.NextPositiveInt())) continue;
+                        if (flag == number < (number = scanner.NextPositiveInt())) continue;
                         result = 3;
                         break;
                     }
