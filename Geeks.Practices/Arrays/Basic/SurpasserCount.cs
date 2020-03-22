@@ -55,6 +55,27 @@ namespace Geeks.Practices.Arrays.Basic
     public class SurPasserCount
     {
         /// <summary>
+        /// The execution time is 0.30
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var numbers = test.Split(' ').Select(int.Parse).ToArray();
+                Console.WriteLine(string.Join(' ', numbers.Select((x, i) => numbers.Skip(i + 1).Count(y => y > x))));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.22
         /// </summary>
         public static void RunMix()
