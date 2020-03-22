@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            LastDuplicate.Run();
+            ShortestUnorderedSubArray.Run();
             Console.ReadKey();
         }
     }
