@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -54,7 +55,50 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class SubtractNumberFromSum
     {
+        /// <summary>
+        /// The execution time of the equivalent JAVA solution is 0.98
+        /// </summary>
         public static void Run()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                SumArray(StringScanner.GetPositiveInt(test[1], n), n);
+            }
+        }
+
+        /// <summary>
+        /// The signature of the method is given by GfG
+        /// * It should print the result
+        /// </summary>
+        [SuppressMessage("ReSharper", "SuggestVarOrType_BuiltInTypes")]
+        public static void SumArray(int[] arr, int n)
+        {
+            int sum = 0;
+            for (int i = 0; i < n; i++)
+            {
+                sum += arr[i];
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                arr[i] = sum - arr[i];
+            }
+
+            Console.WriteLine(string.Join(' ', arr));
+        }
+
+        public static void RunThis()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount][];
