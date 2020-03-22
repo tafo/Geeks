@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            SubtractNumberFromSum.RunLinq();
+            SubtractNumberFromSum.RunSingleLineLinq();
             Console.ReadKey();
         }
     }

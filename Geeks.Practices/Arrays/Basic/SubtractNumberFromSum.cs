@@ -56,8 +56,25 @@ namespace Geeks.Practices.Arrays.Basic
     public class SubtractNumberFromSum
     {
         /// <summary>
-        /// The execution time of the equivalent JAVA solution is 0.98
+        /// * But, test.Sum() is repeated for every number !
         /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new int[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).ToArray();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(string.Join(' ', test.Select(x => test.Sum() - x)));
+            }
+        }
+
         public static void RunLinq()
         {
             var testCount = int.Parse(Console.ReadLine());
