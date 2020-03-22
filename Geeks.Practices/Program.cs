@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            ReverseGroups.RunLinq();
+            OddIsGreaterThanEven.Run();
             Console.ReadKey();
         }
     }

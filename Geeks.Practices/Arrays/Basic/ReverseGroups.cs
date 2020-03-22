@@ -75,6 +75,39 @@ namespace Geeks.Practices.Arrays.Basic
         /// <summary>
         /// 
         /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var split = test[0].Split(' ');
+                var n = int.Parse(split[0]);
+                var k = int.Parse(split[1]);
+                var elements = test[1].Split(' ').Select(int.Parse).ToArray();
+                Console.WriteLine(string.Join(' ', ReverseInGroupsLinq(elements, n, k)));
+            }
+        }
+
+        /// <summary>
+        /// The signature of this method is given by GfG
+        /// </summary>
+        public static int[] ReverseInGroupsLinq(int[] mv, int n, int k)
+        {
+            return Enumerable.Range(0, (int) Math.Ceiling(n / (double) k)).SelectMany(x => mv.Skip(x * k).Take(k).Reverse()).ToArray();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static void RunLinq()
         {
             var testCount = int.Parse(Console.ReadLine());
