@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -56,7 +57,31 @@ namespace Geeks.Practices.Arrays.Basic
     public class LastDuplicate
     {
         /// <summary>
-        /// The execution time is 0.12
+        /// The execution time is 0.08
+        /// </summary>
+        public static void RunMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = StringScanner.GetPositiveInt(test[1], n);
+                var lastDuplicate = numbers.Where((x, i) => i > 0 && x == numbers[i - 1]).DefaultIfEmpty(-1).LastOrDefault();
+                Console.WriteLine(lastDuplicate == -1 ? "-1" : $"{Array.LastIndexOf(numbers, lastDuplicate)} {lastDuplicate}");
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.13
         /// </summary>
         public static void RunCompareToScanner()
         {
