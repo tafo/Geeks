@@ -58,6 +58,28 @@ namespace Geeks.Practices.Arrays.Basic
         /// <summary>
         /// The execution time of the equivalent JAVA solution is 0.98
         /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var numbers = test.Split(' ').Select(int.Parse).ToArray();
+                var sum = numbers.Sum();
+                Console.WriteLine(string.Join(' ', numbers.Select(x => sum - x)));
+            }
+        }
+        
+        /// <summary>
+        /// The execution time of the equivalent JAVA solution is 0.98
+        /// </summary>
         public static void Run()
         {
             var testCount = int.Parse(Console.ReadLine());
