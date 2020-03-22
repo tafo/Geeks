@@ -58,7 +58,46 @@ namespace Geeks.Practices.Arrays.Basic
         /// <summary>
         /// The execution time is 0.12
         /// </summary>
-        public static void Run()
+        public static void RunCompareToScanner()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var scanner = new StringScanner(test[1], true);
+                var right = scanner.PreviousPositiveInt();
+                var i = 1;
+                var result = "-1";
+                while (scanner.HasNext)
+                {
+                    var left = scanner.PreviousPositiveInt();
+                    if (right == left)
+                    {
+                        result = $"{n - i} {left}";
+                        break;
+                    }
+
+                    right = left;
+                    i++;
+                }
+
+                Console.WriteLine(result);
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.12
+        /// </summary>
+        public static void RunScanner()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount][];
