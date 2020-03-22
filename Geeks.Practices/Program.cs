@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            ShortestUnorderedSubArray.RunMix();
+            EvenSum.RunSingleLineLinq();
             Console.ReadKey();
         }
     }
