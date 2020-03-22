@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            SurPasserCount.RunMix();
+            ReverseGroups.Run();
             Console.ReadKey();
         }
     }

@@ -101,7 +101,7 @@ namespace Geeks.Practices.Arrays.Basic
             foreach (var test in tests)
             {
                 var n = int.Parse(test[0]);
-                var numbers = StringScanner.GetPositive(test[1], n);
+                var numbers = StringScanner.GetPositiveLong(test[1], n);
                 Array.Sort(numbers);
 
                 Console.WriteLine("{0} {1}", numbers[0], numbers[n - 1]);

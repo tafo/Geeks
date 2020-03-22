@@ -94,7 +94,7 @@ namespace Geeks.Practices.Arrays.Basic
             foreach (var test in tests)
             {
                 var n = int.Parse(test[0]);
-                var numbers = StringScanner.GetPositive(test[1], n);
+                var numbers = StringScanner.GetPositiveLong(test[1], n);
                 Array.Sort(numbers);
                 long sum = 0;
                 for (var i = 0; i < n; i++)

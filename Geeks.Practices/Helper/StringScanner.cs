@@ -123,7 +123,7 @@ namespace Geeks.Practices.Helper
             return Math.Min(min, number * (isNegative ? -1 : 1));
         }
 
-        public static long[] GetPositive(string input, int n)
+        public static long[] GetPositiveLong(string input, int n)
         {
             var result = new long[n];
             var i = 0;

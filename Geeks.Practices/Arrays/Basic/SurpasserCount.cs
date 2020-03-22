@@ -166,9 +166,9 @@ namespace Geeks.Practices.Arrays.Basic
                     var number = scanner.NextPositiveInt();
                     for (var k = 0; k < i; k++)
                     {
-                        if (number < numbers[i])
+                        if (number > numbers[k])
                         {
-                            result[i]++;
+                            result[k]++;
                         }
                     }
 
