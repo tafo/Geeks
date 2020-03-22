@@ -59,6 +59,27 @@ namespace Geeks.Practices.Arrays.Basic
         /// <summary>
         /// The execution time is 0.09
         /// </summary>
+        public static void RunAnotherLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ');
+            }
+
+            foreach (var test in tests)
+            {
+                var lastDuplicate = test.Where((x, i) => i > 0 && x == test[i - 1]).LastOrDefault();
+                Console.WriteLine(lastDuplicate == null ? "-1" : $"{Array.LastIndexOf(test, lastDuplicate)} {lastDuplicate}");
+            }
+        } 
+
+        /// <summary>
+        /// The execution time is 0.09
+        /// </summary>
         public static void RunCompareToLinq()
         {
             var testCount = int.Parse(Console.ReadLine());
