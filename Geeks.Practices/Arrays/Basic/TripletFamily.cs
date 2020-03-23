@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using Geeks.Practices.Helper;
 
@@ -36,8 +37,14 @@ namespace Geeks.Practices.Arrays.Basic
     /// 3 3 3
     /// 6
     /// 8 10 16 6 15 25
+    /// 21
+    /// 325 114 397 428 748 126 197 315 618 133 85 888 357 795 796 938 87 170 401 518 820 
+    /// 25
+    /// 394 846 216 41 211 891 103 714 233 147 547 630 293 295 474 489 609 811 340 412 699 696 208 495 353
     /// 
     /// Output:
+    /// 1
+    /// -1
     /// 1
     /// -1
     /// 1
@@ -61,6 +68,79 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class TripletFamily
     {
+        /// <summary>
+        /// The execution time of the equivalent JAVA solution is 0.45
+        /// </summary>
+        public static void RunEquivalent()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = StringScanner.GetPositiveInt(test[1], n);
+
+                // The structure of below code is given by GfG
+                var triplet = FindTriplet(numbers, n);
+                if (triplet.Count != 3)
+                {
+                    Console.WriteLine(-1);
+                }
+                else
+                {
+                    triplet.Sort();
+                    Console.WriteLine(triplet[0] + triplet[1] == triplet[2] ? 1 : 0);
+                }
+            }
+        }
+
+        /// <summary>
+        /// The signature of this method is given by GfG
+        /// </summary>
+        public static List<int> FindTriplet(int[] arr, int n)
+        {
+            var result = new List<int>();
+            Array.Sort(arr);
+
+            var c = n - 1;
+            while (c > 1)
+            {
+                var b = c - 1;
+                var a = 0;
+                while (a < b)
+                {
+                    var sum = arr[a] + arr[b];
+                    if (sum < arr[c])
+                    {
+                        a++;
+                    }
+                    else if (sum > arr[c])
+                    {
+                        b--;
+                    }
+                    else
+                    {
+                        result.Add(arr[a]);
+                        result.Add(arr[b]);
+                        result.Add(arr[c]);
+                        c = 2;
+                        break;
+                    }
+                }
+                c--;
+            }
+
+            return result;
+        }
+
         public static void Run()
         {
             var testCount = int.Parse(Console.ReadLine());
@@ -105,7 +185,7 @@ namespace Geeks.Practices.Arrays.Basic
                     }
                     c--;
                 }
-                
+
                 Console.WriteLine(isQualified ? 1 : -1);
             }
         }
