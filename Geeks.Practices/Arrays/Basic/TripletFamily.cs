@@ -73,6 +73,32 @@ namespace Geeks.Practices.Arrays.Basic
         /// The execution time of the equivalent JAVA solution is 0.45
         /// :P
         /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new int[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).OrderBy(x => x).ToArray();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(test
+                    .SelectMany(a => test.Except(new[] { a }), (a, b) => new { a, b })
+                    .SelectMany(x => test.Except(new[] { x.a, x.b }), (x, c) => new { x.a, x.b, c })
+                    .Any(x => x.a + x.b == x.c)
+                    ? 1
+                    : -1);
+            }
+        }
+
+        /// <summary>
+        /// The execution time of the equivalent JAVA solution is 0.45
+        /// :P
+        /// </summary>
         public static void RunMix()
         {
             var testCount = int.Parse(Console.ReadLine());
