@@ -71,5 +71,34 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class InversePermutation
     {
+        /// <summary>
+        /// The execution time is 0.13
+        /// </summary>
+        public static void Run()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var scanner = new StringScanner(test[1]);
+                var i = 0;
+                var result = new int[n];
+                while (scanner.HasNext)
+                {
+                    result[scanner.NextPositiveInt() - 1] = i++ + 1;
+                }
+
+                Console.WriteLine(string.Join(' ', result));
+            }
+        }
     }
 }
