@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -30,7 +31,7 @@ namespace Geeks.Practices.Arrays.Basic
     /// Example:
     /// 
     /// Input:
-    /// 3
+    /// 5
     /// 5
     /// 1 2 3 4 5
     /// 3
@@ -68,6 +69,35 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class TripletFamily
     {
+        /// <summary>
+        /// The execution time of the equivalent JAVA solution is 0.45
+        /// :P
+        /// </summary>
+        public static void RunMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = StringScanner.GetPositiveInt(test[1], n);
+                Array.Sort(numbers, (a, b) => b.CompareTo(a));
+                Console.WriteLine(numbers
+                    .SelectMany(a => numbers.Except(new[] { a }), (a, b) => new { a, b })
+                    .SelectMany(x => numbers.Except(new[] { x.a, x.b }), (x, c) => new { x.a, x.b, c }).Any(x => x.a + x.b == x.c)
+                    ? 1
+                    : -1);
+            }
+        }
+
         /// <summary>
         /// The execution time of the equivalent JAVA solution is 0.45
         /// </summary>
