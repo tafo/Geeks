@@ -73,6 +73,29 @@ namespace Geeks.Practices.Arrays.Basic
     public class InversePermutation
     {
         /// <summary>
+        /// The execution time is 0.10
+        /// </summary>
+        public static void RunMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = StringScanner.GetPositiveInt(test[1], n);
+                Console.WriteLine(string.Join(' ', numbers.Select((x, i) => new[] {x, i + 1}).OrderBy(x => x[0]).Select(x => x[1])));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.09
         /// </summary>
         public static void RunAnother()
