@@ -58,6 +58,28 @@ namespace Geeks.Practices.Arrays.Basic
         /// <summary>
         /// The execution time is 0.86
         /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new int[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).Prepend(-1).OrderBy(x => x).ToArray();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(string.Join(' ',
+                    test.Skip(1).Select((x, i) => x - test[i] < 2 ? string.Empty : x - test[i] == 2 ? $"{x - 1}" : $"{test[i] + 1}-{x - 1}")
+                        .Where(x => !string.IsNullOrEmpty(x)).DefaultIfEmpty("-1")));
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.86
+        /// </summary>
         public static void RunMix()
         {
             var testCount = int.Parse(Console.ReadLine());
