@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            SumNegatives.Run();
+            InversePermutation.RunMix();
             Console.ReadKey();
         }
     }

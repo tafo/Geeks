@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -71,6 +72,31 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class InversePermutation
     {
+        /// <summary>
+        /// The execution time is 0.09
+        /// </summary>
+        public static void RunAnother()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = StringScanner.GetPositiveInt(test[1], n);
+                var positions = Enumerable.Range(1, n).ToArray();
+                Array.Sort(numbers, positions);
+                Console.WriteLine(string.Join(' ', positions));
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.13
         /// </summary>
