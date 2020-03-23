@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            OddIsGreaterThanEven.RunLinq();
+            SumNegatives.Run();
             Console.ReadKey();
         }
     }

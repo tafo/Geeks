@@ -67,7 +67,7 @@ namespace Geeks.Practices.Arrays.Basic
             foreach (var test in tests)
             {
                 var n = int.Parse(test[0]);
-                var numbers = StringScanner.GetPositiveInt(test[1], n);
+                var numbers = test[1].Split(' ').Select(int.Parse).ToArray();
                 Console.WriteLine(string.Join(' ', FormatArrayLinq(numbers, n)));
             }
         }
