@@ -71,7 +71,7 @@ namespace Geeks.Practices.Arrays.Basic
     {
         /// <summary>
         /// The execution time of the equivalent JAVA solution is 0.45
-        /// :P
+        /// :P >>> Because, this is brute force. 
         /// </summary>
         public static void RunSingleLineLinq()
         {
