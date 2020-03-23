@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            InversePermutation.RunMix();
+            TripletFamily.Run();
             Console.ReadKey();
         }
     }
