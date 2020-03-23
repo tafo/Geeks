@@ -70,7 +70,26 @@ namespace Geeks.Practices.Arrays.Basic
     public class TripletFamily
     {
         /// <summary>
-        /// The execution time of the equivalent JAVA solution is 0.45
+        /// ToDo : Implement a LINQ solution like "Run"
+        /// </summary>
+        public static void RunFun()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new int[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).OrderBy(x => x).ToArray();
+            }
+
+            foreach (var test in tests)
+            {
+
+            }
+        }
+
+        /// <summary>
         /// :P >>> Because, this is brute force. 
         /// </summary>
         public static void RunSingleLineLinq()
@@ -96,7 +115,6 @@ namespace Geeks.Practices.Arrays.Basic
         }
 
         /// <summary>
-        /// The execution time of the equivalent JAVA solution is 0.45
         /// :P
         /// </summary>
         public static void RunMix()
