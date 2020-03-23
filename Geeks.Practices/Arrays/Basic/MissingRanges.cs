@@ -76,11 +76,6 @@ namespace Geeks.Practices.Arrays.Basic
                 Array.Sort(numbers);
                 var resultBuilder = new StringBuilder();
                 var left = -1;
-                if(n == 1 && numbers[0] == 0)
-                {
-                    Console.WriteLine(-1);
-                    continue;
-                }
                 for (var i = 0; i < n; i++)
                 {
                     var dif = numbers[i] - left;
@@ -100,7 +95,8 @@ namespace Geeks.Practices.Arrays.Basic
                     left = numbers[i];
                 }
 
-                Console.WriteLine(resultBuilder.ToString());
+                var result = resultBuilder.ToString();
+                Console.WriteLine(result.Length == 0 ? "-1" : result);
             }
         }
     }
