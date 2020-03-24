@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -82,6 +83,33 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class Idiot
     {
+        /// <summary>
+        /// The execution time is 0.15
+        /// </summary>
+        public static void RunMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[3];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+                tests[i][2] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var left = StringScanner.GetPositiveInt(test[1], n);
+                var right = StringScanner.GetPositiveInt(test[2], n);
+                var result = left.Zip(right, (a, b) => a.CompareTo(b)).ToArray();
+                var sum = result.Sum();
+                Console.WriteLine("{0} {1} {2}", result.Count(x => x == 1), result.Count(x => x == -1), sum > 0 ? "A" : sum < 0 ? "B" : "DRAW");
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.15
         /// </summary>
