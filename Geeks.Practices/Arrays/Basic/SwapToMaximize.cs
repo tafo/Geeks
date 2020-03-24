@@ -52,7 +52,7 @@ namespace Geeks.Practices.Arrays.Basic
             var testCount = int.Parse(Console.ReadLine());
             var tests = new int[testCount][];
 
-            for (var i = 0; i < testCount; i++)
+            for (var i = 0; i < testCount; i++) 
             {
                 Console.ReadLine();
                 tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).OrderBy(x => x).ToArray();
