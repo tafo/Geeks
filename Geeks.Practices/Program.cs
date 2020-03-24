@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            CountDistinctElements.RunLoop();
+            MakeElementsConsecutive.RunLoop();
             Console.ReadKey();
         }
     }
