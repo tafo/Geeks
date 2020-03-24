@@ -54,6 +54,26 @@ namespace Geeks.Practices.Arrays.Basic
     public class MakeElementsConsecutive
     {
         /// <summary>
+        /// The execution time is 0.18
+        /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new int[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).ToArray();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(test.Skip(1).Select((x, i) => x <= test[i] ? test[i + 1] = test[i] + 1 : x).Sum() + test[0]);
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.13
         /// </summary>
         public static void RunMix()
