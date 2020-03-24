@@ -55,6 +55,28 @@ namespace Geeks.Practices.Arrays.Basic
     public class SortAndInterleaveTwoEnds
     {
         /// <summary>
+        /// The execution time is 0.18
+        /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new int[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).OrderBy(x => x).ToArray();;
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(string.Join(' ',
+                    Enumerable.Range(0, test.Length)
+                        .Select(i => (i & 1) == 0 ? test[i / 2] : test[test.Length - i / 2 - 1])));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.19
         /// </summary>
         public static void RunLinq()
