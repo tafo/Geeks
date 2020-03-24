@@ -92,8 +92,7 @@ namespace Geeks.Practices.Arrays.Basic
 
             foreach (var test in tests)
             {
-                Console.WriteLine(string.Join(' ',
-                    Enumerable.Range(0, test.Length).Select(i => (i & 1) == 0 ? test[i / 2] : test[test.Length - i / 2 - 1])));
+                Console.WriteLine(string.Join(' ', Enumerable.Range(1, test.Length).Select(i => (i & 1) == 1 ? test[i / 2] : test[^(i / 2)])));
             }
         }
 
