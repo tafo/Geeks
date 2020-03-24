@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
 {
@@ -55,16 +56,39 @@ namespace Geeks.Practices.Arrays.Basic
     /// 
     /// </summary>
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
+    [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class CountDistinctElements
     {
-        public static void Run()
+        /// <summary>
+        /// The execution time is 0.15
+        /// </summary>
+        public static void RunLoop()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount][];
 
-            for (int i = 0; i < testCount; i++)
+            for (var i = 0; i < testCount; i++)
             {
-                
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = StringScanner.GetPositiveInt(test[1], n);
+                Array.Sort(numbers);
+                var counter = 1;
+                for (var i = 1; i < n; i++)
+                {
+                    if (numbers[i] > numbers[i - 1])
+                    {
+                        counter++;
+                    }
+                }
+
+                Console.WriteLine(counter);
             }
         }
     }

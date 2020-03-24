@@ -45,7 +45,7 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
-    public class FindDuplicateElement
+    public class FindRepeatedElement
     {
         /// <summary>
         /// The execution time is 0.13

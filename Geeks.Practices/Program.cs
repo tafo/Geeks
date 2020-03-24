@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            FindDuplicateElement.Run();
+            CountDistinctElements.RunLoop();
             Console.ReadKey();
         }
     }
