@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            MakeElementsConsecutive.RunLoop();
+            MakeElementsConsecutive.RunMix();
             Console.ReadKey();
         }
     }
