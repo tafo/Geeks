@@ -84,6 +84,34 @@ namespace Geeks.Practices.Arrays.Basic
     public class Idiot
     {
         /// <summary>
+        /// The execution time is 0.27
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                Console.ReadLine();
+                tests[i][0] = Console.ReadLine().TrimEnd();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var left = test[0].Split(' ').Select(int.Parse).ToArray();
+                var right = test[1].Split(' ').Select(int.Parse).ToArray();
+                var result = left.Zip(right, (x, y) => x.CompareTo(y)).ToArray();
+                var a = result.Count(x => x == 1);
+                var b = result.Count(x => x == -1);
+                var sum = a - b;
+                Console.WriteLine("{0} {1} {2}", a, b, sum > 0 ? "A" : sum < 0 ? "B" : "DRAW");
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.15
         /// </summary>
         public static void RunMix()
