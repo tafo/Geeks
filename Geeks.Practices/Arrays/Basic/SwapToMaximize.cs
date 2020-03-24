@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -43,6 +44,38 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class SwapToMaximize
     {
+        /// <summary>
+        /// The execution time is 0.22
+        /// </summary>
+        public static void RunMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = StringScanner.GetPositiveInt(test[1], n);
+                Array.Sort(numbers);
+                var half = n / 2;
+                for (var i = 1; i < half; i += 2)
+                {
+                    var temp = numbers[i];
+                    numbers[i] = numbers[n - i - 1];
+                    numbers[n - i - 1] = temp;
+                }
+
+                Console.WriteLine(numbers.Skip(1).Select((x, i) => Math.Abs(x - numbers[i])).Sum() + Math.Abs(numbers[0] - numbers[n - 1]));
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.21
         /// </summary>
