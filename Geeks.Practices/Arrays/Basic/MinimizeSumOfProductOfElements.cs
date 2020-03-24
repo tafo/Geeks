@@ -56,6 +56,26 @@ namespace Geeks.Practices.Arrays.Basic
     public class MinimizeSumOfProductOfElements
     {
         /// <summary>
+        /// The execution time is 1.37
+        /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new long[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(long.Parse).OrderBy(x => x).ToArray();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(test.Take(test.Length / 2).Zip(test.TakeLast(test.Length / 2).Reverse(), (x,y) => x * y).Sum());
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.57
         /// </summary>
         public static void RunMix()
