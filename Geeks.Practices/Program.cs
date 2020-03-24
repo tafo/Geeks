@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            SwapToMaximize.RunSingleLineLinq();
+            FindDuplicateElement.Run();
             Console.ReadKey();
         }
     }
