@@ -45,6 +45,27 @@ namespace Geeks.Practices.Arrays.Basic
     public class SwapToMaximize
     {
         /// <summary>
+        /// The execution time is 0.52
+        /// </summary>
+        public static void RunTwoLinesLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new int[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).OrderBy(x => x).ToArray();
+            }
+
+            foreach (var test in tests)
+            {
+                var result = test.Select((x, i) => (i & 1) == 0 ? test[i / 2] : test[test.Length - i / 2 - 1]).Append(test[0]).ToArray();
+                Console.WriteLine(result.Skip(1).Select((x, i) => Math.Abs(x - result[i])).Sum());
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.48
         /// </summary>
         public static void RunLinq()
