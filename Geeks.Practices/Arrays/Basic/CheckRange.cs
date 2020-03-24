@@ -43,6 +43,31 @@ namespace Geeks.Practices.Arrays.Basic
     public class CheckRange
     {
         /// <summary>
+        /// The execution time is 0.17
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var split = test[0].Split(' ');
+                // var n = int.Parse(split[0]); Skip the number of elements
+                var a = int.Parse(split[1]);
+                var b = int.Parse(split[2]);
+                Console.WriteLine(test[1].Split(' ').Select(int.Parse).OrderBy(x => x).Count(x => x >= a && x <= b) == b - a + 1 ? "Yes" : "No");
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.13
         /// </summary>
         public static void RunMix()
