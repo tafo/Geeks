@@ -55,7 +55,7 @@ namespace Geeks.Practices.Arrays.Basic
     public class SortAndInterleaveTwoEnds
     {
         /// <summary>
-        /// The execution time is 0.69
+        /// The execution time is 0.67
         /// * Of course, using index is better than using Skip, First, SkipLast, Last, etc.
         /// </summary>
         public static void RunCompareToSingleLineLinq()
