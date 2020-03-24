@@ -55,6 +55,28 @@ namespace Geeks.Practices.Arrays.Basic
     public class SortAndInterleaveTwoEnds
     {
         /// <summary>
+        /// The execution time is 0.69
+        /// * Of course, using index is better than using Skip, First, SkipLast, Last, etc.
+        /// </summary>
+        public static void RunCompareToSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new int[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).OrderBy(x => x).ToArray();;
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(string.Join(' ',
+                    Enumerable.Range(0, test.Length).Select(i => (i & 1) == 0 ? test.Skip(i / 2).First() : test.SkipLast(i / 2).Last())));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.18
         /// </summary>
         public static void RunSingleLineLinq()
@@ -71,8 +93,7 @@ namespace Geeks.Practices.Arrays.Basic
             foreach (var test in tests)
             {
                 Console.WriteLine(string.Join(' ',
-                    Enumerable.Range(0, test.Length)
-                        .Select(i => (i & 1) == 0 ? test[i / 2] : test[test.Length - i / 2 - 1])));
+                    Enumerable.Range(0, test.Length).Select(i => (i & 1) == 0 ? test[i / 2] : test[test.Length - i / 2 - 1])));
             }
         }
 
