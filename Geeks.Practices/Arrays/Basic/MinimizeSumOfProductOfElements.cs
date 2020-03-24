@@ -57,6 +57,7 @@ namespace Geeks.Practices.Arrays.Basic
     {
         /// <summary>
         /// The execution time is 1.30
+        /// * LOVE LINQ !!!
         /// </summary>
         public static void RunCompareToSingleLineLinq()
         {
