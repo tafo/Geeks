@@ -61,6 +61,26 @@ namespace Geeks.Practices.Arrays.Basic
     public class CountDistinctElements
     {
         /// <summary>
+        /// The execution time is 0.23
+        /// </summary>
+        public static void RunCompareToLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(test.Split(' ').Distinct().Count());
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.26
         /// </summary>
         public static void RunLinq()
