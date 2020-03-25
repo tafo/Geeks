@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -63,6 +65,43 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class LargestProductOfContiguousElements
     {
+        /// <summary>
+        /// The execution time is 0.16
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var split = test[0].Split(' ');
+                var n = int.Parse(split[0]);
+                var k = int.Parse(split[1]);
+                var numbers = test[1].Split(' ').Select(int.Parse).ToArray();
+                Console.WriteLine(FindMaxProductLinq(numbers, n, k));
+            }
+        }
+
+        /// <summary>
+        /// The signature of this method is given by GfG
+        /// </summary>
+        [SuppressMessage("ReSharper", "InconsistentNaming")]
+        public static long FindMaxProductLinq(int[] numbers, int n, int k)
+        {
+            // n is not necessary
+            long product = numbers.Take(k).Aggregate(1, (x,y) => x * y);
+            var firstProduct = product;
+            return numbers.Skip(k).Select((x, i) => product = product / numbers[i] * x).Append(firstProduct).Max();
+        }
+
         /// <summary>
         /// The execution time is 0.16
         /// </summary>
