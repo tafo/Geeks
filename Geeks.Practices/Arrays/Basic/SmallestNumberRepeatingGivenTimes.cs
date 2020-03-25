@@ -43,6 +43,31 @@ namespace Geeks.Practices.Arrays.Basic
     public class SmallestNumberRepeatingGivenTimes
     {
         /// <summary>
+        /// The execution time is 0.18
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var split = test[0].Split(' ');
+                // var n = int.Parse(split[0]); Skip the number of elements
+                var k = int.Parse(split[1]);
+                var result = test[1].Split(' ').Select(int.Parse).OrderBy(x => x).GroupBy(x => x).FirstOrDefault(x => x.Count() == k)?.Key ?? -1;
+                Console.WriteLine(result);
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.11
         /// </summary>
         public static void RunMix()
