@@ -53,6 +53,29 @@ namespace Geeks.Practices.Arrays.Basic
     public class AlternateSortingAnother
     {
         /// <summary>
+        /// The execution time is 0.13
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = test[1].Split(' ').Select(int.Parse).OrderBy(x => x).ToArray();
+                Console.WriteLine(string.Join(' ', Enumerable.Range(1, n).Select(x => (x & 1) == 1 ? numbers[x / 2] : numbers[n - x / 2])));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.09
         /// </summary>
         public static void RunMix()
