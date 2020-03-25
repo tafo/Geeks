@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -33,10 +34,16 @@ namespace Geeks.Practices.Arrays.Basic
     /// 3 4 5
     /// 3
     /// 1 1 1 
+    /// 15
+    /// 88 57 44 92 28 66 60 37 33 52 38 29 76 8 75 
+    /// 22
+    /// 59 96 30 38 36 94 19 29 44 12 29 30 77 5 44 64 14 39 7 41 5 19
     /// 
     /// Output:
     /// 3
     /// 0
+    /// 105
+    /// 231
     /// 
     /// </summary>
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
@@ -44,6 +51,32 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class SumIsSmallerThanProduct
     {
+        /// <summary>
+        /// The execution time is 0.13
+        /// * The result is better than my expectation !!!
+        /// </summary>
+        public static void RunMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = StringScanner.GetPositiveInt(test[1], n).Where(x => x > 1).ToArray();
+                var counter = numbers.Length;
+                var twoCount = numbers.Count(x => x == 2);
+                Console.WriteLine(counter * (counter - 1) / 2 - twoCount * (twoCount - 1) / 2);
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.12
         /// </summary>
