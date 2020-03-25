@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 namespace Geeks.Practices.Arrays.Basic
 {
@@ -18,6 +19,7 @@ namespace Geeks.Practices.Arrays.Basic
     /// T test cases follows.
     /// First line of each test case contains two space separated integers N and M.
     /// Next M lines of each test case contains three space separated integers a , b and k.
+    ///     * Remark1: "Next M lines" clause is incorrect. 
     /// 
     /// Output:
     /// For each test case print the maximum element in the array after M increment operations.
@@ -31,15 +33,11 @@ namespace Geeks.Practices.Arrays.Basic
     /// Example:
     /// 
     /// Input:
-    /// 2
+    /// 4
     /// 5 3
-    /// 0 1 100
-    /// 1 4 100
-    /// 2 3 100
+    /// 0 1 100 1 4 100 2 3 100
     /// 4 3
-    /// 1 2 603
-    /// 0 0 286
-    /// 3 3 882
+    /// 1 2 603 0 0 286 3 3 882
     /// 201 5
     /// 129 164 759 53 144 8 172 173 211 102 132 309 40 161 903 
     /// 111 8
@@ -49,13 +47,53 @@ namespace Geeks.Practices.Arrays.Basic
     /// 882
     /// 1979
     /// 2900
-    /// 
+    ///
+    /// Remark:
+    ///     The problem statement is not clear.
+    ///     Check Remark1 !!!
     /// </summary>
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class FindMaxAfterApplyingGivenFunction
     {
+        /// <summary>
+        /// The execution time is 0.16
+        /// </summary>
+        public static void RunMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var results = new int[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                
+                var split = Console.ReadLine().Split(' ');
+                var n = int.Parse(split[0]);
+                var m = int.Parse(split[1]);
+                var numbers = new int[n];
+                var arguments = Console.ReadLine().Split(' ');
+                for (var x = 0; x < m; x++)
+                {
+                    var a = int.Parse(arguments[3 * x + 0]);
+                    var b = int.Parse(arguments[3 * x + 1]);
+                    var k = int.Parse(arguments[3 * x + 2]);
+
+                    for (var y = a; y <= b; y++)
+                    {
+                        numbers[y] += k;
+                    }
+                }
+
+                results[i] = numbers.Max();
+            }
+
+            foreach (var result in results)
+            {
+                Console.WriteLine(result);
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.16
         /// </summary>
