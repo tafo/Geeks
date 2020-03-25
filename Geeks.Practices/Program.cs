@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            SortAndInterleaveTwoEnds.RunMix();
+            SumIsSmallerThanProduct.RunLoop();
             Console.ReadKey();
         }
     }
