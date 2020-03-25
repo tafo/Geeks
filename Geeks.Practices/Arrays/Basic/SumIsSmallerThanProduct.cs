@@ -44,6 +44,14 @@ namespace Geeks.Practices.Arrays.Basic
     /// 0
     /// 105
     /// 231
+    ///
+    /// Remark:
+    /// 
+    /// We should find x denoting the number of elements that are greater than 1.
+    ///     Then find A denoting the binomial coefficient of (x / 2)
+    /// We should also find y denoting the number of elements that are equal to 2.
+    ///     Then find B denoting the binomial coefficient of (y / 2)
+    /// The result is (A - B).
     /// 
     /// </summary>
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
@@ -51,6 +59,28 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class SumIsSmallerThanProduct
     {
+        /// <summary>
+        /// The execution time is 0.13
+        /// * The result is better than my expectation !!!
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new int[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).Where(x => x > 1).ToArray();
+            }
+
+            foreach (var test in tests)
+            {
+                var twoCount = test.Count(x => x == 2);
+                Console.WriteLine(test.Length * (test.Length - 1) / 2 - twoCount * (twoCount - 1) / 2);
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.13
         /// * The result is better than my expectation !!!
