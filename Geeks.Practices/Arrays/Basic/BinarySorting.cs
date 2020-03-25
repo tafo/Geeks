@@ -114,7 +114,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var elements = new int[n];
                 while (scanner.HasNext)
                 {
-                    if (scanner.NextBit() == 1)
+                    if (scanner.NextDigit() == 1)
                     {
                         elements[--n] = 1;
                     }
@@ -177,7 +177,7 @@ namespace Geeks.Practices.Arrays.Basic
 
                 while (scanner.HasNext)
                 {
-                    switch (scanner.NextBit())
+                    switch (scanner.NextDigit())
                     {
                         case 0:
                             elements[index++] = 0;

@@ -108,7 +108,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var scanner = new StringScanner(test[1]);
                 while (scanner.HasNext)
                 {
-                    if (scanner.NextBit() == 1)
+                    if (scanner.NextDigit() == 1)
                     {
                         break;
                     }

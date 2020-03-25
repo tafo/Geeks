@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            SumIsSmallerThanProduct.RunLoop();
+            DistinctAnother.RunLoop();
             Console.ReadKey();
         }
     }

@@ -408,9 +408,9 @@ namespace Geeks.Practices.Helper
             return result;
         }
 
-        public int NextBit()
+        public int NextDigit()
         {
-            var bit = _input[Position] - Sub;
+            var digit = _input[Position] - Sub;
 
             Position += 2;
 
@@ -419,7 +419,7 @@ namespace Geeks.Practices.Helper
                 HasNext = false;
             }
 
-            return bit;
+            return digit;
         }
 
         public long NextPositiveLong()
