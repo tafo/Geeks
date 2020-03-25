@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            DistinctAnother.RunLoop();
+            LargestProductOfContiguousElements.RunLoop();
             Console.ReadKey();
         }
     }
