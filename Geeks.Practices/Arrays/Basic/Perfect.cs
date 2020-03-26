@@ -46,6 +46,27 @@ namespace Geeks.Practices.Arrays.Basic
     public class Perfect
     {
         /// <summary>
+        /// The execution time is 0.14
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new int[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).ToArray();
+            }
+
+            foreach (var test in tests)
+            {
+                var compares = test.Zip(test.Skip(1), (x, y) => x.CompareTo(y)).ToArray();
+                Console.WriteLine(compares.Zip(compares.Skip(1), (x,y) => x.CompareTo(y)).Any(x => x == 1) ? "No" : "Yes");
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.13
         /// </summary>
         public static void RunMix()
