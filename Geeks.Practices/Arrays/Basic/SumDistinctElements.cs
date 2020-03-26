@@ -43,6 +43,43 @@ namespace Geeks.Practices.Arrays.Basic
     {
         /// <summary>
         /// The execution time is 0.13
+        /// * !!!
+        /// </summary>
+        public static void RunAnotherCompareToLoop()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var scanner = new StringScanner(test[1]);
+                var numbers = new int[n];
+                while (scanner.HasNext)
+                {
+                    var number = scanner.NextPositiveInt();
+                    numbers[number - 1] = number;
+                }
+
+                var sum = 0;
+                for (var i = 0; i < n; i++)
+                {
+                    sum += numbers[i];
+                }
+
+                Console.WriteLine(sum);
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.13
         /// </summary>
         public static void RunCompareToLoop()
         {
@@ -58,7 +95,7 @@ namespace Geeks.Practices.Arrays.Basic
 
             foreach (var test in tests)
             {
-                var n = int.Parse(test[1]);
+                var n = int.Parse(test[0]);
                 var scanner = new StringScanner(test[1]);
                 var numbers = new bool[n + 1];
                 while (scanner.HasNext)
@@ -96,7 +133,7 @@ namespace Geeks.Practices.Arrays.Basic
 
             foreach (var test in tests)
             {
-                var n = int.Parse(test[1]);
+                var n = int.Parse(test[0]);
                 var scanner = new StringScanner(test[1]);
                 var numbers = new bool[n];
                 while (scanner.HasNext)
