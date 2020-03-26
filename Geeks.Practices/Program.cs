@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            SumDistinctElements.RunLoop();
+            MinPairProduct.RunLoop();
             Console.ReadKey();
         }
     }
