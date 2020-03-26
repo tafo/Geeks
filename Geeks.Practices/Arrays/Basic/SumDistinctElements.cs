@@ -43,6 +43,26 @@ namespace Geeks.Practices.Arrays.Basic
     public class SumDistinctElements
     {
         /// <summary>
+        /// The execution time is 0.14
+        /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var results = new int[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                results[i] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).Distinct().Sum();
+            }
+
+            foreach (var result in results)
+            {
+                Console.WriteLine(result);
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.09
         /// * Better!
         /// </summary>
