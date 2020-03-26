@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -26,15 +27,16 @@ namespace Geeks.Practices.Arrays.Basic
     /// 
     /// Example:
     /// Input:
-    /// 2
+    /// 3
     /// 4
     /// 2 7 3 4
     /// 4
     /// 5 3 6 4
-    /// 
+    /// 2 2
     /// Output:
     /// 6
     /// 12
+    /// 4
     /// 
     /// </summary>
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
@@ -42,6 +44,29 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
     public class MinPairProduct
     {
+        /// <summary>
+        /// The execution time is 0.12
+        /// </summary>
+        public static void RunMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = StringScanner.GetPositiveInt(test[1], n);
+                Console.WriteLine(numbers.OrderBy(x => x).Take(2).Aggregate(1L, (x, y) => x * y));
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.15
         /// </summary>
