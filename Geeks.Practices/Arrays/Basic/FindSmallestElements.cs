@@ -51,6 +51,28 @@ namespace Geeks.Practices.Arrays.Basic
     public class FindSmallestElements
     {
         /// <summary>
+        /// The execution time is 0.37
+        /// * LINQ !!!
+        /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var results = new int[testCount][];
+
+            for (var p = 0; p < testCount; p++)
+            {
+                var k = int.Parse(Console.ReadLine().Split(' ').Last());
+                results[p] = Console.ReadLine().TrimEnd().Split(' ').Select((x, i) => new {Number = int.Parse(x), Index = i})
+                    .OrderBy(x => x.Number).Take(k).OrderBy(x => x.Index).Select(x => x.Number).ToArray();
+            }
+
+            foreach (var result in results)
+            {
+                Console.WriteLine(string.Join(' ', result));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.23
         /// * LINQ rocks!
         /// </summary>
@@ -72,7 +94,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var n = int.Parse(split[0]);
                 var k = int.Parse(split[1]);
                 var numbers = StringScanner.GetPositiveInt(test[1], n);
-                var result = numbers.Select((x, i) => new { x, i }).OrderBy(y => y.x).Take(k).OrderBy(y => y.i).Select(y => y.x).ToArray();
+                var result = numbers.Select((x, i) => new { x, i }).OrderBy(a => a.x).Take(k).OrderBy(a => a.i).Select(y => y.x).ToArray();
                 Console.WriteLine(string.Join(' ', result));
             }
         }
