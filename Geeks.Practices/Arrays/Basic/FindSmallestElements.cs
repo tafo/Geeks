@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Text;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -43,6 +45,51 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class FindSmallestElements
     {
+        /// <summary>
+        /// The execution time is 0.28
+        /// </summary>
+        public static void RunLoop()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var split = test[0].Split();
+                var n = int.Parse(split[0]);
+                var k = int.Parse(split[1]);
+                var scanner = new StringScanner(test[1]);
+                var numbers = new int[n][];
+                var i = 0;
+                while (scanner.HasNext)
+                {
+                    numbers[i] = new int[2];
+                    numbers[i][0] = scanner.NextPositiveInt();
+                    numbers[i][1] = i;
+                    i++;
+                }
+
+                Array.Sort(numbers, (x, y) => x[0].CompareTo(y[0]) == 0 ? x[1].CompareTo(y[1]) : x[0].CompareTo(y[0]));
+                var result = new int[k][];
+                Array.Copy(numbers, 0, result, 0, k);
+                Array.Sort(result, (x, y) => x[1].CompareTo(y[1]));
+                var resultBuilder = new StringBuilder();
+                for (var x = 0; x < k; x++)
+                {
+                    resultBuilder.AppendFormat("{0} ", result[x][0]);
+                }
+
+                Console.WriteLine(resultBuilder.ToString());
+            }
+        }
+
         /// <summary>
         /// Time Limit Exceeded
         /// Expected Time Limit < 2.68 sec
