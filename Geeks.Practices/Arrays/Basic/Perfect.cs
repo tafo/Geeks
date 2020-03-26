@@ -45,6 +45,48 @@ namespace Geeks.Practices.Arrays.Basic
     public class Perfect
     {
         /// <summary>
+        /// The execution time is 0.13
+        /// </summary>
+        public static void RunCompareToLoop()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var result = "Yes";
+                var n = int.Parse(test[0]); // Skip the number of elements
+                var scanner = new StringScanner(test[1]);
+                var left = scanner.NextPositiveInt();
+                var compares = new int[n];
+                compares[0] = -2;
+                var i = 0;
+                while (scanner.HasNext)
+                {
+                    var number = scanner.NextPositiveInt();
+                    var compare = left.CompareTo(number);
+                    if (compares[i++] > compare)
+                    {
+                        result = "No";
+                        break;
+                    }
+
+                    compares[i] = compare;
+                    left = number;
+                }
+
+                Console.WriteLine(result);
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.12
         /// </summary>
         public static void RunLoop()
