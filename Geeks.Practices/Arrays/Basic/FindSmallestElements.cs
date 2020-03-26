@@ -43,6 +43,10 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class FindSmallestElements
     {
+        /// <summary>
+        /// Time Limit Exceeded
+        /// Expected Time Limit < 2.68 sec
+        /// </summary>
         public static void RunAwayLoop()
         {
             var testCount = int.Parse(Console.ReadLine());
