@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            SmallestNumberRepeatingGivenTimes.RunLoop();
+            XorOfAdjacentElements.RunLoop();
             Console.ReadKey();
         }
     }
