@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            MinPairProduct.RunLoop();
+            FindSmallestElements.RunLoop();
             Console.ReadKey();
         }
     }
