@@ -61,7 +61,33 @@ namespace Geeks.Practices.Arrays.Basic
     public class CountPairSum
     {
         /// <summary>
-        /// The execution time is 0.14
+        /// The execution time is 0.13
+        /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[3];
+                Console.ReadLine();
+                tests[i][0] = Console.ReadLine().TrimEnd();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+                tests[i][2] = Console.ReadLine();
+            }
+
+            foreach (var test in tests)
+            {
+                var firstNumbers = test[0].Split(' ').Select(int.Parse);
+                var secondNumbers = test[1].Split(' ').Select(int.Parse);
+                var sum = int.Parse(test[2]);
+                Console.WriteLine(firstNumbers.Count(x => secondNumbers.Any(y => x + y == sum)));
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.13
         /// </summary>
         public static void RunCompareToMix()
         {
