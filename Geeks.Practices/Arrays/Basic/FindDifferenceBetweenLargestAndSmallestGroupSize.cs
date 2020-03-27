@@ -43,8 +43,32 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class FindDifferenceBetweenLargestAndSmallestGroupSize
     {
+        
         /// <summary>
-        /// The execution time is 0.14
+        /// The execution time is 0.29
+        /// </summary>
+        public static void RunCompareToSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var groups = test.Split(' ').Select(int.Parse).GroupBy(x => x).ToArray();
+                var max = groups.Max(x => x.Count());
+                var min = groups.Min(x => x.Count());
+                Console.WriteLine(max - min);
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.30
         /// </summary>
         public static void RunSingleLineLinq()
         {
@@ -54,7 +78,7 @@ namespace Geeks.Practices.Arrays.Basic
             for (var i = 0; i < testCount; i++)
             {
                 Console.ReadLine();
-                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).GroupBy(x => x).Select(x => x.Count()).ToArray();;
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).GroupBy(x => x).Select(x => x.Count()).ToArray();
             }
 
             foreach (var test in tests)
