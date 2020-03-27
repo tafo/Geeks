@@ -64,6 +64,32 @@ namespace Geeks.Practices.Arrays.Basic
     public class IsIdentical
     {
         /// <summary>
+        /// The execution time is 0.20
+        /// * Almost same performance
+        /// </summary>
+        public static void RunCompareToSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                Console.ReadLine();
+                tests[i][0] = Console.ReadLine().TrimEnd();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(test[0].Split(' ').Select(int.Parse).OrderBy(x => x)
+                    .SequenceEqual(test[1].Split(' ').Select(int.Parse).OrderBy(x => x))
+                    ? 1
+                    : 0);
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.19
         /// </summary>
         public static void RunSingleLineLinq()
