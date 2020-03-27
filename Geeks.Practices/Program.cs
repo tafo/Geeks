@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            FindSingleElement.RunLoop();
+            CountPairSum.RunLoop();
             Console.ReadKey();
         }
     }
