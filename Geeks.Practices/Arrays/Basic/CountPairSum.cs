@@ -61,6 +61,38 @@ namespace Geeks.Practices.Arrays.Basic
     public class CountPairSum
     {
         /// <summary>
+        /// The execution time is 0.14
+        /// </summary>
+        public static void RunCompareToMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[4];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+                tests[i][2] = Console.ReadLine().TrimEnd();
+                tests[i][3] = Console.ReadLine();
+            }
+
+            foreach (var test in tests)
+            {
+                var split = test[0].Split(' ');
+                var n = int.Parse(split[0]);
+                var m = int.Parse(split[1]);
+                var firstNumbers = StringScanner.GetPositiveInt(test[1], n);
+                var secondNumbers = StringScanner.GetPositiveInt(test[2], m);
+                var sum = int.Parse(test[3]);
+
+                var count = firstNumbers.Count(x => secondNumbers.Any(y => x + y == sum));
+
+                Console.WriteLine(count);
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.09
         /// </summary>
         public static void RunMix()
@@ -89,7 +121,7 @@ namespace Geeks.Practices.Arrays.Basic
                 Array.Sort(firstNumbers);
                 Array.Sort(secondNumbers);
 
-                var count = firstNumbers.Join(secondNumbers, x => x, y => y, (x, y) => x + y == sum).Count();
+                var count = firstNumbers.Count(x => secondNumbers.Any(y => x + y == sum));
 
                 Console.WriteLine(count);
             }
