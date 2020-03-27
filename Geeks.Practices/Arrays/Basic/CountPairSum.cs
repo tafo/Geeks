@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -59,6 +60,41 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class CountPairSum
     {
+        /// <summary>
+        /// The execution time is 0.09
+        /// </summary>
+        public static void RunMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[4];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+                tests[i][2] = Console.ReadLine().TrimEnd();
+                tests[i][3] = Console.ReadLine();
+            }
+
+            foreach (var test in tests)
+            {
+                var split = test[0].Split(' ');
+                var n = int.Parse(split[0]);
+                var m = int.Parse(split[1]);
+                var firstNumbers = StringScanner.GetPositiveInt(test[1], n);
+                var secondNumbers = StringScanner.GetPositiveInt(test[2], m);
+                var sum = int.Parse(test[3]);
+
+                Array.Sort(firstNumbers);
+                Array.Sort(secondNumbers);
+
+                var count = firstNumbers.Join(secondNumbers, x => x, y => y, (x, y) => x + y == sum).Count();
+
+                Console.WriteLine(count);
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.09
         /// </summary>
