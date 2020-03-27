@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            FindSmallestElements.RunMix();
+            FindSingleElement.RunLoop();
             Console.ReadKey();
         }
     }
