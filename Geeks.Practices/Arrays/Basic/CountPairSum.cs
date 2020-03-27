@@ -61,6 +61,29 @@ namespace Geeks.Practices.Arrays.Basic
     public class CountPairSum
     {
         /// <summary>
+        /// The execution time is 0.09
+        /// </summary>
+        public static void RunAnotherCompareToSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new int[testCount][][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new int[3][];
+                Console.ReadLine();
+                tests[i][0] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).OrderBy(x => x).ToArray();
+                tests[i][1] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).OrderBy(x => x).ToArray();
+                tests[i][2] = new[] {int.Parse(Console.ReadLine())};
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(test[0].Count(x => test[1].Any(y => x + y == test[2][0])));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.10
         /// * Sorting has a positive effect on performance
         /// </summary>
