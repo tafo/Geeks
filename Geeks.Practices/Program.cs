@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            CountPairSum.RunLoop();
+            MaxPerimeter.RunSingleLineLinq();
             Console.ReadKey();
         }
     }

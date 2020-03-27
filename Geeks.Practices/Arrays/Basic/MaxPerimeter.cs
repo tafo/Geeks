@@ -49,6 +49,27 @@ namespace Geeks.Practices.Arrays.Basic
     public class MaxPerimeter
     {
         /// <summary>
+        /// The execution time is 0.09
+        /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new int[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).OrderByDescending(x => x).ToArray();
+            }
+
+            foreach (var test in tests)
+            {
+                var result = test.SkipWhile((x, i) => i > test.Length - 3 || x >= test[i + 1] + test[i + 2]).Take(3).DefaultIfEmpty(-1).Sum();
+                Console.WriteLine(result);
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.13
         /// </summary>
         public static void RunMix()
@@ -66,20 +87,9 @@ namespace Geeks.Practices.Arrays.Basic
             foreach (var test in tests)
             {
                 var n = int.Parse(test[0]);
-                int result;
-                if (n < 3)
-                {
-                    result = -1;
-                }
-                else
-                {
-                    var numbers = StringScanner.GetPositiveInt(test[1], n);
-                    Array.Sort(numbers, (x, y) => y.CompareTo(x));
-                    result = numbers.SkipLast(2).Select((x, i) => x < numbers[i + 1] + numbers[i + 2] ? x + numbers[i + 1] + numbers[i + 2] : -1)
-                        .Max();
-
-                }
-
+                var numbers = StringScanner.GetPositiveInt(test[1], n);
+                Array.Sort(numbers, (a,b) => b.CompareTo(a));
+                var result = numbers.SkipWhile((x, i) => i > n - 3 || x >= numbers[i + 1] + numbers[i + 2]).Take(3).DefaultIfEmpty(-1).Sum();
                 Console.WriteLine(result);
             }
         }
