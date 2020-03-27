@@ -48,6 +48,27 @@ namespace Geeks.Practices.Arrays.Basic
     public class FindSingleElement
     {
         /// <summary>
+        /// The execution time is 0.09
+        /// * LINQ rocks !
+        /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(test.Split(' ').Select(int.Parse).GroupBy(x => x).Single(x => x.Count() == 1).Key);
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.08
         /// * LINQ rocks !
         /// </summary>
@@ -59,7 +80,7 @@ namespace Geeks.Practices.Arrays.Basic
             for (var i = 0; i < testCount; i++)
             {
                 tests[i] = new string[2];
-                tests[i][0] = Console.ReadLine().TrimEnd();
+                tests[i][0] = Console.ReadLine();
                 tests[i][1] = Console.ReadLine().TrimEnd();
             }
 
@@ -84,7 +105,7 @@ namespace Geeks.Practices.Arrays.Basic
             for (var i = 0; i < testCount; i++)
             {
                 tests[i] = new string[2];
-                tests[i][0] = Console.ReadLine().TrimEnd();
+                tests[i][0] = Console.ReadLine();
                 tests[i][1] = Console.ReadLine().TrimEnd();
             }
 
@@ -125,7 +146,7 @@ namespace Geeks.Practices.Arrays.Basic
             for (var i = 0; i < testCount; i++)
             {
                 tests[i] = new string[2];
-                tests[i][0] = Console.ReadLine().TrimEnd();
+                tests[i][0] = Console.ReadLine();
                 tests[i][1] = Console.ReadLine().TrimEnd();
             }
 
