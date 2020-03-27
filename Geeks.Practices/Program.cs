@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            MaxPerimeter.RunSingleLineLinq();
+            FindFirstGroupGivenSize.RunLoop();
             Console.ReadKey();
         }
     }
