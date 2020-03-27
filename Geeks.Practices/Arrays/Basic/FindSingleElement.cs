@@ -47,6 +47,47 @@ namespace Geeks.Practices.Arrays.Basic
     public class FindSingleElement
     {
         /// <summary>
+        /// The execution time is 0.08
+        /// </summary>
+        public static void RunCompareToLoop()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine().TrimEnd();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var split = test[0].Split(' ');
+                var n = int.Parse(split[0]);
+                // var k = int.Parse(split[^1]); Skip k
+                var numbers = StringScanner.GetPositiveInt(test[1], n);
+                Array.Sort(numbers);
+                var result = 0;
+                if (numbers[1] > numbers[0])
+                {
+                    result = numbers[0];
+                }
+                else
+                {
+                    for (var i = 1; i < n - 1; i++)
+                    {
+                        if (numbers[i - 1] == numbers[i] || numbers[i] == numbers[i + 1]) continue;
+                        result = numbers[i];
+                        break;
+                    }
+                }
+
+                Console.WriteLine(result == 0 ? numbers[n - 1] : result);
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.09
         /// </summary>
         public static void RunLoop()
