@@ -65,6 +65,29 @@ namespace Geeks.Practices.Arrays.Basic
     public class CountElementsGreaterThanPreviousOnes
     {
         /// <summary>
+        /// The execution time is 0.93
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var numbers = test.Split(' ').Select(int.Parse).ToArray();
+                long max = -1;
+                var maxList = numbers.SkipLast(1).Select((x, i) => x > max ? max = x : max).Prepend(-1);
+                Console.WriteLine(numbers.Zip(maxList, (x, y) => x.CompareTo(y)).LongCount(x => x == 1));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.62
         /// </summary>
         public static void RunMix()
