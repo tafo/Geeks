@@ -65,6 +65,32 @@ namespace Geeks.Practices.Arrays.Basic
     public class CountElementsGreaterThanPreviousOnes
     {
         /// <summary>
+        /// The execution time is 0.62
+        /// </summary>
+        public static void RunMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = StringScanner.GetPositiveLong(test[1], n);
+                long max = -1;
+                var maxList = numbers.SkipLast(1).Select((x, i) => x > max ? max = x : max).Prepend(-1);
+                var result = numbers.Zip(maxList, (x, y) => x.CompareTo(y)).LongCount(x => x == 1);
+                Console.WriteLine(result);
+            }
+        }
+
+        /// <summary>
         /// Time Limit Exceeded !!!
         /// Expected Time Limit < 3.832sec
         /// </summary>
@@ -84,8 +110,10 @@ namespace Geeks.Practices.Arrays.Basic
             {
                 var n = int.Parse(test[0]);
                 var numbers = StringScanner.GetPositiveLong(test[1], n);
-                var result = numbers.Skip(1).Where((x, i) => x > numbers.Take(i + 1).Max()).LongCount();
-                Console.WriteLine(result + 1);
+                long max = -1;
+                var maxList = numbers.SkipLast(1).Select((x, i) => x > max ? max = x : max).Prepend(-1);
+                var result = numbers.Zip(maxList, (x, y) => x.CompareTo(y)).LongCount(x => x == 1);
+                Console.WriteLine(result);
             }
         }
 
