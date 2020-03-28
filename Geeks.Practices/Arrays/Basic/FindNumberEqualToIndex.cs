@@ -33,18 +33,76 @@ namespace Geeks.Practices.Arrays.Basic
     /// Example:
     /// 
     /// Input:
-    /// 1
+    /// 3
     /// 10
     /// -10 -1 0 3 10 11 30 50 100 150
+    /// 2
+    /// 0 6
+    /// 31
+    /// 1 2 3 8 8 16 17 18 29 36 41 45 50 50 52 55 55 55 56 57 60 64 68 72 75 77 85 90 90 97 98
     /// 
     /// Output:
     /// 3
+    /// 0
+    /// -1
     /// 
     /// </summary>
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class FindNumberEqualToIndex
     {
+        /// <summary>
+        /// The execution time of the equivalent JAVA solution is 0.21
+        /// </summary>
+        public static void RunMethod()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = StringScanner.GetPositiveInt(test[1], n);
+                Console.WriteLine(BinarySearch(numbers, 0, n - 1));
+            }
+        }
+
+        /// <summary>
+        /// The signature of this method is specified by GfG
+        /// </summary>
+        public static int BinarySearch(int[] arr, int low, int high)
+        {
+            var result = -1;
+
+            while (low <= high)
+            {
+                var mid = (low + high) / 2;
+
+                if (mid < arr[mid])
+                {
+                    high = mid - 1;
+                }
+                else if (mid > arr[mid])
+                {
+                    low = mid + 1;
+                }
+                else
+                {
+                    result = arr[mid];
+                    break;
+                }
+            }
+
+            return result;
+        }
+
         /// <summary>
         /// The execution time is 0.08
         /// </summary>

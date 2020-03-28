@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            FindLongestIncreasingSubArrayLength.RunMix();
+            FindNumberEqualToIndex.RunMethod();
             Console.ReadKey();
         }
     }
