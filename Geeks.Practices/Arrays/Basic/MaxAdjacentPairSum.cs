@@ -51,6 +51,26 @@ namespace Geeks.Practices.Arrays.Basic
     public class MaxAdjacentPairSum
     {
         /// <summary>
+        /// The execution time is 0.50
+        /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new int[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).ToArray();
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(test.Skip(1).Select((x, i) => x + test[i]).Max());
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.23
         /// </summary>
         public static void RunMix()
