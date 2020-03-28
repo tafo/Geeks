@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            FindNumberEqualToIndex.RunMethod();
+            WriteMissingNaturalNumbers.RunLoop();
             Console.ReadKey();
         }
     }

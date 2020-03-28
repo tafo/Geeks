@@ -27,7 +27,7 @@ namespace Geeks.Practices.Arrays.Basic
     /// Example:
     /// 
     /// Input:
-    /// 3
+    /// 4
     /// 9
     /// 5 2 4 7 9 3 1 6 8
     /// 6
