@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -63,6 +64,31 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class CountElementsGreaterThanPreviousOnes
     {
+        /// <summary>
+        /// Time Limit Exceeded !!!
+        /// Expected Time Limit < 3.832sec
+        /// </summary>
+        public static void RunAwayMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = StringScanner.GetPositiveLong(test[1], n);
+                var result = numbers.Skip(1).Where((x, i) => x > numbers.Take(i + 1).Max()).LongCount();
+                Console.WriteLine(result + 1);
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.29
         /// </summary>
