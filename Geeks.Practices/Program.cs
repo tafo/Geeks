@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            MaxAdjacentPairSum.RunLoop();
+            FindLongestIncreasingSubArrayLength.RunLoop();
             Console.ReadKey();
         }
     }
