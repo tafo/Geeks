@@ -56,7 +56,7 @@ namespace Geeks.Practices.Arrays.Basic
     public class FindLongestIncreasingSubArrayLength
     {
         /// <summary>
-        /// The execution time is 0.13
+        /// The execution time is 0.14
         /// </summary>
         public static void RunSingleLineLinq()
         {
