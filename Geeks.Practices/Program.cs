@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            FindFirstGroupGivenSize.RunLoop();
+            MaxAdjacentPairSum.RunLoop();
             Console.ReadKey();
         }
     }
