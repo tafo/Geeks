@@ -58,6 +58,31 @@ namespace Geeks.Practices.Arrays.Basic
     public class CountElementsBetweenGivenNumbers
     {
         /// <summary>
+        /// The execution time is 0.32
+        /// </summary>
+        public static void RunCompareToSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                Console.ReadLine();
+                tests[i][0] = Console.ReadLine().TrimEnd();
+                tests[i][1] = Console.ReadLine();
+            }
+
+            foreach (var test in tests)
+            {
+                var split = test[2].Split(' ');
+                var left = split[0];
+                var right = split[1];
+                Console.WriteLine(test[1].Split(' ').SkipWhile(x => x != left).Reverse().SkipWhile(x => x != right).Count() - 2);
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.36
         /// </summary>
         public static void RunSingleLineLinq()
@@ -75,7 +100,9 @@ namespace Geeks.Practices.Arrays.Basic
 
             foreach (var test in tests)
             {
-                var n = int.Parse(test[0]);
+                // Skip the number of elements
+                // var n = int.Parse(test[0]);
+                
                 var split = test[2].Split(' ');
                 var left = int.Parse(split[0]);
                 var right = int.Parse(split[1]);
