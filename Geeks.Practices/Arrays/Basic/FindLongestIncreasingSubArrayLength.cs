@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using Geeks.Practices.Helper;
 
@@ -29,7 +30,7 @@ namespace Geeks.Practices.Arrays.Basic
     /// Example:
     /// 
     /// Input:
-    /// 2
+    /// 5
     /// 9
     /// 5 6 3 5 7 8 9 1 2
     /// 10
@@ -54,6 +55,31 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class FindLongestIncreasingSubArrayLength
     {
+        /// <summary>
+        /// The execution time is 0.13
+        /// </summary>
+        public static void RunMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = StringScanner.GetPositiveInt(test[1], n);
+                var counter = 1;
+                var result = numbers.Skip(1).Select((x, i) => x > numbers[i] ? ++counter : counter = 1).DefaultIfEmpty(1).Max();
+                Console.WriteLine(result);
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.13
         /// </summary>
