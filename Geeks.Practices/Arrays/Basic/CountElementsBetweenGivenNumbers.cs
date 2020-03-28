@@ -57,6 +57,33 @@ namespace Geeks.Practices.Arrays.Basic
     public class CountElementsBetweenGivenNumbers
     {
         /// <summary>
+        /// The execution time is 0.10
+        /// </summary>
+        public static void RunCompareToLoop()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[3];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+                tests[i][2] = Console.ReadLine();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var split = test[2].Split(' ');
+                var left = int.Parse(split[0]);
+                var right = int.Parse(split[1]);
+                var numbers = StringScanner.GetPositiveInt(test[1], n);
+                Console.WriteLine(Array.IndexOf(numbers, left) - Array.LastIndexOf(numbers, right) - 1);
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.15
         /// </summary>
         public static void RunLoop()
