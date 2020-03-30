@@ -54,7 +54,7 @@ namespace Geeks.Practices.Arrays.Basic
     {
         /// <summary>
         /// The execution time is 0.99
-        /// * We could not get a better result by sorting arrays. 
+        /// * We could not get a better performance by sorting arrays. 
         /// </summary>
         public static void RunAnotherCompareToSingleLineLinq()
         {
