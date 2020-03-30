@@ -50,6 +50,27 @@ namespace Geeks.Practices.Arrays.Basic
     public class CountElementsBetweenGreatestAndLeast
     {
         /// <summary>
+        /// The execution time is 1.01
+        /// </summary>
+        public static void RunCompareToLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var numbers = test.Split(' ').Select(int.Parse).OrderBy(x => x).ToArray();
+                Console.WriteLine(numbers.Count(x => x > numbers[0] && x < numbers[^1]));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.75
         /// </summary>
         public static void RunLinq()
