@@ -53,6 +53,30 @@ namespace Geeks.Practices.Arrays.Basic
     public class FindRemovedElement
     {
         /// <summary>
+        /// The execution time is 0.74
+        /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[3];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+                tests[i][2] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var allNumbers = test[1].Split(' ').Select(int.Parse);
+                Console.WriteLine(n == 1 ? allNumbers.Single() : allNumbers.Except(test[2].Split(' ').Select(int.Parse)).Single());
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.29
         /// </summary>
         public static void RunMix()
