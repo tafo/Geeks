@@ -43,6 +43,29 @@ namespace Geeks.Practices.Arrays.Basic
     public class CountSameNumbers
     {
         /// <summary>
+        /// The execution time is 0.09
+        /// </summary>
+        public static void RunAnotherCompareToSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[3];
+                tests[i][0] = Console.ReadLine().TrimEnd();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var left = test[0].Split(' ').Select(int.Parse);
+                var right = test[1].Split(' ').Select(int.Parse);
+                Console.WriteLine(right.Count(x => left.Contains(x)));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.12
         /// </summary>
         public static void RunCompareToSingleLineLinq()
