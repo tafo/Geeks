@@ -56,6 +56,27 @@ namespace Geeks.Practices.Arrays.Basic
     public class EvenOccurringElements
     {
         /// <summary>
+        /// The execution time is 0.13
+        /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd();
+            }
+
+
+            foreach (var test in tests)
+            {
+                var numbers = test.Split(' ').Select(int.Parse).ToArray();
+                Console.WriteLine(string.Join(' ', numbers.GroupBy(x => x).Where(x => (x.Count() & 1) == 0).Select(x => x.Key).OrderBy(x => x)));
+            }
+        }
+        /// <summary>
         /// The execution time is 0.09
         /// </summary>
         public static void RunCompareToMix()
