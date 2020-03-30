@@ -134,6 +134,57 @@ namespace Geeks.Practices.Arrays.Basic
         /// <summary>
         /// The execution time is 0.13
         /// </summary>
+        public static void RunAnotherCompareToLoop()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var split = test[0].Split(' ');
+                var n = int.Parse(split[0]);
+                var k = int.Parse(split[1]);
+                var scanner = new StringScanner(test[1]);
+                var numbers = new int[n];
+                var i = 0;
+                var counter = 0;
+                while (scanner.HasNext)
+                {
+                    var number = scanner.NextPositiveInt();
+                    numbers[i] = number % k;
+                    if (numbers[i] == 0)
+                    {
+                        counter++;
+                    }
+
+                    i++;
+                }
+
+                var result = 0;
+                var missingCounter = Math.Ceiling(n / 2D) - counter;
+                if (missingCounter > 0)
+                {
+                    Array.Sort(numbers, (x, y) => y.CompareTo(x));
+                    for (var a = 0; a < missingCounter; a++)
+                    {
+                        result += k - numbers[a];
+                    }
+                }
+
+                Console.WriteLine(result);
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.13
+        /// </summary>
         public static void RunCompareToLoop()
         {
             var testCount = int.Parse(Console.ReadLine());
