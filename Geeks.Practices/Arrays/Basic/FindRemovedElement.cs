@@ -53,6 +53,38 @@ namespace Geeks.Practices.Arrays.Basic
     public class FindRemovedElement
     {
         /// <summary>
+        /// The execution time is 0.99
+        /// * We could not get a better result by sorting arrays. 
+        /// </summary>
+        public static void RunAnotherCompareToSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[3];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+                tests[i][2] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var allNumbers = test[1].Split(' ').Select(int.Parse).OrderBy(x => x).ToArray();
+                var result = allNumbers[0];
+                if (n > 1)
+                {
+                    var numbers = test[2].Split(' ').Select(int.Parse).OrderBy(x => x).ToArray();
+                    result = allNumbers.SkipWhile((x, i) => i < numbers.Length && x == numbers[i]).First();
+                }
+
+                Console.WriteLine(result);
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.74
         /// </summary>
         public static void RunCompareToSingleLineLinq()
