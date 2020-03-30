@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -51,6 +52,30 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class FindRemovedElement
     {
+        /// <summary>
+        /// The execution time is 0.29
+        /// </summary>
+        public static void RunMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[3];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+                tests[i][2] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var allNumbers = StringScanner.GetPositiveLong(test[1], n);
+                Console.WriteLine(n == 1 ? allNumbers[0] : allNumbers.Except(StringScanner.GetPositiveLong(test[2], n - 1)).Single());
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.40
         /// </summary>
