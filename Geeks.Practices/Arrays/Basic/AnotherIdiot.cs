@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -56,6 +57,18 @@ namespace Geeks.Practices.Arrays.Basic
     /// 
     /// Explaination : 
     /// Case 1 : Troop with 1 soldier is increased to 3.
+    ///
+    /// Example 3 :
+    /// Input :
+    /// 2
+    /// 6 41
+    /// 9752 2163 5567 2490 7656 6936 
+    /// 18 27
+    /// 3282 6117 875 3112 7792 3547 587 9985 2158 4622 8997 650 7388 1906 5126 6128 9718 943
+    ///
+    /// Output : 
+    /// 25
+    /// 44
     /// 
     /// </summary>
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
@@ -63,6 +76,33 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class AnotherIdiot
     {
+        /// <summary>
+        /// The execution time is 0.10
+        /// </summary>
+        public static void RunMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var split = test[0].Split(' ');
+                var n = int.Parse(split[0]);
+                var k = int.Parse(split[1]);
+                var numbers = StringScanner.GetPositiveInt(test[1], n);
+                var remainders = numbers.Select(x => x % k).ToArray();
+                var counter = remainders.Count(x => x == 0);
+                Console.WriteLine(remainders.OrderByDescending(x => x).Take((int) Math.Ceiling(n / 2D) - counter).Sum(x => k - x));
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.12
         /// </summary>
@@ -113,10 +153,6 @@ namespace Geeks.Practices.Arrays.Basic
                             break;
                         }
                     }
-                }
-                else
-                {
-                    result = 0;
                 }
 
                 Console.WriteLine(result);
