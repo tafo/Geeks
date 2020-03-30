@@ -50,6 +50,28 @@ namespace Geeks.Practices.Arrays.Basic
     public class CheckValueSumIsEqualToPositionSum
     {
         /// <summary>
+        /// The execution time is 0.80
+        /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = long.Parse(test[0]);
+                Console.WriteLine(test[1].Split(' ').Sum(long.Parse) == n * (n + 1) / 2 ? "YES" : "NO");
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.30
         /// </summary>
         public static void RunMix()
