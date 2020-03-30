@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            FindOrResultOfElements.RunLoop();
+            CountElementsBetweenGreatestAndLeast.RunLoop();
             Console.ReadKey();
         }
     }

@@ -54,7 +54,8 @@ namespace Geeks.Practices.Arrays.Basic
     /// In the second case tough competitors are competitors having skill values (4,1) and (9,12)  having their skill difference as 3.
     ///
     ///  Remarks:
-    /// 1) The problem statement is not clear. Solutions are fixed. 
+    /// 1) The problem statement is not clear. Solutions are fixed.
+    /// 
     /// </summary>
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
