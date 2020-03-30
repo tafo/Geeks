@@ -51,6 +51,28 @@ namespace Geeks.Practices.Helper
             return result;
         }
 
+        public static long SumPositiveLong(string input)
+        {
+            long result = 0;
+            long number = 0;
+
+            foreach (var c in input)
+            {
+                if (char.IsWhiteSpace(c))
+                {
+                    result += number;
+                    number = 0;
+                    continue;
+                }
+
+                number = number * 10 + (c - Sub);
+            }
+
+            result += number;
+
+            return result;
+        }
+
         public static int MaxInt(string input)
         {
             var max = int.MinValue;

@@ -73,6 +73,28 @@ namespace Geeks.Practices.Arrays.Basic
         }
 
         /// <summary>
+        /// The execution time is 0.32
+        /// </summary>
+        public static void RunCompareToLoop()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = long.Parse(test[0]);
+                Console.WriteLine(StringScanner.SumPositiveLong(test[1]) == n * (n + 1) / 2 ? "YES" : "NO");
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.30
         /// </summary>
         public static void RunLoop()
