@@ -42,6 +42,9 @@ namespace Geeks.Practices.Arrays.Basic
     /// 4
     /// 72
     /// 0
+    ///
+    /// Remarks:
+    /// 1) The problem statement is not clear !!!
     /// 
     /// </summary>
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
@@ -49,6 +52,30 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class CountPairsWhoseXorIsOdd
     {
+        /// <summary>
+        /// The execution time is 0.52
+        /// </summary>
+        public static void RunCompareToMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = StringScanner.GetPositiveInt(test[1], n);
+                var result = numbers.Skip(1).Select((x, a) => numbers.Take(a + 1).Count(y => ((x ^ y) & 1) == 1)).Sum();
+                Console.WriteLine(result);
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.76
         /// </summary>
@@ -68,7 +95,7 @@ namespace Geeks.Practices.Arrays.Basic
             {
                 var n = int.Parse(test[0]);
                 var numbers = StringScanner.GetPositiveInt(test[1], n);
-                var result = numbers.Select((x,a) => numbers.Where((y,b) => a < b && ((x ^ y) & 1) == 1).Count()).Sum();
+                var result = numbers.Select((x, a) => numbers.Where((y, b) => a < b && ((x ^ y) & 1) == 1).Count()).Sum();
                 Console.WriteLine(result);
             }
         }
