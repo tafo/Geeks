@@ -74,6 +74,7 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
+    [SuppressMessage("ReSharper", "CommentTypo")]
     public class AnotherIdiot
     {
         /// <summary>
