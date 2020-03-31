@@ -62,6 +62,34 @@ namespace Geeks.Practices.Arrays.Basic
     public class CompareEveryPairSumToGivenNumber
     {
         /// <summary>
+        /// The execution time is 0.74
+        /// * Array.Sort(...) won against OrderBy, again. 
+        /// </summary>
+        public static void RunCompareToMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[3];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+                tests[i][2] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var split = test[0].Split(' ');
+                var n = int.Parse(split[0]);
+                var k = int.Parse(split[1]);
+                var leftList = StringScanner.GetPositiveLong(test[1], n);
+                var rightList = StringScanner.GetPositiveLong(test[2], n);
+                Console.WriteLine(leftList.OrderBy(x => x).Zip(rightList.OrderByDescending(x => x), (x,y) => x+y).Any(x => x < k) ? 0 : 1);
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.54
         /// </summary>
         public static void RunMix()
