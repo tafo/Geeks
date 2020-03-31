@@ -49,6 +49,27 @@ namespace Geeks.Practices.Arrays.Basic
     public class CountFibonacciNumbers
     {
         /// <summary>
+        /// The execution time is 0.20
+        /// </summary>
+        public static void RunSingleLneLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine();
+                tests[i] = Console.ReadLine().TrimEnd();
+            }
+
+            var series = new[] {1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765};
+            foreach (var test in tests)
+            {
+                Console.WriteLine(test.Split(' ').Select(int.Parse).Count(x => series.Contains(x)));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.11
         /// </summary>
         public static void RunCompareToMix()
