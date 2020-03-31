@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -60,6 +61,35 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class CompareEveryPairSumToGivenNumber
     {
+        /// <summary>
+        /// The execution time is 0.54
+        /// </summary>
+        public static void RunMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[3];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+                tests[i][2] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var split = test[0].Split(' ');
+                var n = int.Parse(split[0]);
+                var k = int.Parse(split[1]);
+                var leftList = StringScanner.GetPositiveLong(test[1], n);
+                var rightList = StringScanner.GetPositiveLong(test[2], n);
+                Array.Sort(leftList);
+                Array.Sort(rightList, (x,y) => y.CompareTo(x));
+                Console.WriteLine(leftList.Zip(rightList, (x,y) => x+y).Any(x => x < k) ? 0 : 1);
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.50
         /// </summary>
