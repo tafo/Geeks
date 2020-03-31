@@ -62,7 +62,7 @@ namespace Geeks.Practices.Arrays.Basic
     public class CompareEveryPairSumToGivenNumber
     {
         /// <summary>
-        /// The execution time is 1.14
+        /// The execution time is 1.15
         /// </summary>
         public static void RunSingleLineLinq()
         {

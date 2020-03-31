@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            CheckValueSumIsEqualToPositionSum.RunLoop();
+            CountFibonacciNumbers.RunLoop();
             Console.ReadKey();
         }
     }
