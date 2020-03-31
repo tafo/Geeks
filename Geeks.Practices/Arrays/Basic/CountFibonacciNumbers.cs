@@ -48,7 +48,40 @@ namespace Geeks.Practices.Arrays.Basic
     public class CountFibonacciNumbers
     {
         /// <summary>
-        /// The execution time is 0.20
+        /// The execution time is 0.08
+        /// </summary>
+        public static void RunCompareToLoop()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            var series = new[] {1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765};
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = StringScanner.GetPositiveInt(test[1], n);
+                var counter = 0;
+                foreach (var number in numbers)
+                {
+                    if (Array.IndexOf(series, number) != -1)
+                    {
+                        counter++;
+                    }
+                }
+
+                Console.WriteLine(counter);
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.12
         /// </summary>
         public static void RunLoop()
         {
