@@ -48,6 +48,29 @@ namespace Geeks.Practices.Arrays.Basic
         /// <summary>
         /// The execution time is 0.09
         /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = test[1].Split(' ').Select(int.Parse).OrderBy(x => x).ToArray();
+                Console.WriteLine(n < 3 || numbers.SkipLast(1).Select((x, i) => numbers[i + 1] - x).Distinct().Count() == 1 ? "YES" : "NO");
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.09
+        /// </summary>
         public static void RunCompareMix()
         {
             var testCount = int.Parse(Console.ReadLine());
