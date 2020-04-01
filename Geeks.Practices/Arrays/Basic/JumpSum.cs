@@ -64,6 +64,29 @@ namespace Geeks.Practices.Arrays.Basic
     public class JumpSum
     {
         /// <summary>
+        /// The execution time is 0.71
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                // var n = int.Parse(test[0]); Skip the number of elements
+                var numbers = test[1].Split(' ').Select((x, i) => new {Number = int.Parse(x), Index = i}).OrderBy(x => x.Number).ToArray();
+                Console.WriteLine(numbers.Skip(1).Select((x, i) => Math.Abs(x.Index - numbers[i].Index)).Sum());
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.49
         /// </summary>
         public static void RunMix()
