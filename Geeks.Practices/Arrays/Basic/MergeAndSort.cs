@@ -65,6 +65,30 @@ namespace Geeks.Practices.Arrays.Basic
     public class MergeAndSort
     {
         /// <summary>
+        /// The execution time is 0.10
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount];
+            for (var i = 0; i < testCount; i++)
+            {
+                var s = int.Parse(Console.ReadLine());
+                while (s > 0)
+                {
+                    Console.ReadLine();
+                    tests[i] += Console.ReadLine().TrimEnd() + " ";
+                    s--;
+                }
+            }
+
+            foreach (var test in tests)
+            {
+                Console.WriteLine(string.Join(' ', test.TrimEnd().Split(' ').Select(int.Parse).Distinct().OrderBy(x => x)));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.09
         /// </summary>
         public static void RunCompareToMix()
