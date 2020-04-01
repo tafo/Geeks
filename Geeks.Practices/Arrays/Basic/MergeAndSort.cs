@@ -67,7 +67,7 @@ namespace Geeks.Practices.Arrays.Basic
         /// <summary>
         /// The execution time is 0.10
         /// </summary>
-        public static void RunLinq()
+        public static void RunSingleLineLinq()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount];
