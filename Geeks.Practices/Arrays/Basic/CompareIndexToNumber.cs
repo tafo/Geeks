@@ -59,6 +59,28 @@ namespace Geeks.Practices.Arrays.Basic
         /// <summary>
         /// The execution time is 0.11
         /// </summary>
+        public static void RunCompareToMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                Console.WriteLine(string.Join(' ', Enumerable.Range(1, n).Except(StringScanner.GetPositiveInt(test[1], n).Distinct())));
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.11
+        /// </summary>
         public static void RunMix()
         {
             var testCount = int.Parse(Console.ReadLine());
