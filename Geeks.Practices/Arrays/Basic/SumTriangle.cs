@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -53,6 +54,35 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class SumTriangle
     {
+        /// <summary>
+        /// The execution time is 0.14
+        /// </summary>
+        public static void RunMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                tests[i][1] = Console.ReadLine().TrimEnd();
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = StringScanner.GetPositiveInt(test[1], n);
+                var result = numbers.Concat(Array.Empty<int>());
+                while (n-- > 0)
+                {
+                    numbers = numbers.Skip(1).Select((x, i) => x + numbers[i]).ToArray();
+                    result = numbers.Concat(result);
+                }
+                Console.WriteLine(string.Join(' ', result));
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.13
         /// </summary>
