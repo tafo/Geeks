@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -63,6 +64,35 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class MergeAndSort
     {
+        /// <summary>
+        /// The execution time is 0.09
+        /// </summary>
+        public static void RunMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][][];
+            for (var i = 0; i < testCount; i++)
+            {
+                var s = int.Parse(Console.ReadLine());
+                tests[i] = new string[s][];
+                for (var a = 0; a < s; a++)
+                {
+                    tests[i][a] = new string[2];
+                    tests[i][a][0] = Console.ReadLine();
+                    tests[i][a][1] = Console.ReadLine().TrimEnd();
+                }
+            }
+
+            foreach (var test in tests)
+            {
+                var size = test.Sum(array => int.Parse(array[0]));
+                var merged = test.Aggregate(string.Empty, (current, array) => current + array[1] + " ");
+                var numbers = StringScanner.GetPositiveInt(merged.TrimEnd(), size);
+                Array.Sort(numbers);
+                Console.WriteLine(string.Join(' ', numbers.Distinct()));
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.10
         /// </summary>
