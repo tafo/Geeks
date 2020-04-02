@@ -45,6 +45,20 @@ namespace Geeks.Practices.Arrays.Basic
         /// <summary>
         /// The execution time is 0.08
         /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine(); // Skip the number of elements
+                Console.WriteLine(Console.ReadLine().TrimEnd().Split(' ').Select(x => Math.Abs(int.Parse(x))).Distinct().Count());
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.08
+        /// </summary>
         public static void RunMix()
         {
             var testCount = int.Parse(Console.ReadLine());
