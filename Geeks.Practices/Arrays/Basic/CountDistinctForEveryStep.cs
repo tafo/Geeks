@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Text;
-using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
 {
@@ -259,17 +257,71 @@ namespace Geeks.Practices.Arrays.Basic
     public class CountDistinctForEveryStep
     {
         /// <summary>
-        /// The execution time is 0.63
+        /// Time limit exceeded !!!
+        /// * Check Dictionary solution 
         /// </summary>
-        public static void RunLoop()
+        public static void RunAway()
         {
             var testCount = int.Parse(Console.ReadLine());
             for (var i = 0; i < testCount; i++)
             {
                 var n = int.Parse(Console.ReadLine());
+                var numbers = new int[n][];
+                var x = 0;
+                var counter = 0;
                 for (var a = 0; a < n; a++)
                 {
-                    var elements = new Dictionary<string, int>();
+                    var split = Console.ReadLine().Split(' ');
+                    var number = int.Parse(split[1]);
+                    var index = Array.FindIndex(numbers, p => p != null && p[0] == number);
+                    if (split[0] == "A")
+                    {
+                        if (index == -1)
+                        {
+                            numbers[x] = new int[2];
+                            numbers[x][0] = number;    
+                            numbers[x++][1] = 1;
+                            counter++;
+                        }
+                        else
+                        {
+                            numbers[index][1]++;
+                        }
+                    }
+                    else
+                    {
+                        if (index != -1)
+                        {
+                            if (numbers[index][1] == 1)
+                            {
+                                numbers[index][0] = 0;
+                                counter--;
+                            }
+                            else
+                            {
+                                numbers[index][1]--;
+                            }
+                        }
+                    }
+
+                    Console.WriteLine(counter);
+                }
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.63
+        /// * Actually, Dictionary should be used in Arrays category
+        /// </summary>
+        public static void RunDictionary()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            for (var i = 0; i < testCount; i++)
+            {
+                var n = int.Parse(Console.ReadLine());
+                var elements = new Dictionary<string, int>();
+                for (var a = 0; a < n; a++)
+                {
                     var split = Console.ReadLine().Split(' ');
                     var element = split[1];
                     if (split[0] == "A")
@@ -294,7 +346,7 @@ namespace Geeks.Practices.Arrays.Basic
                             elements[element]--;
                         }
                     }
-                    Console.WriteLine(elements.Keys.Count);
+                    Console.WriteLine(elements.Count);
                 }
             }
         }
