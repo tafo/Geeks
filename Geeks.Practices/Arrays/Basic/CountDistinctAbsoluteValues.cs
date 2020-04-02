@@ -43,7 +43,7 @@ namespace Geeks.Practices.Arrays.Basic
     public class CountDistinctAbsoluteValues
     {
         /// <summary>
-        /// The execution time is 0.08
+        /// The execution time is 0.08 1
         /// </summary>
         public static void RunSingleLineLinq()
         {

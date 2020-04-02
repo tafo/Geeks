@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            CountDistinctForEveryStep.RunDictionary();
+            MinSumWithSwitch.RunLoop();
             Console.ReadKey();
         }
     }
