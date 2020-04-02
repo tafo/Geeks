@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            SumTriangle.RunSingleLineLinq();
+            CountDistinctForEveryStep.RunLoop();
             Console.ReadKey();
         }
     }
