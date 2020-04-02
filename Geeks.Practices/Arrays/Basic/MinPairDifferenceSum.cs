@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -67,6 +68,23 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class MinPairDifferenceSum
     {
+        /// <summary>
+        /// The execution time is 0.26
+        /// </summary>
+        public static void RunMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+
+            for (var i = 0; i < testCount; i++)
+            {
+                var n = int.Parse(Console.ReadLine());
+                var numbers = StringScanner.GetPositiveInt(Console.ReadLine().TrimEnd(), n);
+                Array.Sort(numbers);
+                numbers = numbers.Prepend(-100000).Append(200000).ToArray();
+                Console.WriteLine(Enumerable.Range(1, n).Select(x => Math.Min(numbers[x] - numbers[x - 1], numbers[x + 1] - numbers[x])).Sum());
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.25
         /// </summary>
