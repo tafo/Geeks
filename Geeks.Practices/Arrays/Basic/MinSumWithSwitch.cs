@@ -58,6 +58,24 @@ namespace Geeks.Practices.Arrays.Basic
     public class MinSumWithSwitch
     {
         /// <summary>
+        /// The execution time is 0.89
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+
+            while (testCount-- > 0)
+            {
+                Console.ReadLine();
+                var left = Console.ReadLine().TrimEnd().Split(' ').Select(long.Parse).ToArray();
+                var right = Console.ReadLine().TrimEnd().Split(' ').Select(long.Parse).ToArray();
+                var leftSum = left.Where((x, i) => (i & 1) == 0).Concat(right.Where((x, i) => (i & 1) == 1)).Sum();
+                var rightSum = left.Where((x, i) => (i & 1) == 1).Concat(right.Where((x, i) => (i & 1) == 0)).Sum();
+                Console.WriteLine(Math.Min(leftSum, rightSum));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.37
         /// </summary>
         public static void RunMix()
