@@ -46,6 +46,23 @@ namespace Geeks.Practices.Arrays.Basic
     public class Torrent
     {
         /// <summary>
+        /// The execution time is 0.39
+        /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+
+            for (var i = 0; i < testCount; i++)
+            {
+                Console.ReadLine(); // Skip the number of elements
+                var input = Console.ReadLine().TrimEnd();
+                Console.WriteLine(input.EndsWith("END")
+                    ? 0
+                    : input.Split("END").Last().Trim().Split(' ').Select(int.Parse).GroupBy(x => x).Count(x => (x.Count() & 1) == 1));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.36
         /// </summary>
         public static void RunLinq()
@@ -54,7 +71,7 @@ namespace Geeks.Practices.Arrays.Basic
 
             for (var i = 0; i < testCount; i++)
             {
-                var n = int.Parse(Console.ReadLine());
+                Console.ReadLine(); // Skip the number of elements
                 var split = Console.ReadLine().Split("END");
                 var last = split[^1].Trim();
                 if (last.Length == 0)
