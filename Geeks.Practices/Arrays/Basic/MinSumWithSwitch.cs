@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -56,6 +57,24 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class MinSumWithSwitch
     {
+        /// <summary>
+        /// The execution time is 0.37
+        /// </summary>
+        public static void RunMix()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+
+            while (testCount-- > 0)
+            {
+                var n = int.Parse(Console.ReadLine());
+                var left = StringScanner.GetPositiveLong(Console.ReadLine().TrimEnd(), n);
+                var right = StringScanner.GetPositiveLong(Console.ReadLine().TrimEnd(), n);
+                var leftSum = left.Where((x, i) => (i & 1) == 0).Concat(right.Where((x, i) => (i & 1) == 1)).Sum();
+                var rightSum = left.Where((x, i) => (i & 1) == 1).Concat(right.Where((x, i) => (i & 1) == 0)).Sum();
+                Console.WriteLine(Math.Min(leftSum, rightSum));
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.32
         /// </summary>
