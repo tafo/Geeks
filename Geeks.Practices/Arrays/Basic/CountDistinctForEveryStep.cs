@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using Geeks.Practices.Helper;
@@ -261,6 +262,48 @@ namespace Geeks.Practices.Arrays.Basic
         /// Time Limit Exceeded
         /// Expected Time Limit < 3.256 sec
         /// </summary>
+        public static void RunLoop()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            for (var i = 0; i < testCount; i++)
+            {
+                var n = int.Parse(Console.ReadLine());
+                for (var a = 0; a < n; a++)
+                {
+                    var elements = new Dictionary<string, int>();
+                    var split = Console.ReadLine().Split(' ');
+                    var element = split[1];
+                    if (split[0] == "A")
+                    {
+                        if (elements.ContainsKey(element))
+                        {
+                            elements[element]++;
+                        }
+                        else
+                        {
+                            elements[element] = 1;
+                        }
+                    }
+                    else if (elements.ContainsKey(element))
+                    {
+                        if (elements[element] == 1)
+                        {
+                            elements.Remove(element);
+                        }
+                        else
+                        {
+                            elements[element]--;
+                        }
+                    }
+                    Console.WriteLine(elements.Count);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Time Limit Exceeded
+        /// Expected Time Limit < 3.256 sec
+        /// </summary>
         public static void RunAwayLoopAnother()
         {
             var testCount = int.Parse(Console.ReadLine());
@@ -313,6 +356,8 @@ namespace Geeks.Practices.Arrays.Basic
                         resultBuilder.Append($"{counter}");
                     }
                 }
+
+                Console.WriteLine(resultBuilder.ToString());
             }
         }
 
@@ -366,7 +411,7 @@ namespace Geeks.Practices.Arrays.Basic
                 }
             }
         }
-        
+
         /// <summary>
         /// Time Limit Exceeded
         /// Expected Time Limit < 3.256 sec
