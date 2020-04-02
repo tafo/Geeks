@@ -261,6 +261,65 @@ namespace Geeks.Practices.Arrays.Basic
         /// Time Limit Exceeded
         /// Expected Time Limit < 3.256 sec
         /// </summary>
+        public static void RunAwayLoopAnother()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                tests[i] = new string[2];
+                tests[i][0] = Console.ReadLine();
+                var n = int.Parse(tests[i][0]);
+                for (var a = 0; a < n; a++)
+                {
+                    tests[i][1] += Console.ReadLine().TrimEnd() + " ";
+                }
+            }
+
+            foreach (var test in tests)
+            {
+                var n = int.Parse(test[0]);
+                var numbers = new int[n];
+                var scanner = new StringScanner(test[1].TrimEnd());
+                var i = 0;
+                var counter = 0;
+                var resultBuilder = new StringBuilder();
+                while (scanner.HasNext)
+                {
+                    var c = scanner.NextChar();
+                    var number = scanner.NextPositiveInt();
+                    var index = Array.IndexOf(numbers, number, 0, i);
+                    if (c == 'A')
+                    {
+                        numbers[i++] = number;
+                        if (index == -1)
+                        {
+                            counter++;
+                        }
+                    }
+                    else if (index != -1)
+                    {
+                        numbers[index] = 0;
+                        counter--;
+                    }
+
+                    if (scanner.HasNext)
+                    {
+                        resultBuilder.AppendLine($"{counter}");
+                    }
+                    else
+                    {
+                        resultBuilder.Append($"{counter}");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Time Limit Exceeded
+        /// Expected Time Limit < 3.256 sec
+        /// </summary>
         public static void RunAwayLoop()
         {
             var testCount = int.Parse(Console.ReadLine());
@@ -302,6 +361,7 @@ namespace Geeks.Practices.Arrays.Basic
                         numbers[index] = 0;
                         counter--;
                     }
+
                     Console.WriteLine(counter);
                 }
             }
