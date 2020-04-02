@@ -69,6 +69,21 @@ namespace Geeks.Practices.Arrays.Basic
     public class MinPairDifferenceSum
     {
         /// <summary>
+        /// The execution time is 0.54
+        /// </summary>
+        public static void RunSingleLineLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+
+            for (var i = 0; i < testCount; i++)
+            {
+                var n = int.Parse(Console.ReadLine());
+                var list = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse).OrderBy(x => x).Prepend(-100000).Append(200000).ToArray();
+                Console.WriteLine(Enumerable.Range(1, n).Select(x => Math.Min(list[x] - list[x - 1], list[x + 1] - list[x])).Sum());
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.26
         /// </summary>
         public static void RunMix()
