@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
+using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
 {
@@ -260,7 +261,60 @@ namespace Geeks.Practices.Arrays.Basic
         /// Time Limit Exceeded
         /// Expected Time Limit < 3.256 sec
         /// </summary>
-        public static void RunAwayLoop()
+        public static void RunAwayAnother()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            var tests = new string[testCount][];
+
+            for (var i = 0; i < testCount; i++)
+            {
+                var n = int.Parse(Console.ReadLine().TrimEnd());
+                tests[i] = new string[n];
+
+                for (var a = 0; a < n; a++)
+                {
+                    tests[i][a] = Console.ReadLine();
+                }
+            }
+
+            foreach (var test in tests)
+            {
+                var numbers = new int[test.Length];
+                var counter = 0;
+                var i = 0;
+                foreach (var line in test)
+                {
+                    var split = line.Split(' ');
+                    var operation = split[0];
+                    var number = int.Parse(split[1]);
+                    var index = Array.IndexOf(numbers, number, 0, i);
+                    if (operation == "A")
+                    {
+                        numbers[i++] = number;
+                        if (index == -1)
+                        {
+                            counter++;
+                        }
+                    }
+                    else
+                    {
+                        if (index != -1)
+                        {
+                            numbers[index] = 0;
+                            counter--;
+                        }
+                    }
+
+                    Console.WriteLine(counter);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Time Limit Exceeded
+        /// Expected Time Limit < 3.256 sec
+        /// </summary>
+        public static void RunAway()
         {
             var testCount = int.Parse(Console.ReadLine());
             var tests = new string[testCount][];

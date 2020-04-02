@@ -444,6 +444,16 @@ namespace Geeks.Practices.Helper
             return digit;
         }
 
+        /// <summary>
+        /// This method is implemented for CountDistinctForEveryStep
+        /// </summary>
+        public char NextChar()
+        {
+            var c = _input[Position];
+            Position += 2;
+            return c;
+        }
+
         public long NextPositiveLong()
         {
             long result = 0;
