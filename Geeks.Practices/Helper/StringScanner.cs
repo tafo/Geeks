@@ -220,6 +220,33 @@ namespace Geeks.Practices.Helper
             return result;
         }
 
+        public static int[] GetAbsoluteInt(string input, int n)
+        {
+            var result = new int[n];
+            var i = 0;
+            var number = 0;
+            foreach (var c in input)
+            {
+                if (c == '-')
+                {
+                    continue;
+                }
+                if (char.IsWhiteSpace(c))
+                {
+                    result[i++] = number;
+                    number = 0;
+                }
+                else
+                {
+                    number = number * 10 + (c - Sub);
+                }
+            }
+
+            result[i] = number;
+
+            return result;
+        }
+
         public static long[] GetLong(string input, int n)
         {
             var result = new long[n];
@@ -337,6 +364,28 @@ namespace Geeks.Practices.Helper
             }
 
             return result * (isNegative ? -1 : 1);
+        }
+
+        public int NextAbsoluteInt()
+        {
+            var result = 0;
+            var c = _input[Position++];
+            while (!char.IsWhiteSpace(c))
+            {
+                if (c != '-')
+                {
+                    result = result * 10 + (c - Sub);
+
+                    if (Position == _length)
+                    {
+                        HasNext = false;
+                        break;
+                    }
+                }
+                c = _input[Position++];
+            }
+
+            return result;
         }
 
         public long NextLong()
