@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -44,6 +45,28 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class Torrent
     {
+        /// <summary>
+        /// The execution time is 0.36
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+
+            for (var i = 0; i < testCount; i++)
+            {
+                var n = int.Parse(Console.ReadLine());
+                var split = Console.ReadLine().Split("END");
+                var last = split[^1].Trim();
+                if (last.Length == 0)
+                {
+                    Console.WriteLine(0);
+                    continue;
+                }
+
+                Console.WriteLine(last.Split(' ').Select(int.Parse).GroupBy(x => x).Count(x => (x.Count() & 1) == 1));
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.19
         /// </summary>
