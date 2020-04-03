@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -43,6 +44,23 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class MinPairDifference
     {
+        /// <summary>
+        /// The execution time is 0.15
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            while (testCount-- > 0)
+            {
+                var split = Console.ReadLine().Split(' ');
+                var input = Console.ReadLine().TrimEnd();
+                var n = int.Parse(split[0]);
+                var k = int.Parse(split[1]);
+                var numbers = input.Split(' ').Select(int.Parse).OrderBy(x => x).ToArray();
+                Console.WriteLine(numbers.Skip(k - 1).Select((x, i) => x - numbers[i]).Min());
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.10
         /// </summary>
