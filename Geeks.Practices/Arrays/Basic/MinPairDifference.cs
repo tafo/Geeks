@@ -54,7 +54,7 @@ namespace Geeks.Practices.Arrays.Basic
             {
                 var split = Console.ReadLine().Split(' ');
                 var input = Console.ReadLine().TrimEnd();
-                var n = int.Parse(split[0]);
+                // var n = int.Parse(split[0]); Skip the number of elements
                 var k = int.Parse(split[1]);
                 var numbers = input.Split(' ').Select(int.Parse).OrderBy(x => x).ToArray();
                 Console.WriteLine(numbers.Skip(k - 1).Select((x, i) => x - numbers[i]).Min());
