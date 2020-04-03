@@ -64,8 +64,6 @@ namespace Geeks.Practices.Arrays.Basic
             while (testCount-- > 0)
             {
                 var input = Console.ReadLine().ToCharArray();
-                var resultBuilder = new StringBuilder();
-                resultBuilder.Append(input[0]);
                 var vowels = new[] { 'a','e','i','o','u'};
                 var result = input.Where((x, i) =>
                     i == 0 || i == input.Length - 1 || vowels.Contains(input[i - 1]) || !vowels.Contains(x) || vowels.Contains(input[i + 1]));
