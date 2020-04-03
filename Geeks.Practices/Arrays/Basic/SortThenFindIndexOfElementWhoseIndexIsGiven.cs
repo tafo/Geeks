@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Geeks.Practices.Helper;
 
-namespace Geeks.Practices.Helper
+namespace Geeks.Practices.Arrays.Basic
 {
     /// <summary>
     /// The title is "Stable Sort and Position"
@@ -48,9 +49,8 @@ namespace Geeks.Practices.Helper
             {
                 var split = Console.ReadLine().Split(' ');
                 var input = Console.ReadLine().TrimEnd();
-                var n = int.Parse(split[0]);
                 var index = int.Parse(split[1]);
-                Console.WriteLine(input.Split(' ').Select((x, i) => new {Index = i, Number = int.Parse(x)}).OrderBy(x => x.Number)
+                Console.WriteLine(input.Split(' ').Select((x, i) => new {Index = i, Number = int.Parse((string) x)}).OrderBy(x => x.Number)
                     .Select((x, i) => new {Result = i, x.Index, x.Number}).Single(x => x.Index == index).Result);
             }
         }

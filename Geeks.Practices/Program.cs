@@ -8,7 +8,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            SortThenFindIndexOfElementWhoseIndexIsGiven.RunLoop();
+            MinPairSum.RunLoop();
             Console.ReadKey();
         }
     }
