@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -46,6 +47,21 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class DistinctAdjacent
     {
+        /// <summary>
+        /// The execution time is 0.17
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            while (testCount-- > 0)
+            {
+                var n = int.Parse(Console.ReadLine());
+                var input = Console.ReadLine().TrimEnd();
+                var max = input.Split(' ').Select(int.Parse).GroupBy(x => x).Max(x => x.Count());
+                Console.WriteLine((n & 1) == 1 && max <= (n + 1) / 2 || (n & 1) == 0 && max <= n / 2 ? "YES" : "NO");
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.18
         /// </summary>
