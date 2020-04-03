@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -45,6 +46,27 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class MinPairSum
     {
+        /// <summary>
+        /// The execution time is 0.10
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            while (testCount-- > 0)
+            {
+                Console.ReadLine();
+                var firstInput = Console.ReadLine().TrimEnd();
+                var secondInput = Console.ReadLine().TrimEnd();
+                var firstList = firstInput.Split(' ').Select((x, i) => new {Index = i, Number = int.Parse(x)})
+                    .OrderBy(x => x.Number).Take(2).ToArray();
+                var secondList = secondInput.Split(' ').Select((x, i) => new {Index = i, Number = int.Parse(x)})
+                    .OrderBy(x => x.Number).Take(2).ToArray();
+                Console.WriteLine(firstList.First().Index == secondList.First().Index
+                    ? Math.Min(firstList.First().Number + secondList.Last().Number, firstList.Last().Number + secondList.First().Number)
+                    : firstList.First().Number + secondList.First().Number);
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.13
         /// </summary>
