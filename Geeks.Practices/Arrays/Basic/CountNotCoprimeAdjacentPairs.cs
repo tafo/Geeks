@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -60,6 +61,21 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class CountNotCoPrimeAdjacentPairs
     {
+        /// <summary>
+        /// The execution time is 0.14
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            while (testCount-- > 0)
+            {
+                Console.ReadLine(); // Skip the number of elements
+                var input = Console.ReadLine().TrimEnd();
+                var numbers = input.Split(' ').Select(int.Parse).ToArray();
+                Console.WriteLine(numbers.Skip(1).Where((x,i) => x.GCD(numbers[i]) > 1).Count());
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.13
         /// </summary>
