@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -42,8 +43,25 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
-    public class PartitionNumber
+    public class PartitionElement
     {
+        /// <summary>
+        /// The execution time is 0.55
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            while (testCount-- > 0)
+            {
+                Console.ReadLine();
+                var input = Console.ReadLine().TrimEnd();
+                var numbers = input.Split(' ').Select(int.Parse).ToArray();
+                Console.WriteLine(numbers
+                    .Where((x, i) => x > numbers.Take(i).DefaultIfEmpty(0).Max() && x < numbers.Skip(i + 1).DefaultIfEmpty(10001).Min())
+                    .DefaultIfEmpty(-1).FirstOrDefault());
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.18
         /// </summary>
