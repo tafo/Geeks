@@ -38,6 +38,34 @@ namespace Geeks.Practices.Helper
     public class SortThenFindIndexOfElementWhoseIndexIsGiven
     {
         /// <summary>
+        /// The execution time is 0.14
+        /// </summary>
+        public static void RunAnotherLoop()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            while (testCount-- > 0)
+            {
+                var split = Console.ReadLine().Split(' ');
+                var input = Console.ReadLine().TrimEnd();
+                var n = int.Parse(split[0]);
+                var index = int.Parse(split[1]);
+                var scanner = new StringScanner(input);
+                var elements = new int[n][];
+                var i = 0;
+                while (scanner.HasNext)
+                {
+                    elements[i] = new int[2];
+                    elements[i][0] = scanner.NextPositiveInt();
+                    elements[i][1] = i;
+                    i++;
+                }
+
+                Array.Sort(elements, (x, y) => x[0].CompareTo(y[0]) == 0 ? x[1].CompareTo(y[1]) : x[0].CompareTo(y[0]));
+                Console.WriteLine(Array.FindIndex(elements, x => x[1] == index));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.15
         /// </summary>
         public static void RunLoop()
