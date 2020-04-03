@@ -1,5 +1,6 @@
 ﻿using Geeks.Practices.Arrays.Basic;
 using System;
+using Geeks.Practices.Helper;
 
 namespace Geeks.Practices
 {
@@ -7,7 +8,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            RemoveLettersInBetweenTwoConsonants.RunLoop();
+            SortThenFindIndexOfElementWhoseIndexIsGiven.RunLoop();
             Console.ReadKey();
         }
     }

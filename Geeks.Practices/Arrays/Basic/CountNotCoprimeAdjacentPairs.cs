@@ -54,7 +54,7 @@ namespace Geeks.Practices.Arrays.Basic
     /// Remarks:
     /// 1:
     /// If we insert 1 between two numbers that are not coprime, we get coprime adjacent pairs.
-    /// So the result is the number of pairs whose greatest common divisor is greater than 1.
+    /// So, the result is the number of adjacent pairs whose greatest common divisor is greater than 1.
     /// 
     /// </summary>
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
