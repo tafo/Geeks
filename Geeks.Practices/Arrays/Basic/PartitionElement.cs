@@ -46,6 +46,22 @@ namespace Geeks.Practices.Arrays.Basic
     public class PartitionElement
     {
         /// <summary>
+        /// The execution time is 0.50
+        /// </summary>
+        public static void RunAnotherLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            while (testCount-- > 0)
+            {
+                Console.ReadLine();
+                var input = Console.ReadLine().TrimEnd();
+                var numbers = input.Split(' ').Select(int.Parse).Prepend(0).Append(10001).ToArray();
+                Console.WriteLine(numbers.Skip(1).SkipLast(1).Where((x, i) => x > numbers.Take(i + 1).Max() && x < numbers.Skip(i + 2).Min())
+                    .DefaultIfEmpty(-1).FirstOrDefault());
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.55
         /// </summary>
         public static void RunLinq()
