@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            Curve.RunLoop();
+            RemoveLettersInBetweenTwoConsonants.RunLoop();
             Console.ReadKey();
         }
     }
