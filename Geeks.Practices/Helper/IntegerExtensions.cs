@@ -3,7 +3,7 @@
     public static class IntegerExtensions
     {
         // GCD = Greatest Common Divisor
-        internal static int GCD(this int a, int b)
+        public static int GCD(this int a, int b)
         {
             while (a != 0 && b != 0)
             {
