@@ -53,7 +53,8 @@ namespace Geeks.Practices.Arrays.Basic
     ///
     /// Remarks:
     /// 1:
-    /// Always insert 1 to get prime pairs. 
+    /// If we insert 1 between two numbers that are not coprime, we get coprime adjacent pairs.
+    /// So the result is the number of pairs whose greatest common divisor is greater than 1.
     /// 
     /// </summary>
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
