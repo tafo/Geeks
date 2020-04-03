@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Text;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -55,6 +56,24 @@ namespace Geeks.Practices.Arrays.Basic
     public class RemoveLettersInBetweenTwoConsonants
     {
         /// <summary>
+        /// The execution time is 0.13
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            while (testCount-- > 0)
+            {
+                var input = Console.ReadLine().ToCharArray();
+                var resultBuilder = new StringBuilder();
+                resultBuilder.Append(input[0]);
+                var vowels = new[] { 'a','e','i','o','u'};
+                var result = input.Where((x, i) =>
+                    i == 0 || i == input.Length - 1 || vowels.Contains(input[i - 1]) || !vowels.Contains(x) || vowels.Contains(input[i + 1]));
+                Console.WriteLine(string.Join(string.Empty, result));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.08
         /// </summary>
         public static void RunLoop()
@@ -78,7 +97,7 @@ namespace Geeks.Practices.Arrays.Basic
                     resultBuilder.Append(input[i]);
                 }
 
-                resultBuilder.Append(input[input.Length - 1]);
+                resultBuilder.Append(input[^1]);
 
                 Console.WriteLine(resultBuilder.ToString());
             }
