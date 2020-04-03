@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.Design;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -53,6 +54,44 @@ namespace Geeks.Practices.Arrays.Basic
     public class Curve
     {
         /// <summary>
+        /// The execution time is 0.32
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+
+            while (testCount-- > 0)
+            {
+                var n = int.Parse(Console.ReadLine());
+                var input = Console.ReadLine().TrimEnd();
+                var result = "Yes";
+                if ((n & 1) == 0)
+                {
+                    result = "No";
+                }
+                else
+                {
+                    var numbers = input.Split(' ').Select(int.Parse).ToArray();
+                    var half = n / 2;
+                    if (numbers[half] == 1)
+                    {
+                        var dif = numbers.First() - numbers.Skip(1).First();
+                        if (dif <= 0 || numbers.Skip(1).Select((x, i) => i < half ? numbers[i] - x : x - numbers[i]).Any(x => x != dif))
+                        {
+                            result = "No";
+                        }
+                    }
+                    else
+                    {
+                        result = "No";
+                    }
+                }
+
+                Console.WriteLine(result);
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.15
         /// </summary>
         public static void RunAnotherLoop()
@@ -74,9 +113,10 @@ namespace Geeks.Practices.Arrays.Basic
                     var half = n / 2;
                     if (numbers[half] == 1)
                     {
+                        var dif = numbers[0] - numbers[1];
                         for (var i = 0; i < half; i++)
                         {
-                            if (numbers[i] == numbers[n - i - 1] && numbers[i] > 1) continue;
+                            if (numbers[i] == numbers[n - i - 1] && numbers[i] > 1 && numbers[i + 1] - numbers[i] == dif) continue;
                             result = "No";
                             break;
                         }
