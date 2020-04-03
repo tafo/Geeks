@@ -79,8 +79,24 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
-    public class CountIndexFrequency
+    public class CountDigitFrequency
     {
+        /// <summary>
+        /// The execution time is 0.14
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            while (testCount-- > 0)
+            {
+                var split = Console.ReadLine().Replace("  ", " ").Split(' ');
+                var n = int.Parse(split[0]);
+                var p = int.Parse(split[1]);
+                var input = string.Join(string.Empty, Enumerable.Range(1, p).Select(x => $"{Math.Pow(n, x)}"));
+                Console.WriteLine(string.Join(' ', Enumerable.Range(0, 10).Select(x => input.Count(c => c - '0' == x))));
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.13
         /// </summary>
