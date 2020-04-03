@@ -55,6 +55,45 @@ namespace Geeks.Practices.Arrays.Basic
         /// <summary>
         /// The execution time is 0.15
         /// </summary>
+        public static void RunAnotherLoop()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+
+            while (testCount-- > 0)
+            {
+                var n = int.Parse(Console.ReadLine());
+                var input = Console.ReadLine().TrimEnd();
+                var result = "Yes";
+                if ((n & 1) == 0)
+                {
+                    result = "No";
+                }
+                else
+                {
+                    var numbers = StringScanner.GetPositiveInt(input, n);
+                    var half = n / 2;
+                    if (numbers[half] == 1)
+                    {
+                        for (var i = 0; i < half; i++)
+                        {
+                            if (numbers[i] == numbers[n - i - 1] && numbers[i] > 1) continue;
+                            result = "No";
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        result = "No";
+                    }
+                }
+
+                Console.WriteLine(result);
+            }
+        }
+
+        /// <summary>
+        /// The execution time is 0.15
+        /// </summary>
         public static void RunLoop()
         {
             var testCount = int.Parse(Console.ReadLine());
