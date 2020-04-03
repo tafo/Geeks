@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            MinSumWithSwitch.RunLoop();
+            Curve.RunLoop();
             Console.ReadKey();
         }
     }
