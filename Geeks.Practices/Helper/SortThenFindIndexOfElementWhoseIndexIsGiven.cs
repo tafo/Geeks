@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 namespace Geeks.Practices.Helper
 {
@@ -37,6 +38,23 @@ namespace Geeks.Practices.Helper
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
     public class SortThenFindIndexOfElementWhoseIndexIsGiven
     {
+        /// <summary>
+        /// The execution time is 0.19
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            while (testCount-- > 0)
+            {
+                var split = Console.ReadLine().Split(' ');
+                var input = Console.ReadLine().TrimEnd();
+                var n = int.Parse(split[0]);
+                var index = int.Parse(split[1]);
+                Console.WriteLine(input.Split(' ').Select((x, i) => new {Index = i, Number = int.Parse(x)}).OrderBy(x => x.Number)
+                    .Select((x, i) => new {Result = i, x.Index, x.Number}).Single(x => x.Index == index).Result);
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.14
         /// </summary>
