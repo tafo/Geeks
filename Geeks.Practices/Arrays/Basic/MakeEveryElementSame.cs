@@ -47,6 +47,30 @@ namespace Geeks.Practices.Arrays.Basic
     public class MakeEveryElementSame
     {
         /// <summary>
+        /// The execution time is 0.18
+        /// </summary>
+        public static void RunAnotherLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            while (testCount-- > 0)
+            {
+                var n = double.Parse(Console.ReadLine());
+                var input = Console.ReadLine().TrimEnd();
+                var numbers = input.Split(' ').Select(int.Parse).ToArray();
+                var sum = numbers.Sum();
+                var average = sum / n;
+                var avg = (int)average;
+                var result = -1;
+                if (average - avg < double.Epsilon)
+                {
+                    result = numbers.Where(x => x < avg).Sum(x => avg - x);
+                }
+
+                Console.WriteLine(result);
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.19
         /// </summary>
         public static void RunLinq()
