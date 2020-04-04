@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -26,15 +27,18 @@ namespace Geeks.Practices.Arrays.Basic
     /// 
     /// Example:
     /// Input:
-    /// 2
+    /// 3
     /// 5
     /// 5 4 3 1 2
     /// 3
     /// 10 15 30
+    /// 26
+    /// 13 63 3 62 26 71 52 48 77 55 66 68 97 87 4 42 78 42 35 65 93 99 14 69 65 65
     /// 
     /// Output:
     /// 3
     /// 0
+    /// 1629
     /// 
     /// </summary>
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
@@ -42,6 +46,24 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class CountPossibleTriangles
     {
+        /// <summary>
+        /// The execution time is 0.55
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            while (testCount-- > 0)
+            {
+                Console.ReadLine();
+                var input = Console.ReadLine().TrimEnd();
+                var elements = input.Split(' ').Select(int.Parse).OrderBy(x => x).ToArray();
+                var result = elements
+                    .SelectMany((x, a) => elements.Select((y, b) => elements.Where((z, c) => a < b && b < c && x + y > z).Count()))
+                    .Sum();
+                Console.WriteLine(result);
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.09
         /// </summary>
