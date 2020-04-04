@@ -8,7 +8,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            MinPairSum.RunLoop();
+            CountSubArrays.RunLoop();
             Console.ReadKey();
         }
     }
