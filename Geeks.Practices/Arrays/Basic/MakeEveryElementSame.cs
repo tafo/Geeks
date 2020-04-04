@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -46,6 +47,30 @@ namespace Geeks.Practices.Arrays.Basic
     public class MakeEveryElementSame
     {
         /// <summary>
+        /// The execution time is 0.19
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            while (testCount-- > 0)
+            {
+                var n = double.Parse(Console.ReadLine());
+                var input = Console.ReadLine().TrimEnd();
+                var numbers = input.Split(' ').Select(int.Parse).ToArray();
+                var sum = numbers.Sum();
+                var average = sum / n;
+                var avg = (int)average;
+                var result = -1;
+                if (average - avg < double.Epsilon)
+                {
+                    result = numbers.Sum(x => Math.Abs(avg - x)) / 2;
+                }
+
+                Console.WriteLine(result);
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.14
         /// </summary>
         public static void RunLoop()
@@ -71,7 +96,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var result = -1;
                 if (Math.Abs(average % 1) <= double.Epsilon)
                 {
-                    var avg = (int) average;
+                    var avg = (int)average;
                     int missingSum = 0;
                     foreach (var number in numbers)
                     {
