@@ -8,7 +8,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            CountSubArrays.RunLoop();
+            CompareGivenNumberToFloorAndCeil.RunLinq();
             Console.ReadKey();
         }
     }

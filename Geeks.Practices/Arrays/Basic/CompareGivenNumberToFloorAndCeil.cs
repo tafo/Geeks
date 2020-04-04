@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -50,8 +51,26 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
-    public class CheckBalance
+    public class CompareGivenNumberToFloorAndCeil
     {
+        /// <summary>
+        /// The execution time is 0.17
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            while (testCount-- > 0)
+            {
+                Console.ReadLine();
+                var input = Console.ReadLine().TrimEnd();
+                var k = int.Parse(Console.ReadLine());
+                var numbers = input.Split(' ').Select(int.Parse).ToArray();
+                var floor = numbers.LastOrDefault(x => x <= k);
+                var ceil = numbers.FirstOrDefault(x => x >= k);
+                Console.WriteLine(floor == 0 || ceil == 0 || floor + ceil == 2 * k ? "Balanced" : "Not Balanced");
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.12
         /// </summary>
