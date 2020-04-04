@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -49,48 +50,19 @@ namespace Geeks.Practices.Arrays.Basic
     public class DivideSizeToCounter
     {
         /// <summary>
-        /// The execution time is 0.13
+        /// The execution time is 0.14
         /// </summary>
-        public static void RunAnotherLoop()
+        public static void RunLinq()
         {
             var testCount = int.Parse(Console.ReadLine());
             while (testCount-- > 0)
             {
                 var n = double.Parse(Console.ReadLine());
                 var input = Console.ReadLine().TrimEnd();
-                var positiveCounter = 0;
-                var negativeCounter = 0;
-                var zeroCounter = 0;
-                var scanner = new StringScanner(input);
-                while (scanner.HasNext)
-                {
-                    var number = scanner.NextInt();
-                    if (number < 0)
-                    {
-                        negativeCounter++;
-                    }
-                    else if (number == 0)
-                    {
-                        zeroCounter++;
-                    }
-                    else
-                    {
-                        positiveCounter++;
-                    }
-                }
-
-                var positiveRatio = n / positiveCounter;
-                var negativeRatio = n / negativeCounter;
-                var zeroRatio = n / zeroCounter;
-                Console.WriteLine(positiveRatio - (int)positiveRatio < double.Epsilon
-                    ? $"{(int)positiveRatio}"
-                    : positiveRatio.ToString("#.#####"));
-                Console.WriteLine(negativeRatio - (int)negativeRatio < double.Epsilon
-                    ? $"{(int)negativeRatio}"
-                    : negativeRatio.ToString("#.#####"));
-                Console.WriteLine(zeroRatio - (int)zeroRatio < double.Epsilon
-                    ? $"{(int)zeroRatio}"
-                    : zeroRatio.ToString("#.#####"));
+                var numbers = input.Split(' ').Select(int.Parse).ToArray();
+                Console.WriteLine((n / numbers.Count(x => x > 0)).ToString("#.#####"));
+                Console.WriteLine((n / numbers.Count(x => x < 0)).ToString("#.#####"));
+                Console.WriteLine((n / numbers.Count(x => x == 0)).ToString("#.#####"));
             }
         }
 
@@ -125,18 +97,9 @@ namespace Geeks.Practices.Arrays.Basic
                     }
                 }
 
-                var positiveRatio = n / positiveCounter;
-                var negativeRatio = n / negativeCounter;
-                var zeroRatio = n / zeroCounter;
-                Console.WriteLine(positiveRatio - (int)positiveRatio < double.Epsilon
-                    ? (int)positiveRatio
-                    : decimal.Round((decimal)positiveRatio, 5));
-                Console.WriteLine(negativeRatio - (int)negativeRatio < double.Epsilon
-                    ? (int)negativeRatio
-                    : decimal.Round((decimal)negativeRatio, 5));
-                Console.WriteLine(zeroRatio - (int)zeroRatio < double.Epsilon
-                    ? (int)zeroRatio
-                    : decimal.Round((decimal)zeroRatio, 5));
+                Console.WriteLine((n / positiveCounter).ToString("#.#####"));
+                Console.WriteLine((n / negativeCounter).ToString("#.#####"));
+                Console.WriteLine((n / zeroCounter).ToString("#.#####"));
             }
         }
     }
