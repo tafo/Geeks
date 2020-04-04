@@ -47,6 +47,23 @@ namespace Geeks.Practices.Arrays.Basic
     public class CountPossibleTriangles
     {
         /// <summary>
+        /// The execution time is 0.20
+        /// </summary>
+        public static void RunAnotherLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            while (testCount-- > 0)
+            {
+                Console.ReadLine();
+                var input = Console.ReadLine().TrimEnd();
+                var elements = input.Split(' ').Select(int.Parse).OrderBy(x => x).ToArray();
+                var result = elements.SelectMany((x, a) => elements.Skip(a + 1).Select((y, b) => elements.Skip(a + b + 2).Count(z => x + y > z)))
+                    .Sum();
+                Console.WriteLine(result);
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.55
         /// </summary>
         public static void RunLinq()
