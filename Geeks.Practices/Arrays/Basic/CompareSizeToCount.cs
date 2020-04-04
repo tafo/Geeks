@@ -46,7 +46,7 @@ namespace Geeks.Practices.Arrays.Basic
     /// </summary>
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
-    public class CompareSizeToCount
+    public class DivideSizeToCounter
     {
         /// <summary>
         /// The execution time is 0.13
