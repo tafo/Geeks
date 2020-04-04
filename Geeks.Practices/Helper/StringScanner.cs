@@ -46,9 +46,7 @@ namespace Geeks.Practices.Helper
                 number = number * 10 + (c - Sub);
             }
 
-            result += number;
-
-            return result;
+            return result + number;
         }
 
         public static long SumPositiveLong(string input)
@@ -68,9 +66,7 @@ namespace Geeks.Practices.Helper
                 number = number * 10 + (c - Sub);
             }
 
-            result += number;
-
-            return result;
+            return result + number;
         }
 
         public static int MaxInt(string input)
@@ -493,13 +489,15 @@ namespace Geeks.Practices.Helper
             return digit;
         }
 
-        /// <summary>
-        /// This method is implemented for CountDistinctForEveryStep
-        /// </summary>
         public char NextChar()
         {
             var c = _input[Position];
             Position += 2;
+            if (Position > _length)
+            {
+                HasNext = false;
+            }
+
             return c;
         }
 

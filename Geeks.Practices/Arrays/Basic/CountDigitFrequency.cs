@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
 using System.Linq;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -11,16 +10,13 @@ namespace Geeks.Practices.Arrays.Basic
     /// Input:
     /// The first line of input contains an integer "test" denoting the number of test cases . Then "test" test cases follow . The first line of each test case contains two space separated integers x and n, where x is an integer (1 <= x <= 15) and n is the number of times to which x is to be raised , in increasing manner.  x^1  x^2  x^3 ....... x^(n-1)  x^(n) .
     /// 
-    /// 
     /// Output: 
     /// Corresponding to each test case, in a new line, print an array "a[]" which containes the frequency of each digit occuring in input (frequency of '0' at index "0" , frequency of '1' at index "0" ........ frequency of '9' at index "9" ) .
-    /// 
     /// 
     /// Constraints :
     /// 1 <= T <= 100
     /// 1 <= x <= 15
     /// 1 <= n <= 10
-    /// 
     /// 
     /// Example: 
     /// Input :
@@ -89,9 +85,9 @@ namespace Geeks.Practices.Arrays.Basic
             var testCount = int.Parse(Console.ReadLine());
             while (testCount-- > 0)
             {
-                var split = Console.ReadLine().Replace("  ", " ").Split(' ');
-                var n = int.Parse(split[0]);
-                var p = int.Parse(split[1]);
+                var split = Console.ReadLine().Split(' ');
+                var n = int.Parse(split.First());
+                var p = int.Parse(split.Last());
                 var input = string.Join(string.Empty, Enumerable.Range(1, p).Select(x => $"{Math.Pow(n, x)}"));
                 Console.WriteLine(string.Join(' ', Enumerable.Range(0, 10).Select(x => input.Count(c => c - '0' == x))));
             }
@@ -111,7 +107,7 @@ namespace Geeks.Practices.Arrays.Basic
                 var input = string.Empty;
                 for (var i = 1; i <= power; i++)
                 {
-                    input += Math.Pow(x, i).ToString(CultureInfo.InvariantCulture);
+                    input += $"{Math.Pow(x, i)}";
                 }
 
                 var result = new int[10];
