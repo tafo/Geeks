@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -52,6 +53,29 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class CountSubArrays
     {
+        /// <summary>
+        /// The execution time is 0.08
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            while (testCount-- > 0)
+            {
+                var n = int.Parse(Console.ReadLine());
+                var elements = Console.ReadLine().TrimEnd().Split(' ').Select((x, i) => new {N = int.Parse(x), Index = i});
+                var groups = elements.GroupBy(x => x.N).Select(x => x.ToList()).ToList();
+                var result = 0;
+                do
+                {
+                    groups = groups.OrderBy(x => x.First().Index).ToList();
+                    result += n - groups.Last().First().Index;
+                    groups.First().RemoveAt(0);
+                } while (groups.First().Count > 0);
+
+                Console.WriteLine(result);
+            }
+
+        }
         /// <summary>
         /// The execution time is 0.13
         /// </summary>
@@ -106,6 +130,8 @@ namespace Geeks.Practices.Arrays.Basic
                             min = numbers[i][position];
                             minIndex = i;
                         }
+
+                        // We can find max by comparing it(previous max) to next position of min ! 
                         if (numbers[i][position] > max)
                         {
                             max = numbers[i][position];
