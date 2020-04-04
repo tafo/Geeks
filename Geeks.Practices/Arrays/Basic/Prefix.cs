@@ -53,16 +53,13 @@ namespace Geeks.Practices.Arrays.Basic
             while (testCount-- > 0)
             {
                 var split = Console.ReadLine().Split(' ');
-                // var n = int.Parse(split[0]);
                 var x = int.Parse(split[1]);
                 var y = int.Parse(split[2]);
-                var input = Console.ReadLine().TrimEnd();
+                var numbers = Console.ReadLine().TrimEnd().Split(' ').Select(int.Parse);
                 var counter = 0;
-                var element = input.Split(' ').Select(int.Parse)
-                    .Select((a, i) => new {Counter = a == x ? ++counter : a == y ? --counter : counter, Index = i})
-                    .SkipWhile(a => a.Counter == 0)
-                    .LastOrDefault(a => a.Counter == 0);
-                Console.WriteLine(element?.Index ?? -1);
+                Console.WriteLine(
+                    numbers.Select((a, i) => new {Counter = a == x ? ++counter : a == y ? --counter : counter, Index = i})
+                        .SkipWhile(a => a.Counter == 0).LastOrDefault(a => a.Counter == 0)?.Index ?? -1);
             }
         }
 

@@ -8,7 +8,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            CompareGivenNumberToFloorAndCeil.RunLinq();
+            CountQualifiedPairs.RunLoop();
             Console.ReadKey();
         }
     }
