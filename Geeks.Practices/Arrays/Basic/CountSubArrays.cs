@@ -62,8 +62,8 @@ namespace Geeks.Practices.Arrays.Basic
             while (testCount-- > 0)
             {
                 var n = int.Parse(Console.ReadLine());
-                var elements = Console.ReadLine().TrimEnd().Split(' ').Select((x, i) => new {N = int.Parse(x), Index = i});
-                var groups = elements.GroupBy(x => x.N).Select(x => x.ToList()).ToList();
+                var elements = Console.ReadLine().TrimEnd().Split(' ').Select((x, i) => new {Number = int.Parse(x), Index = i});
+                var groups = elements.GroupBy(x => x.Number).Select(x => x.ToList()).ToList();
                 var result = 0;
                 do
                 {
