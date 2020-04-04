@@ -8,7 +8,7 @@ namespace Geeks.Practices.Arrays.Basic
     /// <summary>
     /// The title is "Equalization of an array"
     /// 
-    /// Given an array of integers, the task is to count minimum number of operations to equalize the array
+    /// Given an array of integers, the task is to count minimum number of operations to equalize the array                      
     ///     i.e., to make all array elements same.
     /// To equalize an array, we need to move values from higher numbers to smaller numbers.
     /// Number of operations is equal to number of movements.
