@@ -80,6 +80,37 @@ namespace Geeks.Practices.Arrays.Basic
         }
 
         /// <summary>
+        /// The execution time is 0.82
+        /// </summary>
+        public static void RunAnotherLoop()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+
+            while (testCount-- > 0)
+            {
+                var n = int.Parse(Console.ReadLine());
+                var input = Console.ReadLine().TrimEnd();
+                var scanner = new StringScanner(input);
+                var counter = 0;
+                var p = 1;
+                var positions = new string[n];
+                var flag = false;
+                while (scanner.HasNext)
+                {
+                    var coin = scanner.NextChar();
+                    if (coin == 'T' && (flag = !flag) || coin == 'H' && flag)
+                    {
+                        positions[counter++] = $"{p}";
+                    }
+                    p++;
+                }
+
+                Console.WriteLine(counter);
+                Console.WriteLine(counter == 0 ? "-1" : string.Join(' ', positions, 0, counter));
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.77
         /// </summary>
         public static void RunLoop()
