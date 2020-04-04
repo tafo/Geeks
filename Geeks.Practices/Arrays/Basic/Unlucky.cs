@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -32,17 +33,20 @@ namespace Geeks.Practices.Arrays.Basic
     /// 
     /// Example:
     /// Input:
-    /// 2
+    /// 3
     /// 3
     /// H H H
     /// 5 
     /// H T H T H
-    /// 
+    /// 10
+    /// H H T H H H T H H H T
     /// Output: 
     /// 0
     /// -1
     /// 2
     /// 2 3
+    /// 5
+    /// 3 4 5 6 10
     /// 
     /// Explanation:
     /// Testcase2: Coins at index 2 and 3 needs to be flipped to make Rahul happy.
@@ -56,6 +60,25 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class Unlucky
     {
+        /// <summary>
+        /// The execution time is 1.27
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+
+            while (testCount-- > 0)
+            {
+                Console.ReadLine();
+                var input = Console.ReadLine().TrimEnd();
+                var heads = input.Split(' ').Select((x, i) => new {C = x, Index = i});
+                var flag = false;
+                var flipped = heads.Where(x => x.C == "T" && (flag = !flag) || (x.C == "H" && flag)).Select(x => x.Index).ToArray();
+                Console.WriteLine(flipped.Length);
+                Console.WriteLine(string.Join(' ', flipped.DefaultIfEmpty(-1)));
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.77
         /// </summary>
