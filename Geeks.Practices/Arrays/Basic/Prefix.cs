@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -43,6 +44,28 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class Prefix
     {
+        /// <summary>
+        /// The execution time is 0.17
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            while (testCount-- > 0)
+            {
+                var split = Console.ReadLine().Split(' ');
+                // var n = int.Parse(split[0]);
+                var x = int.Parse(split[1]);
+                var y = int.Parse(split[2]);
+                var input = Console.ReadLine().TrimEnd();
+                var counter = 0;
+                var element = input.Split(' ').Select(int.Parse)
+                    .Select((a, i) => new {Counter = a == x ? ++counter : a == y ? --counter : counter, Index = i})
+                    .SkipWhile(a => a.Counter == 0)
+                    .LastOrDefault(a => a.Counter == 0);
+                Console.WriteLine(element?.Index ?? -1);
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.13
         /// </summary>
