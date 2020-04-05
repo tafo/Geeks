@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -62,6 +63,21 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class CountIntersection
     {
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            while (testCount-- > 0)
+            {
+                Console.ReadLine();
+                var firstInput = Console.ReadLine().TrimEnd();
+                var secondInput = Console.ReadLine().TrimEnd();
+                var a = firstInput.Split(' ').Select(int.Parse).Distinct();
+                var b = secondInput.Split(' ').Select(int.Parse).Distinct();
+                Console.WriteLine(a.Intersect(b).Count());
+            }
+
+        }
+
         public static void RunLoop()
         {
             var testCount = int.Parse(Console.ReadLine());
