@@ -8,7 +8,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            CountQualifiedPairs.RunLoop();
+            CountIntersection.RunLoop();
             Console.ReadKey();
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -64,6 +65,21 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class CountQualifiedPairs
     {
+        /// <summary>
+        /// The execution time is 0.13
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            while (testCount-- > 0)
+            {
+                var n = int.Parse(Console.ReadLine().Split(' ').First());
+                var chars = Console.ReadLine().TrimEnd().Split(' ');
+                var text = Console.ReadLine().TrimEnd();
+                Console.WriteLine(Enumerable.Range(0, n).Count(x => chars.Skip(x * 2).Take(2).All(c => text.Contains(c))));
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.13
         /// </summary>
