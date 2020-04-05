@@ -67,6 +67,40 @@ namespace Geeks.Practices.Arrays.Basic
         }
 
         /// <summary>
+        /// The execution time is 0.11
+        /// </summary>
+        public static void RunAnotherLoop()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            while (testCount-- > 0)
+            {
+                var n = int.Parse(Console.ReadLine());
+                var input = Console.ReadLine().TrimEnd();
+                var scanner = new StringScanner(input);
+                var elements = new int[n][];
+                var i = 0;
+                while (scanner.HasNext)
+                {
+                    elements[i] = new int[2];
+                    elements[i][0] = scanner.NextPositiveInt();
+                    elements[i][1] = i++;
+                }
+
+                Array.Sort(elements, (x, y) => x[0].CompareTo(y[0]));
+                int a;
+                for (a = n - 2; a >= 0; a--)
+                {
+                    if (elements[a][1] > elements[a + 1][1])
+                    {
+                        break;
+                    }
+                }
+
+                Console.WriteLine(a + 1);
+            }
+        }
+
+        /// <summary>
         /// The execution time is 0.13
         /// </summary>
         public static void RunLoop()
