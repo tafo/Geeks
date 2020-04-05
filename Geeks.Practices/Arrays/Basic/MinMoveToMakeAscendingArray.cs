@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Geeks.Practices.Helper;
 
 namespace Geeks.Practices.Arrays.Basic
@@ -49,6 +50,22 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class MinMoveToMakeAscendingArray
     {
+        /// <summary>
+        /// The execution time is 0.11
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            while (testCount-- > 0)
+            {
+                Console.ReadLine();
+                var input = Console.ReadLine().TrimEnd();
+                var elements = input.Split(' ').Select((x, i) => new {Number = int.Parse(x), Index = i})
+                    .OrderByDescending(x => x.Number).ToArray();
+                Console.WriteLine(elements.Skip(1).SkipWhile((x,i) => x.Index < elements[i].Index).Count());
+            }
+        }
+
         /// <summary>
         /// The execution time is 0.13
         /// </summary>
