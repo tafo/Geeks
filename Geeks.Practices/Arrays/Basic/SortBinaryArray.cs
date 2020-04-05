@@ -49,6 +49,19 @@ namespace Geeks.Practices.Arrays.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class SortBinaryArray
     {
+        /// <summary>
+        /// (:
+        /// </summary>
+        public static void RunLinq()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            while (testCount-- > 0)
+            {
+                Console.ReadLine();
+                Console.WriteLine(string.Join(' ', Console.ReadLine().TrimEnd().Split(' ').OrderBy(x => x)));
+            }
+        }
+
         public static void RunLoop()
         {
             var testCount = int.Parse(Console.ReadLine());
