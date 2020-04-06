@@ -46,7 +46,7 @@ namespace Geeks.Practices.LinkedList.Basic
     public class PrintEveryElement
     {
         /// <summary>
-        /// The execution time is 0.32
+        /// The execution time is 0.27
         /// </summary>
         public static void Run()
         {
@@ -75,6 +75,7 @@ namespace Geeks.Practices.LinkedList.Basic
                 Console.Write($"{head.Data} ");
                 head = head.Next;
             }
+
             Console.WriteLine(head.Data);
         }
     }
