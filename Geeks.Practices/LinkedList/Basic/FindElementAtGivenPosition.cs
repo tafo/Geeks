@@ -70,7 +70,6 @@ namespace Geeks.Practices.LinkedList.Basic
                 Console.WriteLine(ElementAt(linkedList.Head, p));
             }
 
-            
             /// <summary>
             /// The signature of this method is specified by GfG
             /// </summary>
