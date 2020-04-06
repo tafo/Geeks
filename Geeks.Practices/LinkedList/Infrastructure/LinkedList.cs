@@ -1,6 +1,4 @@
-﻿using Geeks.Practices.Arrays.Basic;
-
-namespace Geeks.Practices.LinkedList.Infrastructure
+﻿namespace Geeks.Practices.LinkedList.Infrastructure
 {
     public class LinkedList<T>
     {

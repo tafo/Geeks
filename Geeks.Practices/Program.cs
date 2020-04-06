@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            FindMiddle.Run();
+            CountNodes.Run();
             Console.ReadKey();
         }
     }
