@@ -91,6 +91,9 @@ namespace Geeks.Practices.LinkedList.Basic
             }
         }
 
+        /// <summary>
+        /// This class is given by GfG
+        /// </summary>
         private class StackNode
         {
             public readonly int Data;
@@ -103,18 +106,27 @@ namespace Geeks.Practices.LinkedList.Basic
             }
         }
 
+        /// <summary>
+        /// This class is given by GfG
+        /// </summary>
         private class ThatStack
         {
 
             // Note that top is by default null
             private StackNode _top;
 
+            /// <summary>
+            /// The signature of this method is given by GfG
+            /// </summary>
             public void Push(int a)
             {
                 var node = new StackNode(a) {Next = _top};
                 _top = node;
             }
 
+            /// <summary>
+            /// The signature of this method is given by GfG
+            /// </summary>
             public int Pop()
             {
                 if (_top == null) return -1;
