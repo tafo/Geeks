@@ -1,6 +1,5 @@
-﻿using Geeks.Practices.Arrays.Basic;
-using System;
-using Geeks.Practices.Helper;
+﻿using System;
+using Geeks.Practices.LinkedList.Basic;
 
 namespace Geeks.Practices
 {
@@ -8,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            CountIntersection.RunLoop();
+            FindMiddle.Run();
             Console.ReadKey();
         }
     }

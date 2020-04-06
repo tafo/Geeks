@@ -67,7 +67,7 @@ namespace Geeks.Practices.Arrays.Basic
             var testCount = int.Parse(Console.ReadLine());
             while (testCount-- > 0)
             {
-                var n = int.Parse(Console.ReadLine());
+                Console.ReadLine();
                 var input = Console.ReadLine().TrimEnd();
                 var digits = input.Split(' ').Select(int.Parse).ToList();
                 Console.WriteLine(string.Join(' ', Sort(digits)));
@@ -78,6 +78,7 @@ namespace Geeks.Practices.Arrays.Basic
         {
             var result = new int[digits.Count];
             var i = digits.Count - 1;
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var digit in digits)
             {
                 if (digit == 1)
