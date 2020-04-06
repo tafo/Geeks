@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            ImplementStack.Run();
+            CheckWhetherCircularOrNot.Run();
             Console.ReadKey();
         }
     }
