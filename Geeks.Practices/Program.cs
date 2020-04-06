@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            PrependOrAppend.Run();
+            ImplementStack.Run();
             Console.ReadKey();
         }
     }

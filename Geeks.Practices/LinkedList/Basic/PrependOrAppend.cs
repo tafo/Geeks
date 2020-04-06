@@ -58,7 +58,7 @@ namespace Geeks.Practices.LinkedList.Basic
     public class PrependOrAppend
     {
         /// <summary>
-        /// The body of this method is specified by GfG
+        /// The body of this method is given by GfG
         /// </summary>
         public static void Run()
         {
@@ -86,6 +86,9 @@ namespace Geeks.Practices.LinkedList.Basic
             }
         }
 
+        /// <summary>
+        /// This class is given by GfG
+        /// </summary>
         private class Node
         {
             public readonly int Data;
@@ -99,7 +102,7 @@ namespace Geeks.Practices.LinkedList.Basic
         }
 
         /// <summary>
-        /// This class is specified by GfG
+        /// This class is given by GfG except the bodies of InsertAtEnd and InsertAtBeginning methods
         /// </summary>
         private class LinkedList
         {
@@ -108,8 +111,7 @@ namespace Geeks.Practices.LinkedList.Basic
             // Should insert a node at the beginning
             public void InsertAtBeginning(int x)
             {
-                var node = new Node(x);
-                node.Next = _head;
+                var node = new Node(x) {Next = _head};
                 _head = node;
             }
 
