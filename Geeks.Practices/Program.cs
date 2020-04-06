@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            CountNodes.Run();
+            PrependOrAppend.Run();
             Console.ReadKey();
         }
     }
