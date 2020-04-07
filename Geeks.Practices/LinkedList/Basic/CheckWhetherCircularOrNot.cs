@@ -59,10 +59,15 @@ namespace Geeks.Practices.LinkedList.Basic
                 var n = int.Parse(split[0]);
                 var k = int.Parse(split[1]);
                 var elements = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
-                var linkedList = new LinkedList<int>(k == 1);
+                var linkedList = new ThatLinkedList<int>();
                 for (var i = 0; i < n; i++)
                 {
                     linkedList.Append(elements[i]);
+                }
+
+                if (k == 0)
+                {
+                    linkedList.Last.Next = null;
                 }
 
                 Console.WriteLine(IsCircular(linkedList.Head));

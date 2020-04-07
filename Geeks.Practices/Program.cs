@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            CheckWhetherCircularOrNot.Run();
+            CheckSizeEvenOrOdd.Run();
             Console.ReadKey();
         }
     }

@@ -64,7 +64,7 @@ namespace Geeks.Practices.LinkedList.Basic
                 var n = int.Parse(Console.ReadLine());
                 var input = Console.ReadLine().TrimEnd();
                 var elements = Array.ConvertAll(input.Split(' '), int.Parse);
-                var linkedList = new LinkedList<int>();
+                var linkedList = new ThatLinkedList<int>();
                 for (var i = 0; i < n; i++)
                 {
                     linkedList.Append(elements[i]);

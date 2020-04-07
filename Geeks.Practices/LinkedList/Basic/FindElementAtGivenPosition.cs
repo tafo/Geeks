@@ -61,7 +61,7 @@ namespace Geeks.Practices.LinkedList.Basic
                 var n = int.Parse(split[0]);
                 var p = int.Parse(split[1]);
                 var elements = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
-                var linkedList = new LinkedList<int>();
+                var linkedList = new ThatLinkedList<int>();
                 for (var i = 0; i < n; i++)
                 {
                     linkedList.Append(elements[i]);
@@ -96,7 +96,7 @@ namespace Geeks.Practices.LinkedList.Basic
                 var n = int.Parse(split[0]);
                 var p = int.Parse(split[1]);
                 var elements = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
-                var linkedList = new LinkedList<int>();
+                var linkedList = new ThatLinkedList<int>();
                 for (var i = 0; i < n; i++)
                 {
                     linkedList.Append(elements[i]);
