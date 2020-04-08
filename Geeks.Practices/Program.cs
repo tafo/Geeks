@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            CheckSizeEvenOrOdd.Run();
+            DeleteNode.Run();
             Console.ReadKey();
         }
     }

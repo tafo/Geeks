@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using Geeks.Practices.LinkedList.Infrastructure;
 
 namespace Geeks.Practices.LinkedList.Basic
