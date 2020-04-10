@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            DeleteNode.Run();
+            DeleteAlternateNodes.Run();
             Console.ReadKey();
         }
     }

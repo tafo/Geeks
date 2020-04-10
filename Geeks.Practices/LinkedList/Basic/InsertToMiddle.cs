@@ -58,12 +58,12 @@ namespace Geeks.Practices.LinkedList.Basic
     {
         /// <summary>
         /// The execution time is 0.66
-        /// This is the equivalent C# method of given JAVA function. 
+        /// This is the equivalent method of given JAVA function. 
         /// </summary>
         public static void Run()
         {
             var testCount = int.Parse(Console.ReadLine());
-            while (testCount -- > 0)
+            while (testCount-- > 0)
             {
                 var n = int.Parse(Console.ReadLine());
                 var elements = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
@@ -104,8 +104,8 @@ namespace Geeks.Practices.LinkedList.Basic
                     head = head.Next;
                     flag = !flag;
                 }
-                var node =  new Node<int>(data);
-                node.Next = middle.Next;
+
+                var node = new Node<int>(data) { Next = middle.Next };
                 middle.Next = node;
                 return headBackup;
             }
