@@ -107,7 +107,7 @@ namespace Geeks.Practices.LinkedList.Basic
                     }
                 }
 
-                return firstHead == null && secondHead == null && result;
+                return result && firstHead == null && secondHead == null;
             }
         }
     }
