@@ -46,6 +46,7 @@ namespace Geeks.Practices.LinkedList.Basic
         /// <summary>
         /// The execution time is 0.24
         /// * This is the equivalent method of given JAVA function.
+        /// * Ignore ThatLinkedList.Pre to use it as a singly linked list.
         /// </summary>
         public static void Run()
         {
@@ -60,6 +61,7 @@ namespace Geeks.Practices.LinkedList.Basic
                     linkedList.Append(elements[i]);
                 }
 
+                // Make the linked list non-circular
                 linkedList.Last.Next = null;
                 DeleteAlternate(linkedList.Head);
                 Console.WriteLine();

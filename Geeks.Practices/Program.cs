@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            DeleteAlternateNodes.Run();
+            CheckForBeingIdentical.Run();
             Console.ReadKey();
         }
     }
