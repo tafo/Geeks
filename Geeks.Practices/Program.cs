@@ -1,5 +1,5 @@
 ﻿using System;
-using Geeks.Practices.LinkedList.Basic;
+using Geeks.Practices.Stack.Basic;
 
 namespace Geeks.Practices
 {
@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            FindNode.Run();
+            Reverse.Run();
             Console.ReadKey();
         }
     }
