@@ -5,55 +5,54 @@ using Geeks.Practices.LinkedList.Infrastructure;
 namespace Geeks.Practices.LinkedList.Basic
 {
     /// <summary>
-    /// The title is "Find n/k th node in Linked list"
+    /// The title is "Modular Node"
     /// 
-    /// Given a singly linked list and a number k.
-    /// Write a function to find the (N/k)th element, where N is the number of elements in the list.
-    /// We need to consider ceil value in case of decimals.
+    /// Given a singly linked list and a number K,
+    ///     you are required to complete the function modularNode() which returns the modular node of the linked list.
+    /// A modular node is the last node of the linked list whose Index is divisible by the number K, i.e. i%k==0.
     /// 
     /// Input:
-    /// The first line of input contains an integer T denoting the number of test cases.
-    /// The first line of each test case consists of an integer N.
-    /// The second line consists of N spaced integers.
-    /// The last line consists of an integer k.
+    /// First line of input contains number of test cases T.
+    /// For each test case, first line of input contains length of Linked list N.
+    /// Next line contains elements of the linked list and last line contains K.
     /// 
     /// Output:
-    /// Print the data value of (N/k)th node in the Linked List.
+    /// For each test case the function must return the modular Node data, if no such node is possible then return "-1".
     /// 
     /// User Task:
-    /// The task is to complete the function fractional_node() which
-    ///     should find the n/kth node in the linked list and return its data value.
+    /// The task is to complete the function modularNode() which
+    ///     should return the data of the modular node if exists else return -1.
     /// 
-    /// Constraints: 
+    /// Constraints:
     /// 1 <= T <= 100
-    /// 1 <= N <= 100
+    /// 1 <= N <= 500
     /// 
     /// Example:
     /// Input:
     /// 2
-    /// 6
-    /// 1 2 3 4 5 6
-    /// 2
-    /// 5
-    /// 2 7 9 3 5
+    /// 7
+    /// 1 2 3 4 5 6 7
     /// 3
+    /// 5
+    /// 19 28 37 46 55
+    /// 2
     /// 
     /// Output:
-    /// 3
-    /// 7
+    /// 6
+    /// 46
     /// 
     /// Explanation:
     /// Testcase 1:
-    /// 6/2th element is the 3rd(1-based indexing) element which is 3.
+    /// Node from the last which is divisible by 3 is 6.
     /// 
     /// </summary>
     [SuppressMessage("ReSharper", "InvalidXmlDocComment")]
     [SuppressMessage("ReSharper", "AssignNullToNotNullAttribute")]
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
-    public class FindNode
+    public class FindModular
     {
         /// <summary>
-        /// The execution time is 0.36
+        /// The execution time is 0.47
         /// </summary>
         public static void Run()
         {
@@ -72,18 +71,18 @@ namespace Geeks.Practices.LinkedList.Basic
                 // Make the linked list non-circular
                 linkedList.Last.Next = null;
 
-                Console.WriteLine(FindNode(linkedList.Head, k));
+                Console.WriteLine(ModularNode(linkedList.Head, k));
             }
 
-            static int FindNode(Node<int> head, int k)
+            static int ModularNode(Node<int> head, int k)
             {
-                var node = head;
-                var counter = 0;
+                var result = -1;
+                var counter = 1;
                 while (head != null)
                 {
                     if (counter == k)
                     {
-                        node = node.Next;
+                        result = head.Data;
                         counter = 0;
                     }
 
@@ -91,7 +90,7 @@ namespace Geeks.Practices.LinkedList.Basic
                     counter++;
                 }
 
-                return node.Data;
+                return result;
             }
         }
     }
