@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            SumLastSet.Run();
+            FindNode.Run();
             Console.ReadKey();
         }
     }
