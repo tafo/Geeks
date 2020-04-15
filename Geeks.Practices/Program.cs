@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            CheckForBeingIdentical.Run();
+            SumLastSet.Run();
             Console.ReadKey();
         }
     }
