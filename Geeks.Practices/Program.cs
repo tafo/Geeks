@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            Reverse.Run();
+            RemoveConsecutiveRepeatedDigits.Run();
             Console.ReadKey();
         }
     }

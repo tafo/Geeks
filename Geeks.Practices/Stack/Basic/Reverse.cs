@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 namespace Geeks.Practices.Stack.Basic
 {
@@ -75,6 +76,7 @@ namespace Geeks.Practices.Stack.Basic
                 Console.WriteLine();
             }
 
+            // Rev is renamed as GetReversed
             static Queue<int> GetReversed(Queue<int> q)
             {
                 var stack = new Stack<int>();
