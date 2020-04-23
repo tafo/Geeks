@@ -1,4 +1,5 @@
 ﻿using System;
+using Geeks.Practices.Queue.Basic;
 using Geeks.Practices.Stack.Basic;
 
 namespace Geeks.Practices
@@ -7,7 +8,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            CheckWhetherPairwiseConsecutiveOrNot.Run();
+            GenerateBinaryNumbers.Run();
             Console.ReadKey();
         }
     }
