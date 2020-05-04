@@ -7,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            FindHeight.Run();
+            FindHeight.RunAnother();
             Console.ReadKey();
         }
     }

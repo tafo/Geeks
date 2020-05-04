@@ -89,17 +89,14 @@ namespace Geeks.Practices.Tree.Basic
     [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
     public class FindHeight
     {
-        /// <summary>
-        /// 2 N 1 3 N
-        /// </summary>
-        public static void Run()
+        public static void RunAnother()
         {
             var testCount = int.Parse(Console.ReadLine());
             while (testCount-- > 0)
             {
                 var elements = Console.ReadLine().TrimEnd().Split(' ');
                 var nodes = new Queue<BinaryTreeNode>(elements.Length);
-                var root = new BinaryTreeNode() { Data = int.Parse(elements[0]) };
+                var root = new BinaryTreeNode { Data = int.Parse(elements[0]) };
                 nodes.Enqueue(root);
                 var index = 0;
                 while (++index < elements.Length)
@@ -124,31 +121,78 @@ namespace Geeks.Practices.Tree.Basic
 
                 Console.WriteLine(Height(root));
             }
-        }
 
-        private static int Height(BinaryTreeNode rootNode)
-        {
-            return GetHeight(rootNode, 1);
-        }
-
-        private static int GetHeight(BinaryTreeNode node, int height)
-        {
-            if (node.Left == null && node.Right == null) return height;
-
-            var leftHeight = height;
-            var rightHeight = height;
-
-            if (node.Left != null)
+            /// <summary>
+            /// The execution time of equivalent JAVA function is 0.22
+            /// </summary>
+            static int Height(BinaryTreeNode node)
             {
-                leftHeight = GetHeight(node.Left, height + 1);
+                if (node == null)
+                    return 0;
+                return 1 + Math.Max(Height(node.Left), Height(node.Right));
+            }
+        }
+        
+        public static void Run()
+        {
+            var testCount = int.Parse(Console.ReadLine());
+            while (testCount-- > 0)
+            {
+                var elements = Console.ReadLine().TrimEnd().Split(' ');
+                var nodes = new Queue<BinaryTreeNode>(elements.Length);
+                var root = new BinaryTreeNode { Data = int.Parse(elements[0]) };
+                nodes.Enqueue(root);
+                var index = 0;
+                while (++index < elements.Length)
+                {
+                    var current = nodes.Dequeue();
+                    if (elements[index] != "N")
+                    {
+                        current.Left = new BinaryTreeNode { Data = int.Parse(elements[index]) };
+                        nodes.Enqueue(current.Left);
+                    }
+
+                    if (++index == elements.Length)
+                    {
+                        continue;
+                    }
+
+                    if (elements[index] == "N") continue;
+
+                    current.Right = new BinaryTreeNode { Data = int.Parse(elements[index]) };
+                    nodes.Enqueue(current.Right);
+                }
+
+                Console.WriteLine(Height(root));
             }
 
-            if (node.Right != null)
+            /// <summary>
+            /// The execution time of equivalent JAVA function is 0.23
+            /// </summary>
+            static int Height(BinaryTreeNode rootNode)
             {
-                rightHeight = GetHeight(node.Right, height + 1);
+                return GetHeight(rootNode, 1);
             }
 
-            return Math.Max(leftHeight, rightHeight);
+            static int GetHeight(BinaryTreeNode node, int height)
+            {
+                if (node.Left == null && node.Right == null) return height;
+
+                var leftHeight = height;
+                var rightHeight = height;
+
+                if (node.Left != null)
+                {
+                    leftHeight = GetHeight(node.Left, height + 1);
+                }
+
+                if (node.Right != null)
+                {
+                    rightHeight = GetHeight(node.Right, height + 1);
+                }
+
+                return Math.Max(leftHeight, rightHeight);
+            }
         }
     }
 
