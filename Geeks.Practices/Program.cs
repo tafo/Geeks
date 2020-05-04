@@ -1,6 +1,5 @@
 ﻿using System;
-using Geeks.Practices.Queue.Basic;
-using Geeks.Practices.Stack.Basic;
+using Geeks.Practices.Tree.Basic;
 
 namespace Geeks.Practices
 {
@@ -8,7 +7,7 @@ namespace Geeks.Practices
     {
         private static void Main()
         {
-            GenerateBinaryNumbers.Run();
+            FindHeight.Run();
             Console.ReadKey();
         }
     }
